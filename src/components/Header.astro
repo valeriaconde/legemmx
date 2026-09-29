@@ -1,0 +1,285 @@
+---
+import Logo from './Logo.astro';
+import { useTranslations } from '@/i18n/ui';
+import { path, areaPath, type Lang } from '@/i18n/routes';
+import { practiceAreas } from '@/data/practice-areas';
+
+interface Props {
+  lang: Lang;
+  altLang: Lang;
+  altPath: string;
+  darkHero?: boolean;
+}
+const { lang, altLang, altPath, darkHero = false } = Astro.props;
+const t = useTranslations(lang);
+const current = Astro.url.pathname;
+
+const links = [
+  { href: path('about', lang), label: t('nav.about') },
+  { href: path('areas', lang), label: t('nav.areas'), mega: true },
+  { href: path('team', lang), label: t('nav.team') },
+  { href: path('publications', lang), label: t('nav.publications') },
+  { href: path('contact', lang), label: t('nav.contact') },
+];
+const isActive = (href: string) => href !== '/' && href !== '/en/' && current.startsWith(href);
+---
+
+<header id="site-header" class="site-header fixed inset-x-0 top-0 z-50" data-dark={darkHero ? 'true' : 'false'}>
+  <div class="header-bg absolute inset-0 -z-10"></div>
+  <div class="container-x flex h-[76px] items-center justify-between gap-6">
+    <a href={path('home', lang)} class="header-fg relative z-10" aria-label="Legem — inicio">
+      <Logo />
+    </a>
+
+    <nav class="header-fg hidden lg:block" aria-label="Principal">
+      <ul class="flex items-center gap-8 text-[0.95rem]">
+        {
+          links.map((l) =>
+            l.mega ? (
+              <li class="group relative">
+                <a
+                  href={l.href}
+                  class="link-line inline-flex items-center gap-1.5 py-6"
+                  aria-current={isActive(l.href) ? 'page' : undefined}
+                  aria-haspopup="true"
+                >
+                  {l.label}
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    class="transition-transform duration-300 group-hover:rotate-180"
+                    aria-hidden="true"
+                  >
+                    <path d="M1 3.5 5 7l4-3.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                  </svg>
+                </a>
+                <div class="mega invisible absolute top-full left-1/2 w-[min(880px,90vw)] -translate-x-1/2 translate-y-2 opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                  <div class="grid grid-cols-4 gap-px overflow-hidden rounded-2xl border border-[#d9d3c6] bg-[#d9d3c6] text-ink shadow-[0_30px_80px_-30px_rgb(13_22_36/0.35)]">
+                    {practiceAreas.map((a, i) => (
+                      <div class="bg-paper p-5">
+                        <a href={areaPath(a.slug[lang], lang)} class="group/area block">
+                          <span class="mono text-muted">0{i + 1}</span>
+                          <span class="mt-2 block font-display text-2xl leading-tight group-hover/area:text-brand">
+                            {a.name[lang]}
+                          </span>
+                        </a>
+                        <ul class="mt-4 space-y-1.5 text-[0.84rem] text-muted">
+                          {a.specialties.slice(0, 6).map((s) => (
+                            <li>
+                              <a href={areaPath(a.slug[lang], lang, s.id)} class="hover:text-ink">
+                                {s.name[lang]}
+                              </a>
+                            </li>
+                          ))}
+                          {a.specialties.length > 6 && (
+                            <li>
+                              <a href={areaPath(a.slug[lang], lang)} class="text-brand">
+                                +{a.specialties.length - 6}
+                              </a>
+                            </li>
+                          )}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </li>
+            ) : (
+              <li>
+                <a href={l.href} class="link-line py-6" aria-current={isActive(l.href) ? 'page' : undefined}>
+                  {l.label}
+                </a>
+              </li>
+            ),
+          )
+        }
+      </ul>
+    </nav>
+
+    <div class="header-fg flex items-center gap-3">
+      <a
+        href={altPath}
+        hreflang={altLang}
+        lang={altLang}
+        class="mono hidden rounded-full border border-current/25 px-3 py-2 transition-colors hover:border-current sm:inline-block"
+        aria-label={t('lang.switch')}
+      >
+        <span class="opacity-50">{lang.toUpperCase()}</span> / {t('lang.short')}
+      </a>
+      <a href={path('contact', lang)} class="btn btn-primary hidden !py-3 text-sm md:inline-flex">
+        {t('nav.cta')} <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+      <button
+        type="button"
+        id="menu-toggle"
+        class="relative z-10 inline-flex h-11 w-11 items-center justify-center rounded-full border border-current/25 lg:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={t('nav.menu')}
+      >
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="mobile-menu fixed inset-0 -z-20 flex flex-col bg-ink text-paper lg:hidden" hidden>
+    <div class="container-x flex flex-1 flex-col justify-between pt-28 pb-10">
+      <nav aria-label="Móvil">
+        <ul class="space-y-1">
+          {
+            [{ href: path('home', lang), label: lang === 'es' ? 'Inicio' : 'Home' }, ...links].map((l, i) => (
+              <li class="mobile-item">
+                <a href={l.href} class="flex items-baseline gap-4 py-2 font-display text-[2.6rem] leading-none">
+                  <span class="mono text-paper/40">0{i}</span>
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div class="mobile-item flex flex-wrap items-center justify-between gap-4 border-t border-line-inverse pt-6">
+        <a href={altPath} hreflang={altLang} class="mono">{t('lang.switch')} →</a>
+        <a href={path('contact', lang)} class="btn btn-light">{t('nav.cta')}</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    --fg: var(--color-ink);
+    color: var(--fg);
+    transition: color 0.4s var(--ease-out-expo);
+  }
+  .site-header[data-dark='true'] {
+    --fg: var(--color-paper);
+  }
+  .header-bg {
+    opacity: 0;
+    background: color-mix(in srgb, var(--color-paper) 94%, transparent);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border-bottom: 1px solid var(--color-line);
+    transition: opacity 0.4s var(--ease-out-expo);
+  }
+  .site-header[data-scrolled='true'] .header-bg {
+    opacity: 1;
+  }
+  /* Sobre secciones oscuras, la barra se vuelve oscura */
+  .site-header[data-dark='true'] .header-bg {
+    background: color-mix(in srgb, var(--color-ink) 94%, transparent);
+    border-bottom-color: var(--color-line-inverse);
+  }
+  /* Menú abierto: texto claro sobre fondo oscuro */
+  .site-header[data-open='true'] {
+    --fg: var(--color-paper);
+  }
+  .site-header[data-open='true'] .header-bg {
+    opacity: 0;
+  }
+
+  .menu-icon {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 10px;
+  }
+  .menu-icon span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1.5px;
+    background: currentColor;
+    transition:
+      transform 0.4s var(--ease-out-expo),
+      top 0.4s var(--ease-out-expo);
+  }
+  .menu-icon span:first-child {
+    top: 0;
+  }
+  .menu-icon span:last-child {
+    top: 8px;
+  }
+  [aria-expanded='true'] .menu-icon span:first-child {
+    top: 4px;
+    transform: rotate(45deg);
+  }
+  [aria-expanded='true'] .menu-icon span:last-child {
+    top: 4px;
+    transform: rotate(-45deg);
+  }
+
+  .mobile-menu:not([hidden]) {
+    animation: menu-in 0.5s var(--ease-out-expo) both;
+  }
+  .mobile-menu:not([hidden]) .mobile-item {
+    animation: item-in 0.7s var(--ease-out-expo) both;
+  }
+  .mobile-menu .mobile-item:nth-child(2) {
+    animation-delay: 0.04s;
+  }
+  .mobile-menu .mobile-item:nth-child(3) {
+    animation-delay: 0.08s;
+  }
+  .mobile-menu .mobile-item:nth-child(4) {
+    animation-delay: 0.12s;
+  }
+  .mobile-menu .mobile-item:nth-child(5) {
+    animation-delay: 0.16s;
+  }
+  .mobile-menu .mobile-item:nth-child(6) {
+    animation-delay: 0.2s;
+  }
+  @keyframes menu-in {
+    from {
+      clip-path: inset(0 0 100% 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  @keyframes item-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header')!;
+  const toggle = document.getElementById('menu-toggle')!;
+  const menu = document.getElementById('mobile-menu')!;
+
+  const darkSections = Array.from(document.querySelectorAll<HTMLElement>('[data-header-dark]'));
+  const probe = 38; // altura media de la barra
+  const onScroll = () => {
+    header.dataset.scrolled = window.scrollY > 24 ? 'true' : 'false';
+    if (header.dataset.open === 'true') return;
+    const overDark = darkSections.some((el) => {
+      const r = el.getBoundingClientRect();
+      return r.top <= probe && r.bottom >= probe;
+    });
+    header.dataset.dark = String(overDark);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const setOpen = (open: boolean) => {
+    toggle.setAttribute('aria-expanded', String(open));
+    header.dataset.open = String(open);
+    menu.hidden = !open;
+    if (!open) onScroll();
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    const lenis = (window as any).__lenis;
+    if (lenis) open ? lenis.stop() : lenis.start();
+  };
+  toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
+  menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+</script>

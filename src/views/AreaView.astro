@@ -1,0 +1,139 @@
+---
+import Base from '@/layouts/Base.astro';
+import Media from '@/components/Media.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import { useTranslations } from '@/i18n/ui';
+import { path, areaPath, type Lang } from '@/i18n/routes';
+import { practiceAreas, type PracticeArea } from '@/data/practice-areas';
+import { attorneys } from '@/data/team';
+import PersonCard from '@/components/PersonCard.astro';
+
+interface Props {
+  lang: Lang;
+  area: PracticeArea;
+}
+const { lang, area } = Astro.props;
+const t = useTranslations(lang);
+const altLang: Lang = lang === 'es' ? 'en' : 'es';
+const index = practiceAreas.findIndex((a) => a.id === area.id);
+const others = practiceAreas.filter((a) => a.id !== area.id);
+const people = attorneys.filter((p) => p.groups.includes(area.id as any));
+---
+
+<Base
+  lang={lang}
+  title={area.name[lang]}
+  description={area.summary[lang]}
+  altPath={areaPath(area.slug[altLang], altLang)}
+>
+  <section class="container-x pt-36 pb-14 md:pt-44 md:pb-20">
+    <nav class="mono flex items-center gap-2 text-muted" aria-label="Breadcrumb" data-hero-item>
+      <a href={path('areas', lang)} class="link-line">{t('areas.label')}</a>
+      <span aria-hidden="true">/</span>
+      <span class="text-ink">{area.name[lang]}</span>
+    </nav>
+    <div class="mt-10 grid gap-10 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-7">
+        <p class="font-display text-8xl leading-none text-brand" data-hero-item>0{index + 1}</p>
+        <h1 class="display-xl mt-4" data-split="load">{area.name[lang]}</h1>
+      </div>
+      <p class="lead lg:col-span-5" data-hero-item>{area.summary[lang]}</p>
+    </div>
+  </section>
+
+  <section class="container-x">
+    <Media
+      src={area.image}
+      alt={area.name[lang]}
+      hint={`${lang === 'es' ? 'Foto' : 'Photo'} · ${area.name[lang]}`}
+      ratio="21/9"
+      class="rounded-[28px]"
+      parallax
+      eager
+    />
+  </section>
+
+  <section class="container-x py-24 md:py-32">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <aside class="lg:col-span-4">
+        <div class="lg:sticky lg:top-32">
+          <p class="eyebrow">{t('areas.specialties')}</p>
+          <ol class="mt-6 space-y-2 text-muted">
+            {
+              area.specialties.map((s, i) => (
+                <li>
+                  <a href={`#${s.id}`} class="link-line hover:text-ink">
+                    <span class="mono mr-2">{String(i + 1).padStart(2, '0')}</span>
+                    {s.name[lang]}
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+          <a href={path('contact', lang)} class="btn btn-primary mt-10">
+            {t('nav.cta')} <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </aside>
+      <div class="lg:col-span-8">
+        {
+          area.specialties.map((s, i) => (
+            <article id={s.id} class="hairline grid gap-4 border-t py-10 md:grid-cols-[4rem_1fr] md:py-12" data-reveal>
+              <span class="font-display text-3xl text-brand">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h2 class="display-md">{s.name[lang]}</h2>
+                <p class="mt-5 max-w-2xl text-lg text-muted">{s.body[lang]}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    people.length > 0 && (
+      <section class="bg-paper-2 py-24 md:py-28">
+        <div class="container-x">
+          <div class="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p class="eyebrow">{t('nav.team')}</p>
+              <h2 class="display-md mt-5">{area.name[lang]}</h2>
+            </div>
+            <a href={path('team', lang)} class="btn btn-outline">
+              {t('common.viewAll')} <span class="btn-arrow">→</span>
+            </a>
+          </div>
+          <ul class="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
+            {people.slice(0, 8).map((p) => (
+              <PersonCard person={p} lang={lang} />
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <CallToAction lang={lang} title={t('areas.contactTitle')} />
+
+  <section class="container-x py-20 md:py-28">
+    <p class="eyebrow">{t('areas.other')}</p>
+    <ul class="mt-8">
+      {
+        others.map((a) => (
+          <li class="hairline border-t last:border-b">
+            <a
+              href={areaPath(a.slug[lang], lang)}
+              class="group flex items-center justify-between gap-6 py-6 transition-colors hover:text-brand"
+            >
+              <span class="display-sm">{a.name[lang]}</span>
+              <span aria-hidden="true" class="transition-transform duration-500 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>

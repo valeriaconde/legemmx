@@ -1,0 +1,17 @@
+---
+import PublicationView from '@/views/PublicationView.astro';
+import { publicationCategories, type PublicationCategory } from '@/i18n/routes';
+import { getPublications } from '@/lib/publications';
+
+export async function getStaticPaths() {
+  const cats = Object.keys(publicationCategories) as PublicationCategory[];
+  const all = await Promise.all(cats.map((c) => getPublications(c, 'en')));
+  return all.flat().map((pub) => ({
+    params: { category: publicationCategories[pub.category].en, slug: pub.slug },
+    props: { pub },
+  }));
+}
+const { pub } = Astro.props;
+---
+
+<PublicationView pub={pub} />

@@ -1,0 +1,67 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import PublicationRow from '@/components/PublicationRow.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import { useTranslations } from '@/i18n/ui';
+import { path, publicationPath, type Lang, type PublicationCategory } from '@/i18n/routes';
+import { getPublications, publicationCategoryList } from '@/lib/publications';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const altLang: Lang = lang === 'es' ? 'en' : 'es';
+
+const sections = await Promise.all(
+  publicationCategoryList.map(async (cat: PublicationCategory) => ({
+    cat,
+    items: await getPublications(cat, lang),
+  })),
+);
+---
+
+<Base lang={lang} title={t('pubs.label')} altPath={path('publications', altLang)}>
+  <PageHero label={t('pubs.label')} title={t('pubs.title')} lead={t('pubs.lead')}>
+    <nav class="mt-12 flex flex-wrap gap-2" aria-label={t('pubs.label')} data-hero-item>
+      {
+        sections.map(({ cat, items }) => (
+          <a
+            href={publicationPath(cat, lang)}
+            class="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm transition-colors hover:border-ink"
+          >
+            {t(`pubs.${cat}` as const)}
+            <span class="mono text-muted">{items.length}</span>
+          </a>
+        ))
+      }
+    </nav>
+  </PageHero>
+
+  {
+    sections
+      .filter((s) => s.items.length > 0)
+      .map(({ cat, items }) => (
+        <section class="container-x pb-20 md:pb-28">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 class="display-md">{t(`pubs.${cat}` as const)}</h2>
+              <p class="mt-2 text-muted">{t(`pubs.${cat}.lead` as const)}</p>
+            </div>
+            <a href={publicationPath(cat, lang)} class="link-line mono">
+              {t('common.viewAll')} ({items.length}) →
+            </a>
+          </div>
+          <div class="mt-8 border-b border-line" data-reveal-stagger>
+            {items.slice(0, 5).map((p) => (
+              <PublicationRow pub={p} />
+            ))}
+          </div>
+        </section>
+      ))
+  }
+
+  <CallToAction lang={lang} />
+  <div class="h-10 md:h-16"></div>
+</Base>

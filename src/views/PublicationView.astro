@@ -1,0 +1,92 @@
+---
+import Base from '@/layouts/Base.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import PublicationRow from '@/components/PublicationRow.astro';
+import { render } from 'astro:content';
+import { useTranslations } from '@/i18n/ui';
+import { publicationPath, type Lang } from '@/i18n/routes';
+import { formatDate, getPublications, getTranslationUrl, type Publication } from '@/lib/publications';
+
+interface Props {
+  pub: Publication;
+}
+const { pub } = Astro.props;
+const { lang, category } = pub;
+const t = useTranslations(lang);
+const altLang: Lang = lang === 'es' ? 'en' : 'es';
+const altPath = (await getTranslationUrl(pub, altLang)) ?? publicationPath(category, altLang);
+const { title, summary, date, pdf, author } = pub.entry.data;
+const { Content } = await render(pub.entry);
+const hasBody = Boolean(pub.entry.body?.trim());
+const related = (await getPublications(category, lang)).filter((p) => p.slug !== pub.slug).slice(0, 3);
+---
+
+<Base lang={lang} title={title} description={summary} altPath={altPath}>
+  <article>
+    <header class="container-x pt-36 pb-12 md:pt-44 md:pb-16">
+      <nav class="mono flex flex-wrap items-center gap-2 text-muted" aria-label="Breadcrumb" data-hero-item>
+        <a href={publicationPath(category, lang)} class="link-line">← {t(`pubs.${category}` as const)}</a>
+        <span aria-hidden="true">·</span>
+        <time datetime={date.toISOString()}>{formatDate(date, lang)}</time>
+        {author && <span>· {author}</span>}
+      </nav>
+      <h1 class="display-lg mt-8 max-w-[22ch]" data-split="load">{title}</h1>
+      <p class="lead mt-8 max-w-3xl" data-hero-item>{summary}</p>
+      {
+        pdf && (
+          <div class="mt-10 flex flex-wrap gap-3" data-hero-item>
+            <a href={pdf} class="btn btn-primary" download>
+              {t('common.download')} <span aria-hidden="true">↓</span>
+            </a>
+            <a href={pdf} class="btn btn-outline" target="_blank" rel="noopener">
+              {t('common.openPdf')} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        )
+      }
+    </header>
+
+    {
+      hasBody && (
+        <div class="container-x pb-16">
+          <div class="prose-legem">
+            <Content />
+          </div>
+        </div>
+      )
+    }
+
+    {
+      pdf && (
+        <div class="container-x pb-24">
+          <div class="overflow-hidden rounded-2xl border border-line bg-paper-2" data-reveal>
+            <object data={`${pdf}#view=FitH`} type="application/pdf" class="h-[80vh] w-full" aria-label={title}>
+              <div class="p-10 text-center">
+                <p class="text-muted">{t('pubs.pdfFallback')}</p>
+                <a href={pdf} class="btn btn-primary mt-6">
+                  {t('common.openPdf')} ↗
+                </a>
+              </div>
+            </object>
+          </div>
+        </div>
+      )
+    }
+  </article>
+
+  {
+    related.length > 0 && (
+      <section class="container-x pb-20">
+        <p class="eyebrow">{t(`pubs.${category}` as const)}</p>
+        <div class="mt-8 border-b border-line">
+          {related.map((p) => (
+            <PublicationRow pub={p} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <CallToAction lang={lang} />
+  <div class="h-10 md:h-16"></div>
+</Base>

@@ -1,0 +1,2 @@
+Coloca aquí las fotos del sitio (formato .jpg o .webp, ancho ~2000px).
+Luego escribe la ruta en el archivo correspondiente, p. ej. image: '/images/consultiva.jpg' en src/data/practice-areas.ts

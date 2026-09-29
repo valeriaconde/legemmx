@@ -1,0 +1,63 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import Media from '@/components/Media.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import { useTranslations } from '@/i18n/ui';
+import { path, areaPath, type Lang } from '@/i18n/routes';
+import { practiceAreas } from '@/data/practice-areas';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const altLang: Lang = lang === 'es' ? 'en' : 'es';
+---
+
+<Base lang={lang} title={t('areas.label')} altPath={path('areas', altLang)}>
+  <PageHero label={t('areas.label')} title={t('areas.title')} lead={t('areas.lead')} />
+
+  <section class="container-x pb-24 md:pb-32">
+    <div class="grid gap-6 md:grid-cols-2">
+      {
+        practiceAreas.map((a, i) => (
+          <a
+            href={areaPath(a.slug[lang], lang)}
+            class="group flex flex-col overflow-hidden rounded-[24px] border border-line bg-paper transition-colors duration-500 hover:bg-ink hover:text-paper"
+            data-reveal
+          >
+            <Media
+              src={a.image}
+              alt={a.name[lang]}
+              hint={a.name[lang]}
+              ratio="16/9"
+              class="transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+            <div class="flex flex-1 flex-col p-7 md:p-9">
+              <div class="flex items-start justify-between gap-6">
+                <div>
+                  <span class="mono text-muted group-hover:text-paper/50">0{i + 1}</span>
+                  <h2 class="display-md mt-3">{a.name[lang]}</h2>
+                </div>
+                <span
+                  class="mt-2 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line transition-all duration-500 group-hover:border-brand group-hover:bg-brand group-hover:text-white"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+              </div>
+              <p class="mt-5 line-clamp-4 text-muted group-hover:text-paper/65">{a.summary[lang]}</p>
+              <p class="mono mt-auto pt-8 text-muted group-hover:text-paper/50">
+                {a.specialties.map((s) => s.name[lang]).join(' · ')}
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <CallToAction lang={lang} />
+  <div class="h-10 md:h-16"></div>
+</Base>

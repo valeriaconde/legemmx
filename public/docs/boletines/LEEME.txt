@@ -1,0 +1,2 @@
+Coloca aquí los PDF de los boletines.
+El nombre del archivo debe coincidir con el campo `pdf` del boletín (src/content/boletines/...).

@@ -1,0 +1,2 @@
+Fotos de los abogados (retrato vertical 4:5, ~1200px de alto).
+Ejemplo: /images/equipo/oconde.jpg y en src/data/team.ts: photo: '/images/equipo/oconde.jpg'

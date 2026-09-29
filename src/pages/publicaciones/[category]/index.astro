@@ -1,0 +1,14 @@
+---
+import CategoryView from '@/views/CategoryView.astro';
+import { publicationCategories, type PublicationCategory } from '@/i18n/routes';
+
+export function getStaticPaths() {
+  return (Object.keys(publicationCategories) as PublicationCategory[]).map((category) => ({
+    params: { category: publicationCategories[category].es },
+    props: { category },
+  }));
+}
+const { category } = Astro.props;
+---
+
+<CategoryView lang="es" category={category} />

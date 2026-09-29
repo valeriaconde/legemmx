@@ -1,0 +1,67 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import PublicationRow from '@/components/PublicationRow.astro';
+import { useTranslations } from '@/i18n/ui';
+import { path, publicationPath, type Lang, type PublicationCategory } from '@/i18n/routes';
+import { getPublications, publicationCategoryList } from '@/lib/publications';
+
+interface Props {
+  lang: Lang;
+  category: PublicationCategory;
+}
+const { lang, category } = Astro.props;
+const t = useTranslations(lang);
+const altLang: Lang = lang === 'es' ? 'en' : 'es';
+const items = await getPublications(category, lang);
+
+// Agrupar por año
+const byYear = new Map<number, typeof items>();
+for (const p of items) {
+  const y = p.entry.data.date.getUTCFullYear();
+  byYear.set(y, [...(byYear.get(y) ?? []), p]);
+}
+const title = t(`pubs.${category}` as const);
+---
+
+<Base lang={lang} title={title} altPath={publicationPath(category, altLang)}>
+  <PageHero label={t('pubs.label')} title={title} lead={t(`pubs.${category}.lead` as const)}>
+    <nav class="mt-12 flex flex-wrap gap-2" data-hero-item>
+      <a
+        href={path('publications', lang)}
+        class="inline-flex items-center rounded-full border border-line px-4 py-2 text-sm hover:border-ink"
+        >← {t('pubs.label')}</a
+      >
+      {
+        publicationCategoryList.map((c) => (
+          <a
+            href={publicationPath(c, lang)}
+            aria-current={c === category ? 'page' : undefined}
+            class="inline-flex items-center rounded-full border border-line px-4 py-2 text-sm hover:border-ink aria-[current=page]:border-ink aria-[current=page]:bg-ink aria-[current=page]:text-paper"
+          >
+            {t(`pubs.${c}` as const)}
+          </a>
+        ))
+      }
+    </nav>
+  </PageHero>
+
+  <section class="container-x pb-28 md:pb-36">
+    {
+      items.length === 0 ? (
+        <div class="hairline rounded-2xl border border-dashed p-12 text-center text-muted">{t('common.empty')}</div>
+      ) : (
+        [...byYear.entries()].map(([year, list]) => (
+          <div class="grid gap-4 lg:grid-cols-12">
+            <p class="font-display pt-8 text-4xl text-brand lg:col-span-2 lg:pt-10">{year}</p>
+            <div class="lg:col-span-10" data-reveal-stagger>
+              {list.map((p) => (
+                <PublicationRow pub={p} />
+              ))}
+            </div>
+          </div>
+        ))
+      )
+    }
+  </section>
+</Base>

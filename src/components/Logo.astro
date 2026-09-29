@@ -1,0 +1,34 @@
+---
+/**
+ * Logotipo provisional (recreado a partir del logo actual).
+ * TODO: reemplazar por el logotipo oficial en SVG cuando esté disponible:
+ *   1. Guarda el archivo en /public/brand/logo.svg
+ *   2. Sustituye el contenido de este componente por:
+ *      <img src="/brand/logo.svg" alt="Legem Attorneys at Law" class="h-10 w-auto" />
+ */
+interface Props {
+  class?: string;
+  compact?: boolean;
+}
+const { class: className = '', compact = false } = Astro.props;
+---
+
+<span class:list={['inline-flex items-center gap-2.5 select-none', className]} aria-label="Legem Attorneys at Law">
+  <svg viewBox="0 0 40 48" class="h-9 w-auto shrink-0" aria-hidden="true">
+    <path
+      d="M12.5 2.5c-1.6 10.5-1.4 22.4 2.8 31.6 2.6 5.8-.8 11.6-7.3 11.1-5-.4-6.5-5.4-1.9-8.4 6.6-4.3 17.6-5.8 30.4-14.3"
+      fill="none"
+      stroke="var(--color-brand)"
+      stroke-width="3.4"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </svg>
+  <span class="flex flex-col leading-none">
+    <span class="font-display text-[1.7rem] tracking-[0.2em] leading-[0.9]">LEGEM</span>
+    {
+      !compact && (
+        <span class="mt-1 font-mono text-[0.58rem] tracking-[0.22em] uppercase opacity-70">Attorneys at Law</span>
+      )
+    }
+  </span>
+</span>

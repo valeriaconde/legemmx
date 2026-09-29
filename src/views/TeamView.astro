@@ -1,0 +1,97 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import { useTranslations } from '@/i18n/ui';
+import { path, type Lang } from '@/i18n/routes';
+import PersonCard from '@/components/PersonCard.astro';
+import { attorneys, staff, groupLabels, type TeamGroup } from '@/data/team';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const altLang: Lang = lang === 'es' ? 'en' : 'es';
+
+const groups = (Object.keys(groupLabels) as TeamGroup[]).filter((g) => attorneys.some((p) => p.groups.includes(g)));
+---
+
+<Base lang={lang} title={t('team.label')} altPath={path('team', altLang)}>
+  <PageHero label={t('team.label')} title={t('team.title')} lead={t('team.lead')} index={`${attorneys.length} ${t('team.count')}`} />
+
+  <section class="container-x pb-24">
+    <div class="hairline flex flex-wrap items-center gap-2 border-t pt-6" role="group" aria-label={t('team.filter')} data-reveal>
+      <span class="mono mr-3 text-muted">{t('team.filter')}</span>
+      <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">{t('team.all')}</button>
+      {
+        groups.map((g) => (
+          <button type="button" class="filter-btn" data-filter={g} aria-pressed="false">
+            {groupLabels[g][lang]}
+          </button>
+        ))
+      }
+    </div>
+
+    <ul id="team-grid" class="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
+      {attorneys.map((p) => <PersonCard person={p} lang={lang} />)}
+    </ul>
+
+    <div class="mt-28">
+      <p class="eyebrow" data-reveal>{t('team.admin')}</p>
+      <ul class="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
+        {staff.map((p) => <PersonCard person={p} lang={lang} />)}
+      </ul>
+    </div>
+  </section>
+
+  <CallToAction lang={lang} />
+  <div class="h-10 md:h-16"></div>
+</Base>
+
+<style>
+  .filter-btn {
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.875rem;
+    transition:
+      background-color 0.3s,
+      color 0.3s,
+      border-color 0.3s;
+  }
+  .filter-btn:hover {
+    border-color: var(--color-ink);
+  }
+  .filter-btn[aria-pressed='true'] {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+  :global(.person.is-hidden) {
+    display: none;
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const people = document.querySelectorAll<HTMLElement>('#team-grid .person');
+  buttons.forEach((btn) =>
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filter!;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      people.forEach((el) => {
+        const show = f === 'all' || (el.dataset.groups ?? '').split(' ').includes(f);
+        el.classList.toggle('is-hidden', !show);
+        if (show) {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          el.animate([{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }], {
+            duration: 450,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+          });
+        }
+      });
+    }),
+  );
+</script>

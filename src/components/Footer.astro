@@ -1,0 +1,84 @@
+---
+import Logo from './Logo.astro';
+import { useTranslations } from '@/i18n/ui';
+import { path, areaPath, type Lang } from '@/i18n/routes';
+import { practiceAreas } from '@/data/practice-areas';
+import { site } from '@/data/site';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer data-header-dark class="on-dark bg-ink text-paper">
+  <div class="container-x pt-20 pb-10">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <Logo />
+        <p class="mt-8 max-w-sm font-display text-3xl leading-tight">{t('footer.tagline')}</p>
+        <a href={`mailto:${site.contactEmail}`} class="link-line mt-8 inline-block text-lg">{site.contactEmail}</a>
+        {site.phone && <p class="mt-2 text-paper/70">{site.phone}</p>}
+      </div>
+
+      <div class="grid gap-10 sm:grid-cols-3 lg:col-span-7">
+        <div>
+          <p class="mono text-paper/45">{t('footer.firm')}</p>
+          <ul class="mt-5 space-y-2.5 text-paper/80">
+            <li><a class="link-line" href={path('about', lang)}>{t('nav.about')}</a></li>
+            <li><a class="link-line" href={path('team', lang)}>{t('nav.team')}</a></li>
+            <li><a class="link-line" href={path('publications', lang)}>{t('nav.publications')}</a></li>
+            <li><a class="link-line" href={path('contact', lang)}>{t('nav.contact')}</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mono text-paper/45">{t('footer.areas')}</p>
+          <ul class="mt-5 space-y-2.5 text-paper/80">
+            {
+              practiceAreas.map((a) => (
+                <li>
+                  <a class="link-line" href={areaPath(a.slug[lang], lang)}>
+                    {a.name[lang]}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div>
+          <p class="mono text-paper/45">{t('contact.offices')}</p>
+          <ul class="mt-5 space-y-2.5 text-paper/80">
+            {
+              site.offices.map((o) => (
+                <li>
+                  {o.region[lang]}
+                  {o.city && <span class="text-paper/50"> · {o.city}</span>}
+                </li>
+              ))
+            }
+          </ul>
+          <p class="mt-6 text-sm text-paper/50">{t('footer.languages')}</p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="mt-20 select-none font-display text-[22vw] leading-[0.75] tracking-[-0.02em] text-paper/[0.06] lg:text-[16.5rem]"
+      aria-hidden="true"
+    >
+      Legem
+    </div>
+
+    <div
+      class="hairline mt-6 flex flex-col gap-4 border-t pt-6 text-sm text-paper/55 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} Legem Attorneys at Law. {t('footer.rights')}</p>
+      <div class="flex gap-6">
+        <a class="link-line" href={path('privacy', lang)}>{t('footer.privacy')}</a>
+        {site.social.linkedin && <a class="link-line" href={site.social.linkedin}>LinkedIn</a>}
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,80 @@
+# ---------------------------------------------------------------
+# Configuración para servidores Apache (cPanel y similares).
+# Si el hosting usa Nginx, pedir al proveedor reglas equivalentes.
+# ---------------------------------------------------------------
+
+Options -Indexes
+DirectoryIndex index.html index.php
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Forzar HTTPS y dominio sin "www"
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# --- Redirecciones del sitio anterior (WordPress) al nuevo ---
+<IfModule mod_alias.c>
+  # Español
+  RedirectMatch 301 ^/inicio/?$ /
+  RedirectMatch 301 ^/es/?$ /
+  RedirectMatch 301 ^/contenciosa/?$ /areas/contenciosa/
+  RedirectMatch 301 ^/consultiva/?$ /areas/consultiva/
+  RedirectMatch 301 ^/es/consultiva/?$ /areas/consultiva/
+  RedirectMatch 301 ^/cumplimiento-normativo/?$ /areas/cumplimiento-normativo/
+  RedirectMatch 301 ^/es/boletines/?$ /publicaciones/boletines/
+  RedirectMatch 301 ^/es/articulos/?$ /publicaciones/articulos/
+  RedirectMatch 301 ^/es/reconocimientos/?$ /publicaciones/reconocimientos/
+  RedirectMatch 301 ^/es/aviso-de-privacidad/?$ /aviso-de-privacidad/
+  RedirectMatch 301 ^/en/aviso-de-privacidad/?$ /en/privacy-notice/
+  RedirectMatch 301 ^/(incorporacion-a-la-lista-de-actividades-esenciales-y-estrategia-de-reapertura-sars-cov2-covid-19|reforma-laboral-aumento-de-vacaciones|personas-morales-obligacion-de-identificacion-del-beneficiario-controlador|reforma-a-la-ley-federal-del-trabajo-teletrabajo|reformas-relativas-a-la-prohibicion-de-la-subcontratacion-en-mexico|actualizacion-propuesta-de-reforma-a-la-ley-federal-del-trabajo-sobre-subcontratacion|propuesta-de-reforma-a-la-ley-federal-del-trabajo-subcontratacion|reforma-a-la-ley-federal-del-trabajo-propuesta-sobre-subcontratacion|impactos-de-la-reforma-anti-corrupcion-en-las-empresas)/?$ /publicaciones/boletines/$1/
+
+  # Inglés
+  RedirectMatch 301 ^/home/?$ /en/
+  RedirectMatch 301 ^/about-us/?$ /en/about/
+  RedirectMatch 301 ^/attorneys/?$ /en/attorneys/
+  RedirectMatch 301 ^/(en/)?litigation/?$ /en/practice-areas/litigation/
+  RedirectMatch 301 ^/(en/)?counseling/?$ /en/practice-areas/advisory/
+  RedirectMatch 301 ^/compliance/?$ /en/practice-areas/compliance/
+  RedirectMatch 301 ^/newsletters/?$ /en/publications/newsletters/
+  RedirectMatch 301 ^/papers/?$ /en/publications/articles/
+  RedirectMatch 301 ^/awards/?$ /en/publications/awards/
+  RedirectMatch 301 ^/contact/?$ /en/contact/
+  RedirectMatch 301 ^/incorporation-to-the-list-of-non-essential-activities-and-reinstatement-strategy-sars-cov2-covid-19-2/?$ /en/publications/newsletters/incorporation-to-the-list-of-essential-activities-and-reopening-strategy-covid-19/
+  RedirectMatch 301 ^/incorporation-to-the-list-of-non-essential-activities-and-reinstatement-strategy-sars-cov2-covid-19/?$ /en/publications/newsletters/labor-reform-vacation-time-increase/
+  RedirectMatch 301 ^/legitimation-of-collective-bargaining-agreements-2/?$ /en/publications/newsletters/legitimation-of-collective-bargaining-agreements/
+  RedirectMatch 301 ^/legitimation-of-collective-bargaining-agreements/?$ /en/publications/newsletters/federal-labor-law-reform-telework/
+  RedirectMatch 301 ^/(legal-entities-obligation-to-identify-the-controlling-beneficiary|reforms-regarding-the-subcontracting-prohibition-in-mexico|update-federal-labor-law-reform-bill-regarding-subcontracting|federal-labor-law-reform-bill-subcontracting|amendment-to-the-federal-labor-law-subcontracting-reform-bill|impacts-to-companies-due-to-anticorruption-law)/?$ /en/publications/newsletters/$1/
+
+  # PDFs antiguos → nueva carpeta
+  RedirectMatch 301 ^/wp-content/uploads/\d{4}/\d{2}/(.+\.pdf)$ /docs/boletines/$1
+</IfModule>
+
+# --- Caché y compresión ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/json
+</IfModule>
+
+# --- Seguridad básica ---
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>

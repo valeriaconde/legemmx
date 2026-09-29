@@ -1,0 +1,54 @@
+---
+/**
+ * Espacio para imagen.
+ * - Si `src` tiene una ruta (ej. "/images/oficina.jpg"), muestra la foto.
+ * - Si está vacío, muestra un espacio reservado con la descripción de la foto sugerida.
+ */
+interface Props {
+  src?: string;
+  alt: string;
+  /** Descripción de la foto sugerida (visible solo en el espacio reservado) */
+  hint?: string;
+  class?: string;
+  /** Relación de aspecto, p. ej. "4/5", "16/9" */
+  ratio?: string;
+  tone?: 'light' | 'dark' | 'brand';
+  parallax?: boolean;
+  eager?: boolean;
+}
+const { src = '', alt, hint, class: className = '', ratio = '4/5', tone = 'light', parallax = false, eager = false } =
+  Astro.props;
+
+const tones = {
+  light: 'bg-[#e3ddd0] text-ink/45',
+  dark: 'bg-ink-2 text-paper/40',
+  brand: 'bg-brand-deep text-paper/50',
+};
+---
+
+<div class:list={['relative overflow-hidden', className]} style={`aspect-ratio:${ratio}`}>
+  {
+    src ? (
+      <img
+        src={src}
+        alt={alt}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        class:list={['absolute inset-0 h-full w-full object-cover', parallax && 'scale-[1.18]']}
+        data-parallax={parallax ? '0.14' : undefined}
+      />
+    ) : (
+      <div
+        class:list={['absolute inset-0 flex items-end p-4', tones[tone]]}
+        role="img"
+        aria-label={alt}
+      >
+        <span
+          class:list={['absolute inset-0', tone === 'light' ? 'opacity-40' : 'opacity-15']}
+          style="background-image:repeating-linear-gradient(135deg,currentColor 0 1px,transparent 1px 11px)"
+          aria-hidden="true"></span>
+        <span class="mono relative">[ {hint ?? alt} ]</span>
+      </div>
+    )
+  }
+</div>

@@ -1,0 +1,52 @@
+---
+import Base from '@/layouts/Base.astro';
+import { useTranslations } from '@/i18n/ui';
+import { path, type Lang } from '@/i18n/routes';
+import { site } from '@/data/site';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const altLang: Lang = lang === 'es' ? 'en' : 'es';
+---
+
+<Base lang={lang} title={t('privacy.title')} altPath={path('privacy', altLang)}>
+  <section class="container-x pt-36 pb-28 md:pt-44">
+    <p class="eyebrow">{t('privacy.label')}</p>
+    <h1 class="display-lg mt-8">{t('privacy.title')}</h1>
+
+    <div class="prose-legem mt-12">
+      <!--
+        TODO: Pegar aquí el texto oficial del Aviso de Privacidad de Legem
+        (el enlace del sitio actual no funciona, por eso no se pudo copiar).
+        Debe cumplir con la LFPDPPP: identidad y domicilio del responsable, datos que se recaban,
+        finalidades, transferencias, medios para ejercer derechos ARCO, uso de cookies, cambios al aviso.
+      -->
+      {
+        lang === 'es' ? (
+          <>
+            <p>
+              <strong>Contenido pendiente.</strong> Aquí se publicará el Aviso de Privacidad de Legem Attorneys at Law.
+            </p>
+            <p>
+              Para cualquier duda sobre el tratamiento de sus datos personales, escríbanos a{' '}
+              <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+            </p>
+          </>
+        ) : (
+          <>
+            <p>
+              <strong>Content pending.</strong> Legem Attorneys at Law’s Privacy Notice will be published here.
+            </p>
+            <p>
+              For any questions about how we process personal data, please write to{' '}
+              <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+            </p>
+          </>
+        )
+      }
+    </div>
+  </section>
+</Base>

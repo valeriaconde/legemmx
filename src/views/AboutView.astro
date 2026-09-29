@@ -1,0 +1,161 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import Media from '@/components/Media.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import { useTranslations } from '@/i18n/ui';
+import { path, areaPath, type Lang } from '@/i18n/routes';
+import { practiceAreas } from '@/data/practice-areas';
+import { site } from '@/data/site';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const altLang: Lang = lang === 'es' ? 'en' : 'es';
+
+const body = {
+  es: [
+    'Somos una firma legal integrada por profesionales especializados en distintas áreas del Derecho, con oficinas en el norte, bajío y centro del país, brindando nuestros servicios en todo momento con los más altos estándares de ética profesional, calidad y excelencia.',
+    'Nuestro compromiso es apoyar el crecimiento de nuestros clientes a través de la prestación oportuna de servicios legales orientados a la protección de sus intereses personales, económicos y comerciales.',
+    'Las áreas de práctica de la firma son la contenciosa en materia civil, mercantil, penal, familiar, administrativa, de amparo y fiscal; la consultiva, que incluye el derecho corporativo, bancario, ambiental, migratorio e inmobiliario; así como la de cumplimiento normativo, abarcando temas de prevención de lavado de dinero, protección de datos personales, anticorrupción, evaluación y gestión de programas de riesgos legales y normativos, entre otros.',
+  ],
+  en: [
+    'We are a law firm comprised of professionals who specialize in a variety of legal disciplines, with offices in northern, Bajío and central Mexico, providing our services at all times with the highest standards of professional ethics, quality and excellence.',
+    'Our commitment is to help our clients grow by providing timely legal services oriented towards protecting their personal, economic and commercial interests.',
+    'The firm’s practice areas include litigation in civil, commercial, criminal, family, administrative, amparo and tax matters; advisory, which includes corporate, banking, environmental, immigration and real estate law; and compliance, covering anti-money laundering, personal data protection, anti-corruption, and the evaluation and management of legal and regulatory risk programs, among others.',
+  ],
+}[lang];
+
+const pillars = [
+  { title: t('home.why.1.title'), body: t('home.why.1.body') },
+  { title: t('home.why.2.title'), body: t('home.why.2.body') },
+  { title: t('home.why.3.title'), body: t('home.why.3.body') },
+  { title: t('home.why.4.title'), body: t('home.why.4.body') },
+];
+const values = [1, 2, 3].map((n) => ({
+  title: t(`about.values.${n}.title` as any),
+  body: t(`about.values.${n}.body` as any),
+}));
+---
+
+<Base lang={lang} title={t('about.label')} altPath={path('about', altLang)}>
+  <PageHero label={t('about.label')} title={t('about.title')} lead={t('about.lead')} />
+
+  <section class="container-x">
+    <Media
+      alt={lang === 'es' ? 'Oficinas de Legem' : 'Legem offices'}
+      hint={lang === 'es' ? 'Foto panorámica · oficinas / equipo' : 'Wide photo · offices / team'}
+      ratio="21/9"
+      class="rounded-[28px]"
+      parallax
+      eager
+    />
+  </section>
+
+  <section class="container-x py-24 md:py-32">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <p class="eyebrow lg:col-span-3" data-reveal>01 — {t('home.intro.label')}</p>
+      <div class="lg:col-span-9">
+        <p class="display-md max-w-[22ch]" data-words>{t('home.intro.statement')}</p>
+        <div class="mt-12 grid gap-8 text-lg text-muted md:grid-cols-2" data-reveal-stagger>
+          {body.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-header-dark class="on-dark bg-ink py-24 text-paper md:py-32">
+    <div class="container-x">
+      <p class="eyebrow !text-paper/60" data-reveal>02 — {t('about.values.label')}</p>
+      <div class="mt-12 grid gap-px overflow-hidden rounded-2xl bg-paper/10 md:grid-cols-3" data-reveal-stagger>
+        {
+          values.map((v, i) => (
+            <div class="bg-ink p-8 md:p-10">
+              <span class="mono text-paper/45">0{i + 1}</span>
+              <h2 class="display-sm mt-10">{v.title}</h2>
+              <p class="mt-4 text-paper/65">{v.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <blockquote class="mt-24 text-center">
+        <p class="display-md mx-auto max-w-[26ch]" data-words lang="en">
+          “We are what we repeatedly do. Excellence, then, is not an act, but a habit.”
+        </p>
+        <footer class="mono mt-8 text-paper/50">— Aristotle</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="container-x py-24 md:py-32">
+    <div class="grid gap-14 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow" data-reveal>03 — {t('home.why.label')}</p>
+        <h2 class="display-lg mt-6" data-split>{t('home.why.title')}</h2>
+      </div>
+      <ol class="lg:col-span-7">
+        {
+          pillars.map((w, i) => (
+            <li class="hairline grid grid-cols-[3.5rem_1fr] gap-4 border-t py-8" data-reveal>
+              <span class="font-display text-3xl text-brand">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="display-sm">{w.title}</h3>
+                <p class="mt-3 text-muted">{w.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-paper-2 py-24 md:py-32">
+    <div class="container-x grid gap-14 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow" data-reveal>04 — {t('about.offices.label')}</p>
+        <h2 class="display-md mt-6 max-w-[16ch]" data-split>{t('about.offices.title')}</h2>
+        <p class="mt-6 max-w-md text-muted" data-reveal>{t('about.lead')}</p>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-3 lg:col-span-7" data-reveal-stagger>
+        {
+          site.offices.map((o, i) => (
+            <li class="flex min-h-[220px] flex-col justify-between rounded-2xl border border-line bg-paper p-6">
+              <span class="mono text-muted">0{i + 1}</span>
+              <div>
+                <p class="display-sm">{o.region[lang]}</p>
+                {o.city && <p class="mt-2 text-muted">{o.city}</p>}
+                {o.address && <p class="mt-1 text-sm text-muted">{o.address}</p>}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="container-x py-24 md:py-32">
+    <p class="eyebrow" data-reveal>05 — {t('about.practice.label')}</p>
+    <ul class="mt-10" data-reveal-stagger>
+      {
+        practiceAreas.map((a) => (
+          <li class="hairline border-t last:border-b">
+            <a
+              href={areaPath(a.slug[lang], lang)}
+              class="group flex items-center justify-between gap-6 py-7 transition-colors hover:text-brand"
+            >
+              <span class="display-md">{a.name[lang]}</span>
+              <span class="mono text-muted group-hover:text-brand">
+                {a.specialties.length} {t('areas.specialties').toLowerCase()} →
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <CallToAction lang={lang} />
+  <div class="h-10 md:h-16"></div>
+</Base>

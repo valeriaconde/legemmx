@@ -1,0 +1,11 @@
+---
+import AreaView from '@/views/AreaView.astro';
+import { practiceAreas } from '@/data/practice-areas';
+
+export function getStaticPaths() {
+  return practiceAreas.map((area) => ({ params: { slug: area.slug.es }, props: { area } }));
+}
+const { area } = Astro.props;
+---
+
+<AreaView lang="es" area={area} />

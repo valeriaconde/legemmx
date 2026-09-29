@@ -1,0 +1,40 @@
+---
+import { useTranslations } from '@/i18n/ui';
+import { path, type Lang } from '@/i18n/routes';
+import { site } from '@/data/site';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+}
+const { lang, title } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="container-x py-10 md:py-16">
+  <div class="on-dark relative overflow-hidden rounded-[28px] bg-brand-deep px-6 py-16 text-paper md:px-14 md:py-24">
+    <div
+      class="pointer-events-none absolute -right-24 -bottom-40 h-[480px] w-[480px] rounded-full border border-paper/10"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute -right-4 -bottom-20 h-[320px] w-[320px] rounded-full border border-paper/10"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="relative grid gap-10 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-8">
+        <p class="eyebrow !text-paper/60">{t('cta.label')}</p>
+        <h2 class="display-lg mt-6 max-w-[18ch]" data-split>{title ?? t('cta.title')}</h2>
+        <p class="mt-6 max-w-xl text-lg text-paper/75" data-reveal>{t('cta.body')}</p>
+      </div>
+      <div class="flex flex-col items-start gap-4 lg:col-span-4 lg:items-end" data-reveal>
+        <a href={path('contact', lang)} class="btn btn-light !px-7 !py-5 text-base">
+          {t('cta.button')} <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <a href={`mailto:${site.contactEmail}`} class="link-line text-paper/75">{site.contactEmail}</a>
+      </div>
+    </div>
+  </div>
+</section>

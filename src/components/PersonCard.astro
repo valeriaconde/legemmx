@@ -1,0 +1,38 @@
+---
+import { initials, type Person } from '@/data/team';
+import type { Lang } from '@/i18n/routes';
+
+interface Props {
+  person: Person;
+  lang: Lang;
+}
+const { person: p, lang } = Astro.props;
+---
+
+<li class="person group" data-groups={p.groups.join(' ')}>
+  <div class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-paper-2">
+    {
+      p.photo ? (
+        <img
+          src={p.photo}
+          alt={p.name}
+          loading="lazy"
+          class="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+        />
+      ) : (
+        <div class="flex h-full w-full items-center justify-center" aria-hidden="true">
+          <span class="font-display text-7xl text-ink/15 transition-colors duration-500 group-hover:text-brand/50">
+            {initials(p.name)}
+          </span>
+        </div>
+      )
+    }
+    <span
+      class="mono absolute bottom-3 left-3 rounded-full bg-paper/85 px-2.5 py-1 text-[0.65rem] text-muted backdrop-blur"
+      title={p.languages[lang]}>ES · EN</span
+    >
+  </div>
+  <h2 class="mt-5 text-lg leading-snug font-medium">{p.name}</h2>
+  <p class="mt-1 text-muted">{p.area[lang]}</p>
+  <a href={`mailto:${p.email}`} class="link-line mt-3 inline-block text-sm text-brand">{p.email}</a>
+</li>
