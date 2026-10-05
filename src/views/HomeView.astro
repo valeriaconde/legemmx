@@ -2,12 +2,10 @@
 import Base from '@/layouts/Base.astro';
 import Media from '@/components/Media.astro';
 import CallToAction from '@/components/CallToAction.astro';
-import PublicationRow from '@/components/PublicationRow.astro';
 import { useTranslations } from '@/i18n/ui';
 import { path, areaPath, type Lang } from '@/i18n/routes';
 import { practiceAreas } from '@/data/practice-areas';
 import { attorneys } from '@/data/team';
-import { getAllPublications } from '@/lib/publications';
 
 interface Props {
   lang: Lang;
@@ -28,7 +26,6 @@ const why = [1, 2, 3, 4].map((n) => ({
   body: t(`home.why.${n}.body` as any),
 }));
 const industries = t('home.industries.list').split(',');
-const latest = (await getAllPublications(lang)).slice(0, 3);
 const quote = '“We are what we repeatedly do. Excellence, then, is not an act, but a habit.”';
 ---
 
@@ -38,6 +35,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
     <div class="absolute inset-0 -z-10">
       <!-- TODO: foto o video del hero. Sugerencia: detalle arquitectónico / sala de juntas en tonos fríos. -->
       <Media
+        src="/images/hero2.jpg"
         alt=""
         hint={lang === 'es' ? 'Foto hero · arquitectura / sala de juntas' : 'Hero photo · architecture / boardroom'}
         ratio="auto"
@@ -99,7 +97,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
   </section>
 
   <!-- ============ LA FIRMA ============ -->
-  <section class="container-x py-24 md:py-36">
+  <section class="container-x pt-24 pb-10 md:pt-36 md:pb-16">
     <div class="grid gap-12 lg:grid-cols-12">
       <div class="lg:col-span-3">
         <p class="eyebrow" data-reveal>01 — {t('home.intro.label')}</p>
@@ -181,7 +179,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
   </section>
 
   <!-- ============ POR QUÉ LEGEM ============ -->
-  <section class="container-x py-24 md:py-36">
+  <section class="container-x pt-24 pb-10 md:pt-36 md:pb-16">
     <div class="grid gap-14 lg:grid-cols-12">
       <div class="lg:col-span-5">
         <div class="lg:sticky lg:top-32">
@@ -235,16 +233,8 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
     <p class="sr-only">{industries.join(', ')}</p>
   </section>
 
-  <!-- ============ CITA ============ -->
-  <section class="container-x py-24 text-center md:py-40">
-    <blockquote>
-      <p class="display-lg mx-auto max-w-[24ch]" data-words lang="en">{quote}</p>
-      <footer class="mono mt-10 text-muted" data-reveal>— Aristotle</footer>
-    </blockquote>
-  </section>
-
   <!-- ============ EQUIPO ============ -->
-  <section class="container-x pb-24 md:pb-36">
+  <section class="container-x pt-24 pb-10 md:pt-36 md:pb-16">
     <div class="grid gap-10 overflow-hidden rounded-[28px] bg-paper-2 md:grid-cols-2">
       <div class="flex flex-col justify-between gap-10 p-8 md:p-14">
         <div>
@@ -273,32 +263,15 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
     </div>
   </section>
 
-  <!-- ============ PUBLICACIONES ============ -->
-  {
-    latest.length > 0 && (
-      <section class="container-x pb-16 md:pb-28">
-        <div class="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <p class="eyebrow" data-reveal>
-              06 — {t('home.pubs.label')}
-            </p>
-            <h2 class="display-lg mt-6" data-split>
-              {t('home.pubs.title')}
-            </h2>
-          </div>
-          <a href={path('publications', lang)} class="btn btn-outline" data-reveal>
-            {t('home.pubs.cta')} <span class="btn-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-        <div class="mt-12 border-b border-line" data-reveal-stagger>
-          {latest.map((p) => (
-            <PublicationRow pub={p} showCategory />
-          ))}
-        </div>
-      </section>
-    )
-  }
+  <!-- ============ CITA ============ -->
+  <section class="container-x py-20 text-center md:py-32">
+    <blockquote>
+      <p class="display-lg mx-auto max-w-[24ch]" data-words lang="en">{quote}</p>
+      <footer class="mono mt-10 text-muted" data-reveal>— Aristotle</footer>
+    </blockquote>
+  </section>
 
+  <!-- ============ CONTACTO ============ -->
   <CallToAction lang={lang} />
   <div class="h-10 md:h-16"></div>
 </Base>

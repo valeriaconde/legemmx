@@ -37,7 +37,6 @@ export const ui = {
     'footer.contact': 'Contacto',
     'footer.privacy': 'Aviso de privacidad',
     'footer.rights': 'Todos los derechos reservados.',
-    'footer.languages': 'Atención en español e inglés',
 
     'home.hero.eyebrow': 'Legem · Attorneys at Law',
     'home.hero.title': 'Certeza legal para hacer negocios en México.',
@@ -209,7 +208,6 @@ export const ui = {
     'footer.contact': 'Contact',
     'footer.privacy': 'Privacy notice',
     'footer.rights': 'All rights reserved.',
-    'footer.languages': 'Service in English and Spanish',
 
     'home.hero.eyebrow': 'Legem · Attorneys at Law',
     'home.hero.title': 'Legal certainty for doing business in Mexico.',
