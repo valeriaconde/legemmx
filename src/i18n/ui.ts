@@ -50,12 +50,14 @@ export const ui = {
     'home.stats.specialties': 'Especialidades legales',
     'home.stats.lawyers': 'Abogados especialistas',
     'home.stats.regions': 'Regiones con oficinas',
+    'home.stats.clients': 'Clientes permanentes',
+    'home.stats.countries': 'Países con presencia',
 
     'home.intro.label': 'La firma',
     'home.intro.statement':
-      'Somos una firma legal dedicada a apoyar el crecimiento de la inversión extranjera en México.',
+      'Somos una firma legal con más de 25 años de experiencia dedicada al crecimiento de la inversión extranjera en México.',
     'home.intro.body':
-      'Profesionales especializados en distintas áreas del Derecho, con oficinas en el norte, bajío y centro del país. Nuestro compromiso es apoyar el crecimiento de nuestros clientes a través de la prestación oportuna de servicios legales orientados a la protección de sus intereses personales, económicos y comerciales.',
+      'Brindamos servicios de excelencia con altos estándares de ética para que nuestros clientes desarrollen sus actividades y proyectos de expansión de negocios.',
     'home.intro.cta': 'Conoce la firma',
 
     'home.areas.label': 'Áreas de práctica',
@@ -221,11 +223,13 @@ export const ui = {
     'home.stats.specialties': 'Legal specialties',
     'home.stats.lawyers': 'Specialized attorneys',
     'home.stats.regions': 'Regions with offices',
+    'home.stats.clients': 'Permanent clients',
+    'home.stats.countries': 'Countries with presence',
 
     'home.intro.label': 'The firm',
-    'home.intro.statement': 'We are a law firm dedicated to supporting the growth of foreign investment in Mexico.',
+    'home.intro.statement': 'We are a law firm with more than 25 years of experience dedicated to the growth of foreign investment in Mexico.',
     'home.intro.body':
-      'Professionals who specialize in a variety of legal disciplines, with offices in northern, Bajío and central Mexico. Our commitment is to help our clients grow by providing timely legal services oriented towards protecting their personal, economic and commercial interests.',
+      'We provide excellence-driven services with high ethical standards, enabling our clients to carry out their activities and business expansion projects.',
     'home.intro.cta': 'About the firm',
 
     'home.areas.label': 'Practice areas',
