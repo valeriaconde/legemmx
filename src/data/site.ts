@@ -14,10 +14,17 @@ export const site = {
   phone: '',
 
   // TODO: agregar ciudad y dirección de cada oficina.
+  // `image`: ruta de la foto de la oficina (ej. '/images/oficina-norte.jpg'); vacío = espacio reservado.
   offices: [
-    { region: { es: 'Norte', en: 'Northern Mexico' }, city: '', address: '' },
-    { region: { es: 'Bajío', en: 'Bajío' }, city: '', address: '' },
-    { region: { es: 'Centro', en: 'Central Mexico' }, city: '', address: '' },
+    {
+      region: { es: 'Norte', en: 'Northern Mexico' },
+      city: 'San Pedro Garza García',
+      address: '',
+      image: '',
+    },
+    { region: { es: 'Bajío', en: 'Bajío' }, city: 'Aguascalientes', address: '', image: '' },
+    { region: { es: 'Centro', en: 'Central Mexico' }, city: 'Ciudad de México', address: '', image: '' },
+    { region: { es: 'Sureste', en: 'Southeast Mexico' }, city: 'Mérida', address: '', image: '' },
   ],
 
   // TODO: agregar perfiles si la firma los tiene (dejar vacío para ocultar).

@@ -17,12 +17,12 @@ const altLang: Lang = lang === 'es' ? 'en' : 'es';
 
 const body = {
   es: [
-    'Somos una firma legal integrada por profesionales especializados en distintas áreas del Derecho, con oficinas en el norte, bajío y centro del país, brindando nuestros servicios en todo momento con los más altos estándares de ética profesional, calidad y excelencia.',
+    'Somos una firma legal integrada por profesionales especializados en distintas áreas del Derecho, con oficinas en el norte, bajío, centro y sureste del país, brindando nuestros servicios en todo momento con los más altos estándares de ética profesional, calidad y excelencia.',
     'Nuestro compromiso es apoyar el crecimiento de nuestros clientes a través de la prestación oportuna de servicios legales orientados a la protección de sus intereses personales, económicos y comerciales.',
     'Las áreas de práctica de la firma son la contenciosa en materia civil, mercantil, penal, familiar, administrativa, de amparo y fiscal; la consultiva, que incluye el derecho corporativo, bancario, ambiental, migratorio e inmobiliario; así como la de cumplimiento normativo, abarcando temas de prevención de lavado de dinero, protección de datos personales, anticorrupción, evaluación y gestión de programas de riesgos legales y normativos, entre otros.',
   ],
   en: [
-    'We are a law firm comprised of professionals who specialize in a variety of legal disciplines, with offices in northern, Bajío and central Mexico, providing our services at all times with the highest standards of professional ethics, quality and excellence.',
+    'We are a law firm comprised of professionals who specialize in a variety of legal disciplines, with offices in northern, Bajío, central and southeast Mexico, providing our services at all times with the highest standards of professional ethics, quality and excellence.',
     'Our commitment is to help our clients grow by providing timely legal services oriented towards protecting their personal, economic and commercial interests.',
     'The firm’s practice areas include litigation in civil, commercial, criminal, family, administrative, amparo and tax matters; advisory, which includes corporate, banking, environmental, immigration and real estate law; and compliance, covering anti-money laundering, personal data protection, anti-corruption, and the evaluation and management of legal and regulatory risk programs, among others.',
   ],
@@ -118,16 +118,22 @@ const values = [1, 2, 3].map((n) => ({
         <h2 class="display-md mt-6 max-w-[16ch]" data-split>{t('about.offices.title')}</h2>
         <p class="mt-6 max-w-md text-muted" data-reveal>{t('about.lead')}</p>
       </div>
-      <ul class="grid gap-4 sm:grid-cols-3 lg:col-span-7" data-reveal-stagger>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-7" data-reveal-stagger>
         {
-          site.offices.map((o, i) => (
-            <li class="flex min-h-[220px] flex-col justify-between rounded-2xl border border-line bg-paper p-6">
-              <span class="mono text-muted">0{i + 1}</span>
-              <div>
-                <p class="display-sm">{o.region[lang]}</p>
-                {o.city && <p class="mt-2 text-muted">{o.city}</p>}
-                {o.address && <p class="mt-1 text-sm text-muted">{o.address}</p>}
-              </div>
+          site.offices.map((o) => (
+            <li class="relative overflow-hidden rounded-2xl">
+              <Media
+                src={o.image}
+                alt={`${o.region[lang]}`}
+                hint=""
+                ratio="4/3"
+                tone="dark"
+              />
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent"
+                aria-hidden="true"
+              />
+              <p class="display-sm absolute bottom-0 left-0 p-6 text-paper">{o.region[lang]}</p>
             </li>
           ))
         }

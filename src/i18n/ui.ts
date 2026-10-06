@@ -43,7 +43,7 @@ export const ui = {
     'home.hero.lead':
       'Asesoramos a empresas nacionales y extranjeras en inversión, operación corporativa, litigio y cumplimiento normativo, con los más altos estándares de ética profesional, calidad y excelencia.',
     'home.hero.secondary': 'Ver áreas de práctica',
-    'home.hero.meta1': 'Norte · Bajío · Centro de México',
+    'home.hero.meta1': 'Norte · Bajío · Centro · Sureste de México',
     'home.hero.meta2': 'Español / English',
 
     'home.stats.areas': 'Áreas de práctica',
@@ -78,12 +78,12 @@ export const ui = {
     'home.industries.label': 'Sectores',
     'home.industries.title':
       'Asesoramos empresas en los sectores industrial, comercial y de servicios.',
-    'home.industries.list': 'Automotriz,Metal-mecánica,Industrial,Comercial,Servicios',
+    'home.industries.list': 'Automotriz,Metalúrgica,Mecánica,Industrial,Comercial,Servicios',
 
     'home.team.label': 'Nuestro equipo',
     'home.team.title': 'Lo más valioso de nuestra firma es nuestro equipo humano.',
     'home.team.body':
-      'Abogados bilingües especializados en litigio, derecho corporativo, cumplimiento normativo, propiedad intelectual y seguros.',
+      'Abogados especializados en litigio, derecho corporativo, cumplimiento normativo, propiedad intelectual y seguros.',
     'home.team.cta': 'Conoce a los abogados',
 
     'home.pubs.label': 'Publicaciones',
@@ -112,7 +112,7 @@ export const ui = {
     'about.values.3.body':
       'En toda clase de operaciones comerciales, con amplia experiencia en la realización de auditorías legales.',
     'about.offices.label': 'Presencia',
-    'about.offices.title': 'Oficinas en el norte, bajío y centro del país.',
+    'about.offices.title': 'Oficinas en el norte, bajío, centro y sureste del país.',
 
     'team.label': 'Abogados',
     'team.title': 'Lo más valioso de nuestra firma es nuestro equipo humano.',
@@ -213,7 +213,7 @@ export const ui = {
     'home.hero.lead':
       'We advise Mexican and foreign companies on investment, corporate operations, litigation and compliance, with the highest standards of professional ethics, quality and excellence.',
     'home.hero.secondary': 'Explore practice areas',
-    'home.hero.meta1': 'Northern · Bajío · Central Mexico',
+    'home.hero.meta1': 'Northern · Bajío · Central · Southeast Mexico',
     'home.hero.meta2': 'English / Español',
 
     'home.stats.areas': 'Practice areas',
@@ -246,12 +246,12 @@ export const ui = {
 
     'home.industries.label': 'Industries',
     'home.industries.title': 'We advise companies in the industrial, commercial and services sectors.',
-    'home.industries.list': 'Automotive,Metal-mechanic,Industrial,Commercial,Services',
+    'home.industries.list': 'Automotive,Metallurgic,Mechanic,Industrial,Commercial,Services',
 
     'home.team.label': 'Our team',
     'home.team.title': 'The most valuable asset of our firm is our people.',
     'home.team.body':
-      'Bilingual attorneys specialized in litigation, corporate law, compliance, intellectual property and insurance.',
+      'Attorneys specialized in litigation, corporate law, compliance, intellectual property and insurance.',
     'home.team.cta': 'Meet the attorneys',
 
     'home.pubs.label': 'Publications',
@@ -279,7 +279,7 @@ export const ui = {
     'about.values.3.body':
       'On all kinds of commercial transactions, with extensive experience in conducting legal audits.',
     'about.offices.label': 'Presence',
-    'about.offices.title': 'Offices in northern, Bajío and central Mexico.',
+    'about.offices.title': 'Offices in northern, Bajío, central and southeast Mexico.',
 
     'team.label': 'Attorneys',
     'team.title': 'The most valuable asset of our firm is our people.',

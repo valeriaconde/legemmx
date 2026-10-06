@@ -47,7 +47,7 @@ const tones = {
           class:list={['absolute inset-0', tone === 'light' ? 'opacity-40' : 'opacity-15']}
           style="background-image:repeating-linear-gradient(135deg,currentColor 0 1px,transparent 1px 11px)"
           aria-hidden="true"></span>
-        <span class="mono relative">[ {hint ?? alt} ]</span>
+        {hint !== '' && <span class="mono relative">[ {hint ?? alt} ]</span>}
       </div>
     )
   }

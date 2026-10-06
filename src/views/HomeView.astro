@@ -18,7 +18,7 @@ const stats = [
   { value: 300, prefix: '+', label: t('home.stats.clients') },
   { value: 150, prefix: '', label: t('home.stats.countries') },
   { value: 22, prefix: '', label: t('home.stats.specialties') },
-  { value: 3, prefix: '', label: t('home.stats.regions') },
+  { value: 40, prefix: '', label: t('home.stats.lawyers') },
 ];
 const why = [1, 2, 3, 4].map((n) => ({
   title: t(`home.why.${n}.title` as any),
@@ -221,7 +221,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
         </div>
         <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
           <p>
-            <span class="font-display text-7xl leading-none" data-count={attorneys.length}>{attorneys.length}</span>
+            <span class="font-display text-7xl leading-none" data-count={40}>40</span>
             <span class="mono ml-2 text-muted">{t('home.stats.lawyers')}</span>
           </p>
           <a href={path('team', lang)} class="btn btn-primary">
