@@ -65,15 +65,12 @@ export const ui = {
 
     'home.why.label': 'Por qué Legem',
     'home.why.title': 'Lo que nos distingue',
-    'home.why.1.title': 'Enfoque en inversión extranjera',
-    'home.why.1.body':
-      'Somos una firma dedicada a apoyar el crecimiento de la inversión extranjera en México: desde la constitución de la empresa hasta su operación diaria.',
-    'home.why.2.title': 'Experiencia en expansión de negocios',
-    'home.why.2.body':
-      'Contamos con años de experiencia implementando estrategias de expansión de negocios en México y en la realización de auditorías legales.',
-    'home.why.3.title': 'Alianzas nacionales e internacionales',
-    'home.why.3.body':
-      'Tenemos alianzas con firmas legales y contables que nos permiten brindar un servicio integral a nuestros clientes.',
+    'home.why.1.title': 'Experiencia y dominio',
+    'home.why.1.body': 'Equipo de abogados con posgrado y años de práctica',
+    'home.why.2.title': 'Presencia en todo México',
+    'home.why.2.body': 'A través de oficinas regionales y firmas aliadas',
+    'home.why.3.title': 'Prestigio y reconocimiento',
+    'home.why.3.body': 'Galardonados nacional e internacionalmente por entidades especializadas',
     'home.why.4.title': 'Inmediatez y excelencia',
     'home.why.4.body':
       'La inmediatez y la excelencia en nuestros servicios nos distinguen. Un equipo bilingüe que responde a tiempo.',
@@ -237,15 +234,12 @@ export const ui = {
 
     'home.why.label': 'Why Legem',
     'home.why.title': 'What sets us apart',
-    'home.why.1.title': 'Focused on foreign investment',
-    'home.why.1.body':
-      'We are dedicated to supporting the growth of foreign investment in Mexico — from incorporating your company to its day-to-day operation.',
-    'home.why.2.title': 'Business expansion experience',
-    'home.why.2.body':
-      'Years of experience implementing business expansion strategies in Mexico and conducting legal audits.',
-    'home.why.3.title': 'National and international alliances',
-    'home.why.3.body':
-      'Alliances with legal and accounting firms allow us to offer our clients an integral service.',
+    'home.why.1.title': 'Expertise & proficiency',
+    'home.why.1.body': 'A team of attorneys with advanced degrees and extensive professional experience',
+    'home.why.2.title': 'Nationwide presence in Mexico',
+    'home.why.2.body': 'Through regional offices and strategic partner firms',
+    'home.why.3.title': 'Reputation and recognition',
+    'home.why.3.body': 'Recognized with national and international awards by specialized institutions',
     'home.why.4.title': 'Immediacy and excellence',
     'home.why.4.body':
       'The immediacy and excellence of our services set us apart. A bilingual team that responds on time.',
