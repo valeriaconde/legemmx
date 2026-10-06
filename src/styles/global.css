@@ -11,8 +11,8 @@
    Sistema de diseño — cambia aquí colores y tipografías de todo el sitio
    ------------------------------------------------------------------ */
 @theme {
-  --color-paper: #f8f8f6;       /* fondo principal (blanco suave) */
-  --color-paper-2: #eeeeeb;     /* fondo alterno */
+  --color-paper: #f6f5f0;       /* fondo principal (marfil suave) */
+  --color-paper-2: #edeae3;     /* fondo alterno */
   --color-ink: #0d1624;         /* texto y secciones oscuras */
   --color-ink-2: #172234;
   --color-muted: #5a6371;       /* texto secundario */
@@ -20,7 +20,7 @@
   --color-brand-deep: #12307a;
   --color-brand-soft: #dbe3f6;
   --color-line: rgb(13 22 36 / 0.14);
-  --color-line-inverse: rgb(248 248 246 / 0.16);
+  --color-line-inverse: rgb(246 245 240 / 0.16);
 
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Instrument Serif', ui-serif, Georgia, serif;
