@@ -4,8 +4,7 @@ import PageHero from '@/components/PageHero.astro';
 import Media from '@/components/Media.astro';
 import CallToAction from '@/components/CallToAction.astro';
 import { useTranslations } from '@/i18n/ui';
-import { path, areaPath, type Lang } from '@/i18n/routes';
-import { practiceAreas } from '@/data/practice-areas';
+import { path, type Lang } from '@/i18n/routes';
 import { site } from '@/data/site';
 
 interface Props {
@@ -139,27 +138,6 @@ const values = [1, 2, 3].map((n) => ({
         }
       </ul>
     </div>
-  </section>
-
-  <section class="container-x py-24 md:py-32">
-    <p class="eyebrow" data-reveal>05 — {t('about.practice.label')}</p>
-    <ul class="mt-10" data-reveal-stagger>
-      {
-        practiceAreas.map((a) => (
-          <li class="hairline border-t last:border-b">
-            <a
-              href={areaPath(a.slug[lang], lang)}
-              class="group flex items-center justify-between gap-6 py-7 transition-colors hover:text-brand"
-            >
-              <span class="display-md">{a.name[lang]}</span>
-              <span class="mono text-muted group-hover:text-brand">
-                {a.specialties.length} {t('areas.specialties').toLowerCase()} →
-              </span>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
   </section>
 
   <CallToAction lang={lang} />

@@ -17,7 +17,7 @@ const { person: p, lang } = Astro.props;
           src={p.photo}
           alt={p.name}
           loading="lazy"
-          class="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+          class="h-full w-full object-cover object-top grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
         />
       ) : (
         <div class="flex h-full w-full items-center justify-center" aria-hidden="true">
