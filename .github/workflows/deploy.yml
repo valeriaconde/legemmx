@@ -6,16 +6,27 @@
 #   FTP_PASSWORD  → contraseña FTP
 #   FTP_DIR       → carpeta del sitio en el servidor (ej. /public_html/)
 #
-# Por ahora se ejecuta manualmente (pestaña "Actions" → "Publicar sitio" → "Run workflow").
-# Cuando el hosting confirme el acceso, descomenta el bloque "push" para publicar
-# automáticamente con cada cambio en la rama main.
+# Se publica solo con cada cambio que llegue a la rama main (merge de un pull request o push).
+# También se puede ejecutar a mano: pestaña "Actions" → "Publicar sitio" → "Run workflow".
+# El destino lo define el secreto FTP_DIR (carpeta de prueba o /public_html/ en producción).
 
 name: Publicar sitio
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
+    # No publicar si solo cambian archivos que no forman parte del sitio.
+    paths-ignore:
+      - 'Claude outputs/**'
+      - 'extras/**'
+      - 'fuentes/**'
+      - '**/*.md'
+
+# Si llegan dos cambios seguidos, el segundo espera a que termine el primero.
+concurrency:
+  group: publicar-sitio
+  cancel-in-progress: false
 
 jobs:
   deploy:
