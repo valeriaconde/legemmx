@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import relativePaths from './src/integrations/relative-paths.mjs';
 
 // https://docs.astro.build/en/reference/configuration-reference/
 export default defineConfig({
@@ -24,6 +25,8 @@ export default defineConfig({
         locales: { es: 'es-MX', en: 'en-US' },
       },
     }),
+    // Debe ir al final: reescribe las rutas de dist/ a relativas cuando termina el build.
+    relativePaths(),
   ],
   vite: {
     plugins: [tailwindcss()],
