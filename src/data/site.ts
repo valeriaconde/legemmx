@@ -8,7 +8,7 @@ export const site = {
   url: 'https://legem.mx',
 
   // TODO: confirmar el correo que recibe las consultas del formulario y del sitio.
-  contactEmail: 'contacto@legem.mx',
+  contactEmail: 'oconde@legem.mx',
 
   // TODO: agregar teléfono principal si se desea mostrar (formato +52 ...).
   phone: '',

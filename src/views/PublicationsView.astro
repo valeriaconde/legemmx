@@ -23,21 +23,7 @@ const sections = await Promise.all(
 ---
 
 <Base lang={lang} title={t('pubs.label')} altPath={path('publications', altLang)}>
-  <PageHero label={t('pubs.label')} title={t('pubs.title')} lead={t('pubs.lead')}>
-    <nav class="mt-12 flex flex-wrap gap-2" aria-label={t('pubs.label')} data-hero-item>
-      {
-        sections.map(({ cat, items }) => (
-          <a
-            href={publicationPath(cat, lang)}
-            class="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm transition-colors hover:border-ink"
-          >
-            {t(`pubs.${cat}` as const)}
-            <span class="mono text-muted">{items.length}</span>
-          </a>
-        ))
-      }
-    </nav>
-  </PageHero>
+  <PageHero label={t('pubs.label')} title={t('pubs.title')} lead={t('pubs.lead')} />
 
   {
     sections

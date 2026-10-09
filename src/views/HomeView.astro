@@ -34,7 +34,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
     <div class="absolute inset-0 -z-10">
       <!-- TODO: foto o video del hero. Sugerencia: detalle arquitectónico / sala de juntas en tonos fríos. -->
       <Media
-        src="/images/hero6.jpg"
+        src="/images/hero1.jpeg"
         alt=""
         hint={lang === 'es' ? 'Foto hero · arquitectura / sala de juntas' : 'Hero photo · architecture / boardroom'}
         ratio="auto"
@@ -53,11 +53,6 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
         <p class="max-w-xl text-lg leading-relaxed text-paper/75 lg:col-span-6" data-hero-item>
           {t('home.hero.lead')}
         </p>
-        <div class="flex flex-wrap gap-3 lg:col-span-6 lg:justify-end" data-hero-item>
-          <a href={path('contact', lang)} class="btn btn-primary !px-6 !py-4">
-            {t('nav.cta')} <span class="btn-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
       </div>
 
       <div
@@ -230,12 +225,15 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
         </div>
       </div>
       <Media
-        src="/images/equipo-grupal.jpg"
+        src="/images/equipo7.png"
         alt={lang === 'es' ? 'Abogados de Legem' : 'Legem attorneys'}
         hint={lang === 'es' ? 'Foto grupal del equipo' : 'Team group photo'}
         ratio="5/4"
         tone="brand"
         class="h-full min-h-[320px]"
+        position="72% 50%"
+        zoom={1.06}
+        parallaxAmount={0.05}
         parallax
       />
     </div>

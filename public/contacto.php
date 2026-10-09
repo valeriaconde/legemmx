@@ -5,7 +5,7 @@
  *
  * ⚠️ CONFIGURACIÓN — revisa estas líneas antes de publicar:
  */
-$DESTINATARIOS = ['contacto@legem.mx'];      // TODO: correos que reciben las consultas
+$DESTINATARIOS = ['oconde@legem.mx'];      // TODO: correos que reciben las consultas
 $REMITENTE     = 'sitio-web@legem.mx';       // TODO: una cuenta real del dominio (mejora la entrega)
 $ASUNTO        = 'Nueva consulta desde legem.mx';
 

@@ -11,10 +11,10 @@ export const ui = {
       'Firma legal mexicana especializada en inversión extranjera, derecho corporativo, litigio, cumplimiento normativo y seguros. Atención en español e inglés.',
     'nav.about': 'Firma',
     'nav.areas': 'Áreas de práctica',
-    'nav.team': 'Abogados',
+    'nav.team': 'Equipo',
     'nav.publications': 'Publicaciones',
     'nav.contact': 'Contacto',
-    'nav.cta': 'Agenda una consulta',
+    'nav.cta': 'Hablemos',
     'nav.menu': 'Menú',
     'nav.close': 'Cerrar',
     'nav.skip': 'Saltar al contenido',
@@ -41,7 +41,7 @@ export const ui = {
     'home.hero.eyebrow': 'Legem · Attorneys at Law',
     'home.hero.title': 'Certeza legal para hacer negocios en México.',
     'home.hero.lead':
-      'Asesoramos a empresas nacionales y extranjeras en inversión, operación corporativa, litigio y cumplimiento normativo, con los más altos estándares de ética profesional, calidad y excelencia.',
+      'Brindamos servicios de consultoría legal de negocios a empresas nacionales y extranjeras, con énfasis en la apertura y expansión de operaciones en México, con los más altos estándares de ética profesional, calidad y excelencia.',
     'home.hero.secondary': 'Ver áreas de práctica',
     'home.hero.meta1': 'Norte · Bajío · Centro · Sureste de México',
     'home.hero.meta2': 'Español / English',
@@ -55,7 +55,7 @@ export const ui = {
 
     'home.intro.label': 'La firma',
     'home.intro.statement':
-      'Somos una firma legal con más de 25 años de experiencia dedicada al crecimiento de la inversión extranjera en México.',
+      'Somos una firma de consultoría legal de negocios con más de 25 años de experiencia dedicada al crecimiento de la inversión extranjera en México.',
     'home.intro.body':
       'Brindamos servicios de excelencia con altos estándares de ética para que nuestros clientes desarrollen sus actividades y proyectos de expansión de negocios.',
     'home.intro.cta': 'Conoce la firma',
@@ -186,10 +186,10 @@ export const ui = {
       'Mexican law firm specialized in foreign investment, corporate law, litigation, compliance and insurance. Service in English and Spanish.',
     'nav.about': 'Firm',
     'nav.areas': 'Practice areas',
-    'nav.team': 'Attorneys',
+    'nav.team': 'Team',
     'nav.publications': 'Publications',
     'nav.contact': 'Contact',
-    'nav.cta': 'Book a consultation',
+    'nav.cta': 'Let’s talk',
     'nav.menu': 'Menu',
     'nav.close': 'Close',
     'nav.skip': 'Skip to content',
@@ -216,7 +216,7 @@ export const ui = {
     'home.hero.eyebrow': 'Legem · Attorneys at Law',
     'home.hero.title': 'Legal certainty for doing business in Mexico.',
     'home.hero.lead':
-      'We advise Mexican and foreign companies on investment, corporate operations, litigation and compliance, with the highest standards of professional ethics, quality and excellence.',
+      'We provide business legal consulting services to Mexican and foreign companies, with an emphasis on the opening and expansion of operations in Mexico, with the highest standards of professional ethics, quality and excellence.',
     'home.hero.secondary': 'Explore practice areas',
     'home.hero.meta1': 'Northern · Bajío · Central · Southeast Mexico',
     'home.hero.meta2': 'English / Español',
@@ -229,7 +229,7 @@ export const ui = {
     'home.stats.countries': 'Countries with presence',
 
     'home.intro.label': 'The firm',
-    'home.intro.statement': 'We are a law firm with more than 25 years of experience dedicated to the growth of foreign investment in Mexico.',
+    'home.intro.statement': 'We are a legal business consulting firm with more than 25 years of experience dedicated to the growth of foreign investment in Mexico.',
     'home.intro.body':
       'We provide excellence-driven services with high ethical standards, enabling our clients to carry out their activities and business expansion projects.',
     'home.intro.cta': 'About the firm',
