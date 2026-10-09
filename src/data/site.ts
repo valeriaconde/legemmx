@@ -20,7 +20,7 @@ export const site = {
       region: { es: 'Norte', en: 'Northern Mexico' },
       city: 'San Pedro Garza García',
       address: '',
-      image: '',
+      image: '/images/norte.jpg',
     },
     { region: { es: 'Bajío', en: 'Bajío' }, city: 'Aguascalientes', address: '', image: '' },
     { region: { es: 'Centro', en: 'Central Mexico' }, city: 'Ciudad de México', address: '', image: '' },
