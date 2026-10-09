@@ -2,7 +2,6 @@
 import Base from '@/layouts/Base.astro';
 import { useTranslations } from '@/i18n/ui';
 import { path, type Lang } from '@/i18n/routes';
-import { practiceAreas } from '@/data/practice-areas';
 import { site } from '@/data/site';
 
 interface Props {
@@ -12,8 +11,6 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const altLang: Lang = lang === 'es' ? 'en' : 'es';
 
-const field =
-  'mt-2 w-full rounded-xl border border-line bg-paper px-4 py-3.5 text-base transition-colors placeholder:text-muted/60 focus:border-brand focus:outline-none';
 const label = 'mono text-muted';
 ---
 
@@ -25,7 +22,10 @@ const label = 'mono text-muted';
         <h1 class="display-lg mt-8" data-split="load">{t('contact.title')}</h1>
         <p class="lead mt-8 max-w-md" data-hero-item>{t('contact.lead')}</p>
 
-        <dl class="mt-14 space-y-8" data-hero-item>
+      </div>
+
+      <div class="lg:col-span-6 lg:col-start-7 lg:pt-4">
+        <dl class="space-y-8" data-hero-item>
           <div class="hairline border-t pt-6">
             <dt class={label}>{t('contact.direct')}</dt>
             <dd class="mt-3">
@@ -55,116 +55,6 @@ const label = 'mono text-muted';
           </div>
         </dl>
       </div>
-
-      <div class="lg:col-span-6 lg:col-start-7">
-        <form
-          id="contact-form"
-          action={site.form.endpoint}
-          method="POST"
-          class="rounded-[28px] bg-paper-2 p-6 md:p-10"
-          data-reveal
-          data-success={t('contact.form.success')}
-          data-error={t('contact.form.error')}
-          data-sending={t('contact.form.sending')}
-          novalidate
-        >
-          <input type="hidden" name="lang" value={lang} />
-          <!-- Campo trampa contra spam (los humanos no lo ven) -->
-          <div class="hidden" aria-hidden="true">
-            <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
-          </div>
-
-          <div class="grid gap-6 sm:grid-cols-2">
-            <label class="block sm:col-span-2">
-              <span class={label}>{t('contact.form.name')} *</span>
-              <input class={field} type="text" name="name" autocomplete="name" required />
-            </label>
-            <label class="block">
-              <span class={label}>{t('contact.form.email')} *</span>
-              <input class={field} type="email" name="email" autocomplete="email" required />
-            </label>
-            <label class="block">
-              <span class={label}>{t('contact.form.phone')}</span>
-              <input class={field} type="tel" name="phone" autocomplete="tel" />
-            </label>
-            <label class="block">
-              <span class={label}>{t('contact.form.company')}</span>
-              <input class={field} type="text" name="company" autocomplete="organization" />
-            </label>
-            <label class="block">
-              <span class={label}>{t('contact.form.area')}</span>
-              <select class={field} name="area">
-                <option value="">{t('contact.form.areaPlaceholder')}</option>
-                {practiceAreas.map((a) => <option value={a.name[lang]}>{a.name[lang]}</option>)}
-                <option value="Otro">{t('contact.form.areaOther')}</option>
-              </select>
-            </label>
-            <label class="block sm:col-span-2">
-              <span class={label}>{t('contact.form.message')} *</span>
-              <textarea class={`${field} min-h-[160px] resize-y`} name="message" rows="6" required></textarea>
-            </label>
-            <label class="flex items-start gap-3 text-sm sm:col-span-2">
-              <input type="checkbox" name="consent" value="yes" required class="mt-1 h-4 w-4 accent-[var(--color-brand)]" />
-              <span>
-                {t('contact.form.consent')}{' '}
-                <a href={path('privacy', lang)} class="text-brand underline underline-offset-2" target="_blank"
-                  >{t('footer.privacy').toLowerCase()}</a
-                >. *
-              </span>
-            </label>
-          </div>
-
-          <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
-            <button type="submit" class="btn btn-primary !px-7 !py-4">
-              <span data-label>{t('contact.form.submit')}</span>
-              <span class="btn-arrow" aria-hidden="true">→</span>
-            </button>
-            <p class="text-sm text-muted">* {t('contact.form.required')}</p>
-          </div>
-          <p id="form-status" class="mt-6 hidden rounded-xl px-4 py-3 text-sm" role="status" aria-live="polite"></p>
-        </form>
-      </div>
     </div>
   </section>
 </Base>
-
-<script>
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
-  if (form) {
-    const status = document.getElementById('form-status')!;
-    const button = form.querySelector('button[type=submit]') as HTMLButtonElement;
-    const label = button.querySelector('[data-label]')!;
-    const original = label.textContent;
-
-    const show = (msg: string, ok: boolean) => {
-      status.textContent = msg;
-      status.classList.remove('hidden');
-      status.className = `mt-6 rounded-xl px-4 py-3 text-sm ${ok ? 'bg-brand-soft text-brand-deep' : 'bg-red-50 text-red-800'}`;
-    };
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      button.disabled = true;
-      label.textContent = form.dataset.sending!;
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' },
-        });
-        if (!res.ok) throw new Error(String(res.status));
-        form.reset();
-        show(form.dataset.success!, true);
-      } catch {
-        show(form.dataset.error!, false);
-      } finally {
-        button.disabled = false;
-        label.textContent = original;
-      }
-    });
-  }
-</script>

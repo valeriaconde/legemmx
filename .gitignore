@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # carpeta de archivos que Claude entrega en el chat
 Claude outputs/
+
+# originales pesados (fotos .tiff, imágenes sin optimizar): solo en tu computadora
+fuentes/

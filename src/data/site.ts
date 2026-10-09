@@ -34,7 +34,7 @@ export const site = {
 
   /**
    * Formulario de contacto.
-   * - 'php': usa /contacto.php (incluido en /public). Requiere que el hosting soporte PHP.
+   * - 'php': usa /contacto.php (guardado en /extras; el formulario está desactivado por ahora). Requiere que el hosting soporte PHP.
    * - Si el hosting no soporta PHP, cambia `endpoint` por la URL de Formspree u otro servicio.
    */
   form: {

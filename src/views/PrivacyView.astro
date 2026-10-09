@@ -31,8 +31,8 @@ const altLang: Lang = lang === 'es' ? 'en' : 'es';
               <strong>Contenido pendiente.</strong> Aquí se publicará el Aviso de Privacidad de Legem Attorneys at Law.
             </p>
             <p>
-              Para cualquier duda sobre el tratamiento de sus datos personales, escríbanos a{' '}
-              <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+              Para cualquier duda sobre el tratamiento de sus datos personales, consulte nuestra{' '}
+              <a href={path('contact', lang)}>página de contacto</a>.
             </p>
           </>
         ) : (
@@ -41,8 +41,8 @@ const altLang: Lang = lang === 'es' ? 'en' : 'es';
               <strong>Content pending.</strong> Legem Attorneys at Law’s Privacy Notice will be published here.
             </p>
             <p>
-              For any questions about how we process personal data, please write to{' '}
-              <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+              For any questions about how we process personal data, please see our{' '}
+              <a href={path('contact', lang)}>contact page</a>.
             </p>
           </>
         )

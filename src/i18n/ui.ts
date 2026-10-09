@@ -83,8 +83,9 @@ export const ui = {
     'home.team.label': 'Nuestro equipo',
     'home.team.title': 'Lo más valioso de nuestra firma es nuestro equipo humano.',
     'home.team.body':
-      'Abogados especializados en litigio, derecho corporativo, cumplimiento normativo, propiedad intelectual y seguros.',
-    'home.team.cta': 'Conoce a los abogados',
+      'Especialistas en litigio, derecho corporativo, cumplimiento normativo, propiedad intelectual y seguros.',
+    'home.team.count': 'Especialistas',
+    'home.team.cta': 'Conoce al equipo',
 
     'home.pubs.label': 'Publicaciones',
     'home.pubs.title': 'Boletines y análisis',
@@ -256,8 +257,9 @@ export const ui = {
     'home.team.label': 'Our team',
     'home.team.title': 'The most valuable asset of our firm is our people.',
     'home.team.body':
-      'Attorneys specialized in litigation, corporate law, compliance, intellectual property and insurance.',
-    'home.team.cta': 'Meet the attorneys',
+      'Specialists in litigation, corporate law, compliance, intellectual property and insurance.',
+    'home.team.count': 'Specialists',
+    'home.team.cta': 'Meet the team',
 
     'home.pubs.label': 'Publications',
     'home.pubs.title': 'Newsletters and insights',
