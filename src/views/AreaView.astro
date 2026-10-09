@@ -1,6 +1,5 @@
 ---
 import Base from '@/layouts/Base.astro';
-import Media from '@/components/Media.astro';
 import CallToAction from '@/components/CallToAction.astro';
 import { useTranslations } from '@/i18n/ui';
 import { path, areaPath, type Lang } from '@/i18n/routes';
@@ -39,18 +38,6 @@ const people = attorneys.filter((p) => p.groups.includes(area.id as any));
       </div>
       <p class="lead lg:col-span-5" data-hero-item>{area.summary[lang]}</p>
     </div>
-  </section>
-
-  <section class="container-x">
-    <Media
-      src={area.image}
-      alt={area.name[lang]}
-      hint={`${lang === 'es' ? 'Foto' : 'Photo'} · ${area.name[lang]}`}
-      ratio="21/9"
-      class="rounded-[28px]"
-      parallax
-      eager
-    />
   </section>
 
   <section class="container-x py-24 md:py-32">

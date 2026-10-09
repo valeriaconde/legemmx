@@ -11,10 +11,10 @@ export const ui = {
       'Firma legal mexicana especializada en inversión extranjera, derecho corporativo, litigio, cumplimiento normativo y seguros. Atención en español e inglés.',
     'nav.about': 'Firma',
     'nav.areas': 'Áreas de práctica',
-    'nav.team': 'Abogados',
+    'nav.team': 'Equipo',
     'nav.publications': 'Publicaciones',
     'nav.contact': 'Contacto',
-    'nav.cta': 'Agenda una consulta',
+    'nav.cta': 'Hablemos',
     'nav.menu': 'Menú',
     'nav.close': 'Cerrar',
     'nav.skip': 'Saltar al contenido',
@@ -37,26 +37,27 @@ export const ui = {
     'footer.contact': 'Contacto',
     'footer.privacy': 'Aviso de privacidad',
     'footer.rights': 'Todos los derechos reservados.',
-    'footer.languages': 'Atención en español e inglés',
 
     'home.hero.eyebrow': 'Legem · Attorneys at Law',
     'home.hero.title': 'Certeza legal para hacer negocios en México.',
     'home.hero.lead':
-      'Asesoramos a empresas nacionales y extranjeras en inversión, operación corporativa, litigio y cumplimiento normativo, con los más altos estándares de ética profesional, calidad y excelencia.',
+      'Brindamos servicios de consultoría legal de negocios a empresas nacionales y extranjeras, con énfasis en la apertura y expansión de operaciones en México, con los más altos estándares de ética profesional, calidad y excelencia.',
     'home.hero.secondary': 'Ver áreas de práctica',
-    'home.hero.meta1': 'Norte · Bajío · Centro de México',
+    'home.hero.meta1': 'Norte · Bajío · Centro · Sureste de México',
     'home.hero.meta2': 'Español / English',
 
     'home.stats.areas': 'Áreas de práctica',
     'home.stats.specialties': 'Especialidades legales',
     'home.stats.lawyers': 'Abogados especialistas',
     'home.stats.regions': 'Regiones con oficinas',
+    'home.stats.clients': 'Clientes permanentes',
+    'home.stats.countries': 'Países con presencia',
 
     'home.intro.label': 'La firma',
     'home.intro.statement':
-      'Somos una firma legal dedicada a apoyar el crecimiento de la inversión extranjera en México.',
+      'Somos una firma de consultoría legal de negocios con más de 25 años de experiencia dedicada al crecimiento de la inversión extranjera en México.',
     'home.intro.body':
-      'Profesionales especializados en distintas áreas del Derecho, con oficinas en el norte, bajío y centro del país. Nuestro compromiso es apoyar el crecimiento de nuestros clientes a través de la prestación oportuna de servicios legales orientados a la protección de sus intereses personales, económicos y comerciales.',
+      'Brindamos servicios de excelencia con altos estándares de ética para que nuestros clientes desarrollen sus actividades y proyectos de expansión de negocios.',
     'home.intro.cta': 'Conoce la firma',
 
     'home.areas.label': 'Áreas de práctica',
@@ -64,15 +65,12 @@ export const ui = {
 
     'home.why.label': 'Por qué Legem',
     'home.why.title': 'Lo que nos distingue',
-    'home.why.1.title': 'Enfoque en inversión extranjera',
-    'home.why.1.body':
-      'Somos una firma dedicada a apoyar el crecimiento de la inversión extranjera en México: desde la constitución de la empresa hasta su operación diaria.',
-    'home.why.2.title': 'Experiencia en expansión de negocios',
-    'home.why.2.body':
-      'Contamos con años de experiencia implementando estrategias de expansión de negocios en México y en la realización de auditorías legales.',
-    'home.why.3.title': 'Alianzas nacionales e internacionales',
-    'home.why.3.body':
-      'Tenemos alianzas con firmas legales y contables que nos permiten brindar un servicio integral a nuestros clientes.',
+    'home.why.1.title': 'Experiencia y dominio',
+    'home.why.1.body': 'Equipo de abogados con posgrado y años de práctica',
+    'home.why.2.title': 'Presencia en todo México',
+    'home.why.2.body': 'A través de oficinas regionales y firmas aliadas',
+    'home.why.3.title': 'Prestigio y reconocimiento',
+    'home.why.3.body': 'Galardonados nacional e internacionalmente por entidades especializadas',
     'home.why.4.title': 'Inmediatez y excelencia',
     'home.why.4.body':
       'La inmediatez y la excelencia en nuestros servicios nos distinguen. Un equipo bilingüe que responde a tiempo.',
@@ -80,13 +78,14 @@ export const ui = {
     'home.industries.label': 'Sectores',
     'home.industries.title':
       'Asesoramos empresas en los sectores industrial, comercial y de servicios.',
-    'home.industries.list': 'Automotriz,Metal-mecánica,Industrial,Comercial,Servicios',
+    'home.industries.list': 'Automotriz,Metalúrgica,Mecánica,Industrial,Comercial,Servicios',
 
     'home.team.label': 'Nuestro equipo',
     'home.team.title': 'Lo más valioso de nuestra firma es nuestro equipo humano.',
     'home.team.body':
-      'Abogados bilingües especializados en litigio, derecho corporativo, cumplimiento normativo, propiedad intelectual y seguros.',
-    'home.team.cta': 'Conoce a los abogados',
+      'Especialistas en litigio, derecho corporativo, cumplimiento normativo, propiedad intelectual y seguros.',
+    'home.team.count': 'Especialistas',
+    'home.team.cta': 'Conoce al equipo',
 
     'home.pubs.label': 'Publicaciones',
     'home.pubs.title': 'Boletines y análisis',
@@ -114,19 +113,24 @@ export const ui = {
     'about.values.3.body':
       'En toda clase de operaciones comerciales, con amplia experiencia en la realización de auditorías legales.',
     'about.offices.label': 'Presencia',
-    'about.offices.title': 'Oficinas en el norte, bajío y centro del país.',
+    'about.offices.title': 'Oficinas en el norte, bajío, centro y sureste del país.',
 
     'team.label': 'Abogados',
-    'team.title': 'Lo más valioso de nuestra firma es nuestro equipo humano.',
+    'team.title': 'Nuestros líderes',
     'team.lead':
-      'Quienes integramos Legem estamos comprometidos con trabajar en diversas acciones integrales que definen la actividad de la firma en su totalidad y que implican el diálogo e interacción con nuestros grupos de interés.',
-    'team.filter': 'Filtrar por área',
-    'team.all': 'Todos',
+      'Conoce a las personas que lideran nuestras áreas de práctica. Cada una cuenta con un equipo de abogados y especialistas que trabaja a su lado.',
+    'team.note.title': 'Y un equipo completo detrás de cada área.',
+    'team.note.body':
+      'Esta página presenta únicamente a quienes dirigen cada área. Si quieres saber quién puede atender tu caso, escríbenos y te ponemos en contacto con la persona indicada.',
+    'team.note.cta': 'Contáctanos',
+    'team.bio': 'Ver trayectoria',
+    'team.close': 'Cerrar',
+    'team.bio.experience': 'Experiencia profesional',
+    'team.bio.background': 'Trayectoria',
+    'team.bio.education': 'Formación',
     'team.languages': 'Idiomas',
     'team.area': 'Área',
     'team.email': 'Correo',
-    'team.admin': 'Administración',
-    'team.count': 'profesionales',
 
     'areas.label': 'Áreas de práctica',
     'areas.title': 'Especialización en cada materia que su empresa necesita.',
@@ -183,10 +187,10 @@ export const ui = {
       'Mexican law firm specialized in foreign investment, corporate law, litigation, compliance and insurance. Service in English and Spanish.',
     'nav.about': 'Firm',
     'nav.areas': 'Practice areas',
-    'nav.team': 'Attorneys',
+    'nav.team': 'Team',
     'nav.publications': 'Publications',
     'nav.contact': 'Contact',
-    'nav.cta': 'Book a consultation',
+    'nav.cta': 'Let’s talk',
     'nav.menu': 'Menu',
     'nav.close': 'Close',
     'nav.skip': 'Skip to content',
@@ -209,25 +213,26 @@ export const ui = {
     'footer.contact': 'Contact',
     'footer.privacy': 'Privacy notice',
     'footer.rights': 'All rights reserved.',
-    'footer.languages': 'Service in English and Spanish',
 
     'home.hero.eyebrow': 'Legem · Attorneys at Law',
     'home.hero.title': 'Legal certainty for doing business in Mexico.',
     'home.hero.lead':
-      'We advise Mexican and foreign companies on investment, corporate operations, litigation and compliance, with the highest standards of professional ethics, quality and excellence.',
+      'We provide business legal consulting services to Mexican and foreign companies, with an emphasis on the opening and expansion of operations in Mexico, with the highest standards of professional ethics, quality and excellence.',
     'home.hero.secondary': 'Explore practice areas',
-    'home.hero.meta1': 'Northern · Bajío · Central Mexico',
+    'home.hero.meta1': 'Northern · Bajío · Central · Southeast Mexico',
     'home.hero.meta2': 'English / Español',
 
     'home.stats.areas': 'Practice areas',
     'home.stats.specialties': 'Legal specialties',
     'home.stats.lawyers': 'Specialized attorneys',
     'home.stats.regions': 'Regions with offices',
+    'home.stats.clients': 'Permanent clients',
+    'home.stats.countries': 'Countries with presence',
 
     'home.intro.label': 'The firm',
-    'home.intro.statement': 'We are a law firm dedicated to supporting the growth of foreign investment in Mexico.',
+    'home.intro.statement': 'We are a legal business consulting firm with more than 25 years of experience dedicated to the growth of foreign investment in Mexico.',
     'home.intro.body':
-      'Professionals who specialize in a variety of legal disciplines, with offices in northern, Bajío and central Mexico. Our commitment is to help our clients grow by providing timely legal services oriented towards protecting their personal, economic and commercial interests.',
+      'We provide excellence-driven services with high ethical standards, enabling our clients to carry out their activities and business expansion projects.',
     'home.intro.cta': 'About the firm',
 
     'home.areas.label': 'Practice areas',
@@ -235,28 +240,26 @@ export const ui = {
 
     'home.why.label': 'Why Legem',
     'home.why.title': 'What sets us apart',
-    'home.why.1.title': 'Focused on foreign investment',
-    'home.why.1.body':
-      'We are dedicated to supporting the growth of foreign investment in Mexico — from incorporating your company to its day-to-day operation.',
-    'home.why.2.title': 'Business expansion experience',
-    'home.why.2.body':
-      'Years of experience implementing business expansion strategies in Mexico and conducting legal audits.',
-    'home.why.3.title': 'National and international alliances',
-    'home.why.3.body':
-      'Alliances with legal and accounting firms allow us to offer our clients an integral service.',
+    'home.why.1.title': 'Expertise & proficiency',
+    'home.why.1.body': 'A team of attorneys with advanced degrees and extensive professional experience',
+    'home.why.2.title': 'Nationwide presence in Mexico',
+    'home.why.2.body': 'Through regional offices and strategic partner firms',
+    'home.why.3.title': 'Reputation and recognition',
+    'home.why.3.body': 'Recognized with national and international awards by specialized institutions',
     'home.why.4.title': 'Immediacy and excellence',
     'home.why.4.body':
       'The immediacy and excellence of our services set us apart. A bilingual team that responds on time.',
 
     'home.industries.label': 'Industries',
     'home.industries.title': 'We advise companies in the industrial, commercial and services sectors.',
-    'home.industries.list': 'Automotive,Metal-mechanic,Industrial,Commercial,Services',
+    'home.industries.list': 'Automotive,Metallurgic,Mechanic,Industrial,Commercial,Services',
 
     'home.team.label': 'Our team',
     'home.team.title': 'The most valuable asset of our firm is our people.',
     'home.team.body':
-      'Bilingual attorneys specialized in litigation, corporate law, compliance, intellectual property and insurance.',
-    'home.team.cta': 'Meet the attorneys',
+      'Specialists in litigation, corporate law, compliance, intellectual property and insurance.',
+    'home.team.count': 'Specialists',
+    'home.team.cta': 'Meet the team',
 
     'home.pubs.label': 'Publications',
     'home.pubs.title': 'Newsletters and insights',
@@ -283,19 +286,24 @@ export const ui = {
     'about.values.3.body':
       'On all kinds of commercial transactions, with extensive experience in conducting legal audits.',
     'about.offices.label': 'Presence',
-    'about.offices.title': 'Offices in northern, Bajío and central Mexico.',
+    'about.offices.title': 'Offices in northern, Bajío, central and southeast Mexico.',
 
     'team.label': 'Attorneys',
-    'team.title': 'The most valuable asset of our firm is our people.',
+    'team.title': 'Our Leadership',
     'team.lead':
-      'At Legem, we are committed to working on integrated actions that define the activity of the firm as a whole and that involve dialogue and interaction with our stakeholders.',
-    'team.filter': 'Filter by area',
-    'team.all': 'All',
+      'Meet the people who lead our practice areas. Each one works alongside a team of attorneys and specialists.',
+    'team.note.title': 'And a full team behind every area.',
+    'team.note.body':
+      'This page presents only those who lead each area. If you would like to know who can handle your matter, write to us and we will connect you with the right person.',
+    'team.note.cta': 'Contact us',
+    'team.bio': 'View background',
+    'team.close': 'Close',
+    'team.bio.experience': 'Professional experience',
+    'team.bio.background': 'Background',
+    'team.bio.education': 'Education',
     'team.languages': 'Languages',
     'team.area': 'Area',
     'team.email': 'Email',
-    'team.admin': 'Administration',
-    'team.count': 'professionals',
 
     'areas.label': 'Practice areas',
     'areas.title': 'Specialized counsel in every matter your company needs.',

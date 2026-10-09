@@ -1,0 +1,251 @@
+---
+/**
+ * Animación de entrada del inicio:
+ * la cita de Aristóteles aparece palabra por palabra a pantalla completa
+ * y después se reduce hasta su lugar en la parte superior del hero.
+ *
+ * - Solo se muestra al llegar al sitio desde fuera (no al navegar entre páginas).
+ * - Se puede saltar con clic, tecla, rueda del ratón o toque.
+ * - No aparece si el visitante tiene activado "reducir movimiento".
+ */
+import type { Lang } from '@/i18n/routes';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const quote = '“We are what we repeatedly do. Excellence, then, is not an act, but a habit.”';
+const words = quote.split(' ');
+---
+
+<div id="intro" class="intro-overlay">
+  <div class="intro-quote" aria-hidden="true">
+    <div class="intro-inner">
+    <p class="intro-text" lang="en">
+      {
+        words.map((w, i) => (
+          <>
+            <span class="intro-word">{w}</span>
+            {i < words.length - 1 && ' '}
+          </>
+        ))
+      }
+    </p>
+    <p class="intro-cite mono">— Aristotle</p>
+    </div>
+  </div>
+  <button type="button" class="intro-skip mono" data-intro-skip>
+    {lang === 'es' ? 'Saltar' : 'Skip'} →
+  </button>
+</div>
+
+<style>
+  .intro-overlay {
+    display: none;
+  }
+  :global(html.intro) .intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: clamp(1.25rem, 5vw, 4rem);
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  /* Mientras corre la animación, la cabecera espera */
+  :global(html.intro #site-header) {
+    visibility: hidden;
+  }
+  .intro-quote {
+    width: min(100%, 72rem);
+    text-align: center;
+  }
+  .intro-text {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 6vw, 5.9rem);
+    line-height: var(--quote-leading);
+    transform-origin: 0 0;
+    will-change: transform, opacity;
+  }
+  .intro-inner {
+    display: inline-block;
+  }
+  /* Modo "encoger": bloque centrado en pantalla, texto alineado a la izquierda como en el hero */
+  .is-flip .intro-inner {
+    text-align: left;
+  }
+  .is-flip .intro-text {
+    display: block;
+  }
+  .intro-word {
+    display: inline-block;
+    opacity: 0;
+    will-change: transform, opacity, filter;
+  }
+  .intro-cite {
+    margin-top: 2rem;
+    color: rgb(244 241 234 / 0.5);
+    opacity: 0;
+  }
+  .intro-skip {
+    position: absolute;
+    right: clamp(1.25rem, 4vw, 3rem);
+    bottom: clamp(1.25rem, 4vw, 2.5rem);
+    padding: 0.6rem 0.2rem;
+    color: rgb(244 241 234 / 0.45);
+    transition: color 0.3s;
+  }
+  .intro-skip:hover,
+  .intro-skip:focus-visible {
+    color: var(--color-paper);
+  }
+
+  /* Seguridad: si el JavaScript fallara, la capa desaparece sola */
+  :global(html.intro) .intro-overlay {
+    animation: intro-failsafe 0.01s linear 9s forwards;
+  }
+  @keyframes intro-failsafe {
+    to {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const root = document.documentElement;
+  const overlay = document.getElementById('intro');
+
+  if (overlay && root.classList.contains('intro')) {
+    const quote = overlay.querySelector<HTMLElement>('.intro-quote')!;
+    const text = overlay.querySelector<HTMLElement>('.intro-text')!;
+    const words = overlay.querySelectorAll<HTMLElement>('.intro-word');
+    const cite = overlay.querySelector<HTMLElement>('.intro-cite')!;
+    const skipBtn = overlay.querySelector<HTMLButtonElement>('[data-intro-skip]')!;
+    const target = document.querySelector<HTMLElement>('[data-intro-target]');
+    const targetText = target?.querySelector<HTMLElement>('p') ?? null;
+    const targetCaption = target?.querySelector<HTMLElement>('figcaption') ?? null;
+    const header = document.getElementById('site-header');
+
+    // La animación de respaldo de CSS ya no hace falta
+    overlay.style.animation = 'none';
+    window.scrollTo(0, 0);
+    if (target) gsap.set(target, { autoAlpha: 0 });
+
+    /**
+     * Prepara la cita grande para que tenga exactamente los mismos cortes de línea
+     * que la cita pequeña del hero. Así, al encogerse, cae justo en su lugar.
+     * En pantallas angostas (celular) no es posible con un tamaño legible,
+     * y se usa un fundido en su lugar.
+     */
+    const prepare = (): boolean => {
+      if (!target || !targetText) return false;
+      const tStyle = getComputedStyle(targetText);
+      const tFont = parseFloat(tStyle.fontSize);
+      const tWidth = targetText.getBoundingClientRect().width;
+      const widthEm = tWidth / tFont; // ancho de la cita pequeña, medido en "letras"
+
+      const desired = parseFloat(getComputedStyle(text).fontSize);
+      const available = quote.getBoundingClientRect().width;
+      const font = Math.min(desired, available / widthEm);
+      if (font < tFont * 1.8) return false;
+
+      quote.classList.add('is-flip');
+      text.style.fontSize = `${font}px`;
+      text.style.width = `${widthEm * font}px`;
+      text.style.letterSpacing = tStyle.letterSpacing;
+      return true;
+    };
+
+    const start = () => {
+      const flipMode = prepare();
+
+      const tl = gsap.timeline({ onComplete: finish });
+      tl.fromTo(
+        words,
+        { opacity: 0, yPercent: 45, filter: 'blur(10px)' },
+        { opacity: 1, yPercent: 0, filter: 'blur(0px)', duration: 0.95, ease: 'power3.out', stagger: 0.085 },
+      )
+        .to(cite, { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.45')
+        .addLabel('shrink', '+=0.9')
+        .to(cite, { opacity: 0, duration: 0.3 }, 'shrink')
+        .to(skipBtn, { autoAlpha: 0, duration: 0.3 }, 'shrink')
+        .set(overlay, { pointerEvents: 'none' }, 'shrink+=0.4')
+        .to(overlay, { backgroundColor: 'rgba(13, 22, 36, 0)', duration: 0.9, ease: 'power2.inOut' }, 'shrink+=0.3')
+        .call(() => window.dispatchEvent(new Event('legem:intro-reveal')), undefined, 'shrink+=0.55');
+
+      if (flipMode && targetText) {
+        // Encoger y mover la cita hasta la posición exacta de la cita del hero
+        let f = { x: 0, y: 0, scale: 1 };
+        tl.call(
+          () => {
+            const s = text.getBoundingClientRect();
+            const t = targetText.getBoundingClientRect();
+            f = { x: t.left - s.left, y: t.top - s.top, scale: t.width / s.width };
+          },
+          undefined,
+          'shrink',
+        )
+          .to(
+            text,
+            {
+              x: () => f.x,
+              y: () => f.y,
+              scale: () => f.scale,
+              color: 'rgba(244, 241, 234, 0.85)',
+              duration: 1.2,
+              ease: 'expo.inOut',
+            },
+            'shrink',
+          )
+          // Relevo invisible: la cita del hero toma el lugar de la animada
+          .set(text, { opacity: 0 }, 'shrink+=1.2')
+          .set(target, { autoAlpha: 1 }, 'shrink+=1.2')
+          .fromTo(targetCaption, { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 'shrink+=1.2');
+      } else {
+        // Celular: la cita se reduce hacia arriba y se funde con la del hero
+        tl.to(text, { scale: 0.55, y: () => -window.innerHeight * 0.18, duration: 1, ease: 'expo.inOut' }, 'shrink')
+          .to(text, { opacity: 0, duration: 0.35, ease: 'power1.in' }, 'shrink+=0.45')
+          .to(target, { autoAlpha: 1, duration: 0.7, ease: 'power2.out' }, 'shrink+=0.75');
+      }
+
+      if (header) {
+        tl.fromTo(header, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, 'shrink+=0.8');
+      }
+
+      // Saltar: adelanta hasta el momento en que la cita se reduce
+      let skipped = false;
+      const skip = () => {
+        if (skipped) return;
+        skipped = true;
+        if (tl.time() < tl.labels.shrink) tl.seek('shrink');
+        tl.timeScale(1.5);
+      };
+      skipBtn.addEventListener('click', skip);
+      overlay.addEventListener('click', skip);
+      window.addEventListener('wheel', skip, { passive: true, once: true });
+      window.addEventListener('touchstart', skip, { passive: true, once: true });
+      window.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') skip();
+      });
+    };
+
+    function finish() {
+      root.classList.remove('intro');
+      overlay?.remove();
+      if (header) gsap.set(header, { clearProps: 'opacity,visibility' });
+      if (target) gsap.set(target, { clearProps: 'opacity,visibility' });
+      if (targetCaption) gsap.set(targetCaption, { clearProps: 'opacity,transform' });
+      window.dispatchEvent(new Event('legem:intro-done'));
+    }
+
+    // Espera a que carguen las tipografías (máx. 1 s) para medir y animar el texto real
+    Promise.race([document.fonts?.ready ?? Promise.resolve(), new Promise((r) => setTimeout(r, 1000))]).then(start);
+  }
+</script>

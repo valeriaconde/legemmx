@@ -1,12 +1,16 @@
 ---
 import { initials, type Person } from '@/data/team';
 import type { Lang } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
 
 interface Props {
   person: Person;
   lang: Lang;
 }
 const { person: p, lang } = Astro.props;
+const t = useTranslations(lang);
+const id = 'bio-' + p.email.split('@')[0];
+const bio = p.bio;
 ---
 
 <li class="person group" data-groups={p.groups.join(' ')}>
@@ -17,7 +21,7 @@ const { person: p, lang } = Astro.props;
           src={p.photo}
           alt={p.name}
           loading="lazy"
-          class="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+          class="h-full w-full object-cover object-top grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
         />
       ) : (
         <div class="flex h-full w-full items-center justify-center" aria-hidden="true">
@@ -33,6 +37,108 @@ const { person: p, lang } = Astro.props;
     >
   </div>
   <h2 class="mt-5 text-lg leading-snug font-medium">{p.name}</h2>
-  <p class="mt-1 text-muted">{p.area[lang]}</p>
-  <a href={`mailto:${p.email}`} class="link-line mt-3 inline-block text-sm text-brand">{p.email}</a>
+  <p class="mt-1 text-muted">{p.role[lang]}</p>
+  <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+    <a href={`mailto:${p.email}`} class="link-line inline-block text-brand">{p.email}</a>
+    {
+      bio && (
+        <button type="button" class="bio-open link-line text-ink" data-bio-target={id} aria-haspopup="dialog">
+          {t('team.bio')}
+        </button>
+      )
+    }
+  </div>
+
+  {
+    bio && (
+      <dialog id={id} class="bio-dialog" aria-labelledby={`${id}-name`}>
+        <div class="bio-head">
+          <div>
+            <h3 id={`${id}-name`} class="font-display text-3xl leading-tight">{p.name}</h3>
+            <p class="mt-1 text-muted">{p.role[lang]}</p>
+            <a href={`mailto:${p.email}`} class="link-line mt-2 inline-block text-sm text-brand">{p.email}</a>
+          </div>
+          <button type="button" class="bio-close" aria-label={t('team.close')}>×</button>
+        </div>
+        <div class="bio-body">
+          <p class="eyebrow">{t('team.bio.experience')}</p>
+          <p class="mt-3 whitespace-pre-line">{bio.experience[lang]}</p>
+          <p class="eyebrow mt-8">{t('team.bio.background')}</p>
+          <p class="mt-3 whitespace-pre-line">{bio.background[lang]}</p>
+          <p class="eyebrow mt-8">{t('team.bio.education')}</p>
+          <ul class="mt-3 list-disc space-y-1 pl-5">
+            {bio.education[lang].map((e) => <li>{e}</li>)}
+          </ul>
+        </div>
+      </dialog>
+    )
+  }
 </li>
+
+<style is:global>
+  .bio-open {
+    cursor: pointer;
+  }
+  .bio-dialog {
+    width: min(44rem, calc(100vw - 2rem));
+    max-height: min(85vh, 52rem);
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    overflow: hidden;
+  }
+  .bio-dialog[open] {
+    display: flex;
+    flex-direction: column;
+  }
+  .bio-dialog::backdrop {
+    background: rgb(10 10 10 / 0.55);
+    backdrop-filter: blur(3px);
+  }
+  .bio-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.75rem 1.75rem 1.25rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .bio-body {
+    overflow-y: auto;
+    padding: 1.5rem 1.75rem 2rem;
+    line-height: 1.65;
+  }
+  .bio-close {
+    flex: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  }
+  .bio-close:hover {
+    border-color: var(--color-ink);
+  }
+</style>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const el = e.target as HTMLElement;
+    const opener = el.closest<HTMLElement>('.bio-open');
+    if (opener) {
+      document.getElementById(opener.dataset.bioTarget!)?.showModal();
+      return;
+    }
+    if (el.closest('.bio-close')) {
+      el.closest<HTMLDialogElement>('dialog')?.close();
+      return;
+    }
+    // clic en el fondo oscuro cierra la ventana
+    if (el instanceof HTMLDialogElement && el.classList.contains('bio-dialog')) el.close();
+  });
+</script>

@@ -15,12 +15,18 @@ interface Props {
   tone?: 'light' | 'dark' | 'brand';
   parallax?: boolean;
   eager?: boolean;
+  /** Encuadre de la foto (object-position), p. ej. "70% 50%" */
+  position?: string;
+  /** Zoom base con parallax (por defecto 1.18; menor = más alejada) */
+  zoom?: number;
+  /** Intensidad del parallax (por defecto 0.14) */
+  parallaxAmount?: number;
 }
-const { src = '', alt, hint, class: className = '', ratio = '4/5', tone = 'light', parallax = false, eager = false } =
+const { src = '', alt, hint, class: className = '', ratio = '4/5', tone = 'light', parallax = false, eager = false, position, zoom = 1.18, parallaxAmount = 0.14 } =
   Astro.props;
 
 const tones = {
-  light: 'bg-[#e3ddd0] text-ink/45',
+  light: 'bg-[#e3e0d8] text-ink/45',
   dark: 'bg-ink-2 text-paper/40',
   brand: 'bg-brand-deep text-paper/50',
 };
@@ -34,8 +40,9 @@ const tones = {
         alt={alt}
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
-        class:list={['absolute inset-0 h-full w-full object-cover', parallax && 'scale-[1.18]']}
-        data-parallax={parallax ? '0.14' : undefined}
+        class="absolute inset-0 h-full w-full object-cover"
+        style={[position && `object-position:${position}`, parallax && `scale:${zoom}`].filter(Boolean).join(';') || undefined}
+        data-parallax={parallax ? String(parallaxAmount) : undefined}
       />
     ) : (
       <div
@@ -47,7 +54,7 @@ const tones = {
           class:list={['absolute inset-0', tone === 'light' ? 'opacity-40' : 'opacity-15']}
           style="background-image:repeating-linear-gradient(135deg,currentColor 0 1px,transparent 1px 11px)"
           aria-hidden="true"></span>
-        <span class="mono relative">[ {hint ?? alt} ]</span>
+        {hint !== '' && <span class="mono relative">[ {hint ?? alt} ]</span>}
       </div>
     )
   }

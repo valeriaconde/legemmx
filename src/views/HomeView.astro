@@ -2,12 +2,10 @@
 import Base from '@/layouts/Base.astro';
 import Media from '@/components/Media.astro';
 import CallToAction from '@/components/CallToAction.astro';
-import PublicationRow from '@/components/PublicationRow.astro';
 import { useTranslations } from '@/i18n/ui';
 import { path, areaPath, type Lang } from '@/i18n/routes';
 import { practiceAreas } from '@/data/practice-areas';
 import { attorneys } from '@/data/team';
-import { getAllPublications } from '@/lib/publications';
 
 interface Props {
   lang: Lang;
@@ -16,19 +14,17 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const altLang: Lang = lang === 'es' ? 'en' : 'es';
 
-const specialties = practiceAreas.filter((a) => a.id !== 'seguros').reduce((n, a) => n + a.specialties.length, 0);
 const stats = [
-  { value: practiceAreas.length, label: t('home.stats.areas') },
-  { value: specialties, label: t('home.stats.specialties') },
-  { value: attorneys.length, label: t('home.stats.lawyers') },
-  { value: 3, label: t('home.stats.regions') },
+  { value: 300, prefix: '+', label: t('home.stats.clients') },
+  { value: 150, prefix: '', label: t('home.stats.countries') },
+  { value: 22, prefix: '', label: t('home.stats.specialties') },
+  { value: 40, prefix: '', label: t('home.stats.lawyers') },
 ];
 const why = [1, 2, 3, 4].map((n) => ({
   title: t(`home.why.${n}.title` as any),
   body: t(`home.why.${n}.body` as any),
 }));
 const industries = t('home.industries.list').split(',');
-const latest = (await getAllPublications(lang)).slice(0, 3);
 const quote = '“We are what we repeatedly do. Excellence, then, is not an act, but a habit.”';
 ---
 
@@ -38,6 +34,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
     <div class="absolute inset-0 -z-10">
       <!-- TODO: foto o video del hero. Sugerencia: detalle arquitectónico / sala de juntas en tonos fríos. -->
       <Media
+        src="/images/hero1.jpeg"
         alt=""
         hint={lang === 'es' ? 'Foto hero · arquitectura / sala de juntas' : 'Hero photo · architecture / boardroom'}
         ratio="auto"
@@ -52,16 +49,10 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
       <p class="eyebrow !text-paper/60" data-hero-item>{t('home.hero.eyebrow')}</p>
       <h1 class="display-xl mt-6 max-w-[13ch]" data-split="load">{t('home.hero.title')}</h1>
 
-      <div class="mt-10 grid gap-10 md:mt-14 lg:grid-cols-12 lg:items-end">
+      <div class="mt-10 grid gap-10 md:mt-14 lg:grid-cols-12 lg:items-center">
         <p class="max-w-xl text-lg leading-relaxed text-paper/75 lg:col-span-6" data-hero-item>
           {t('home.hero.lead')}
         </p>
-        <div class="flex flex-wrap gap-3 lg:col-span-6 lg:justify-end" data-hero-item>
-          <a href={path('contact', lang)} class="btn btn-primary !px-6 !py-4">
-            {t('nav.cta')} <span class="btn-arrow" aria-hidden="true">→</span>
-          </a>
-          <a href="#areas" class="btn btn-outline !px-6 !py-4 text-paper">{t('home.hero.secondary')}</a>
-        </div>
       </div>
 
       <div
@@ -69,7 +60,6 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
         data-hero-item
       >
         <span>{t('home.hero.meta1')}</span>
-        <span>{t('home.hero.meta2')}</span>
         <span class="hidden md:inline">↓ Scroll</span>
       </div>
     </div>
@@ -89,7 +79,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
             ]}
           >
             <p class="font-display text-6xl leading-none md:text-7xl">
-              <span data-count={s.value}>{s.value}</span>
+              {s.prefix}<span data-count={s.value}>{s.value}</span>
             </p>
             <p class="mono mt-4 text-muted">{s.label}</p>
           </div>
@@ -99,7 +89,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
   </section>
 
   <!-- ============ LA FIRMA ============ -->
-  <section class="container-x py-24 md:py-36">
+  <section class="container-x pt-24 pb-10 md:pt-36 md:pb-16">
     <div class="grid gap-12 lg:grid-cols-12">
       <div class="lg:col-span-3">
         <p class="eyebrow" data-reveal>01 — {t('home.intro.label')}</p>
@@ -119,12 +109,18 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
   </section>
 
   <!-- ============ ÁREAS DE PRÁCTICA ============ -->
-  <section id="areas" data-header-dark class="on-dark bg-ink py-24 text-paper md:py-36">
+  <!-- En escritorio la sección queda fija y las 4 tarjetas suben al hacer scroll (ver pinnedAreas en motion.ts) -->
+  <section
+    id="areas"
+    data-areas-pin
+    data-header-dark
+    class="on-dark overflow-hidden bg-ink py-24 text-paper md:py-32 lg:flex lg:min-h-[100svh] lg:flex-col lg:justify-center lg:pt-36 lg:pb-16"
+  >
     <div class="container-x">
       <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
         <div class="lg:col-span-8">
           <p class="eyebrow !text-paper/60" data-reveal>02 — {t('home.areas.label')}</p>
-          <h2 class="display-lg mt-6 max-w-[18ch]" data-split>{t('home.areas.title')}</h2>
+          <h2 class="display-lg mt-6 max-w-[20ch]" data-split>{t('home.areas.title')}</h2>
         </div>
         <div class="lg:col-span-4 lg:text-right" data-reveal>
           <a href={path('areas', lang)} class="btn btn-outline">
@@ -133,47 +129,20 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
         </div>
       </div>
 
-      <div class="mt-16 md:mt-24">
+      <div class="mt-12 grid gap-3 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-4">
         {
           practiceAreas.map((a, i) => (
-            <article class="group hairline grid gap-6 border-t py-10 md:grid-cols-12 md:gap-10 md:py-14" data-reveal>
-              <div class="md:col-span-1">
-                <span class="mono text-paper/45">0{i + 1}</span>
+            <a
+              href={areaPath(a.slug[lang], lang)}
+              data-area-card
+              class="group hairline relative flex flex-col gap-8 rounded-xl border bg-ink-2/60 p-6 transition-colors duration-500 hover:bg-brand-deep"
+            >
+              <span class="mono text-paper/45">0{i + 1}</span>
+              <div>
+                <h3 class="display-sm">{a.name[lang]}</h3>
+                <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-paper/60">{a.summary[lang]}</p>
               </div>
-              <div class="md:col-span-5">
-                <h3 class="display-md">
-                  <a href={areaPath(a.slug[lang], lang)} class="transition-colors duration-300 hover:text-brand-soft">
-                    {a.name[lang]}
-                  </a>
-                </h3>
-                <p class="mt-5 max-w-md text-paper/65">{a.summary[lang]}</p>
-                <a href={areaPath(a.slug[lang], lang)} class="link-line mt-6 inline-flex items-center gap-2 text-paper">
-                  {t('common.learnMore')} <span aria-hidden="true">→</span>
-                </a>
-              </div>
-              <ul class="flex flex-wrap content-start gap-2 md:col-span-4">
-                {a.specialties.map((s) => (
-                  <li>
-                    <a
-                      href={areaPath(a.slug[lang], lang, s.id)}
-                      class="inline-block rounded-full border border-paper/20 px-3.5 py-1.5 text-sm text-paper/80 transition-colors hover:border-paper hover:text-paper"
-                    >
-                      {s.name[lang]}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <div class="hidden md:col-span-2 md:block">
-                <Media
-                  src={a.image}
-                  alt={a.name[lang]}
-                  hint={a.name[lang]}
-                  ratio="1/1"
-                  tone="dark"
-                  class="rounded-xl transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
-            </article>
+            </a>
           ))
         }
       </div>
@@ -181,13 +150,14 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
   </section>
 
   <!-- ============ POR QUÉ LEGEM ============ -->
-  <section class="container-x py-24 md:py-36">
+  <section class="container-x pt-24 pb-10 md:pt-36 md:pb-16">
     <div class="grid gap-14 lg:grid-cols-12">
       <div class="lg:col-span-5">
         <div class="lg:sticky lg:top-32">
           <p class="eyebrow" data-reveal>03 — {t('home.why.label')}</p>
           <h2 class="display-lg mt-6" data-split>{t('home.why.title')}</h2>
           <Media
+            src="/images/distingue-premios.jpg"
             alt={lang === 'es' ? 'Equipo de Legem en reunión' : 'Legem team in a meeting'}
             hint={lang === 'es' ? 'Foto · equipo en reunión con cliente' : 'Photo · team meeting a client'}
             ratio="4/3"
@@ -235,16 +205,8 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
     <p class="sr-only">{industries.join(', ')}</p>
   </section>
 
-  <!-- ============ CITA ============ -->
-  <section class="container-x py-24 text-center md:py-40">
-    <blockquote>
-      <p class="display-lg mx-auto max-w-[24ch]" data-words lang="en">{quote}</p>
-      <footer class="mono mt-10 text-muted" data-reveal>— Aristotle</footer>
-    </blockquote>
-  </section>
-
   <!-- ============ EQUIPO ============ -->
-  <section class="container-x pb-24 md:pb-36">
+  <section class="container-x pt-24 pb-10 md:pt-36 md:pb-16">
     <div class="grid gap-10 overflow-hidden rounded-[28px] bg-paper-2 md:grid-cols-2">
       <div class="flex flex-col justify-between gap-10 p-8 md:p-14">
         <div>
@@ -254,8 +216,8 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
         </div>
         <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
           <p>
-            <span class="font-display text-7xl leading-none" data-count={attorneys.length}>{attorneys.length}</span>
-            <span class="mono ml-2 text-muted">{t('home.stats.lawyers')}</span>
+            <span class="font-display text-7xl leading-none" data-count={40}>40</span>
+            <span class="mono ml-2 text-muted">{t('home.team.count')}</span>
           </p>
           <a href={path('team', lang)} class="btn btn-primary">
             {t('home.team.cta')} <span class="btn-arrow" aria-hidden="true">→</span>
@@ -263,42 +225,29 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
         </div>
       </div>
       <Media
+        src="/images/equipo7.png"
         alt={lang === 'es' ? 'Abogados de Legem' : 'Legem attorneys'}
         hint={lang === 'es' ? 'Foto grupal del equipo' : 'Team group photo'}
         ratio="5/4"
         tone="brand"
         class="h-full min-h-[320px]"
+        position="72% 50%"
+        zoom={1.06}
+        parallaxAmount={0.05}
         parallax
       />
     </div>
   </section>
 
-  <!-- ============ PUBLICACIONES ============ -->
-  {
-    latest.length > 0 && (
-      <section class="container-x pb-16 md:pb-28">
-        <div class="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <p class="eyebrow" data-reveal>
-              06 — {t('home.pubs.label')}
-            </p>
-            <h2 class="display-lg mt-6" data-split>
-              {t('home.pubs.title')}
-            </h2>
-          </div>
-          <a href={path('publications', lang)} class="btn btn-outline" data-reveal>
-            {t('home.pubs.cta')} <span class="btn-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
-        <div class="mt-12 border-b border-line" data-reveal-stagger>
-          {latest.map((p) => (
-            <PublicationRow pub={p} showCategory />
-          ))}
-        </div>
-      </section>
-    )
-  }
+  <!-- ============ CITA ============ -->
+  <section class="container-x py-20 text-center md:py-32">
+    <blockquote>
+      <p class="display-lg mx-auto max-w-[24ch]" data-words lang="en">{quote}</p>
+      <footer class="mono mt-10 text-muted" data-reveal>— Aristotle</footer>
+    </blockquote>
+  </section>
 
+  <!-- ============ CONTACTO ============ -->
   <CallToAction lang={lang} />
   <div class="h-10 md:h-16"></div>
 </Base>

@@ -1,7 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
 import PageHero from '@/components/PageHero.astro';
-import Media from '@/components/Media.astro';
 import CallToAction from '@/components/CallToAction.astro';
 import { useTranslations } from '@/i18n/ui';
 import { path, areaPath, type Lang } from '@/i18n/routes';
@@ -27,13 +26,6 @@ const altLang: Lang = lang === 'es' ? 'en' : 'es';
             class="group flex flex-col overflow-hidden rounded-[24px] border border-line bg-paper transition-colors duration-500 hover:bg-ink hover:text-paper"
             data-reveal
           >
-            <Media
-              src={a.image}
-              alt={a.name[lang]}
-              hint={a.name[lang]}
-              ratio="16/9"
-              class="transition-transform duration-700 group-hover:scale-[1.02]"
-            />
             <div class="flex flex-1 flex-col p-7 md:p-9">
               <div class="flex items-start justify-between gap-6">
                 <div>

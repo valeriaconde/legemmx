@@ -9,6 +9,7 @@
  *   data-words             → las palabras se iluminan al hacer scroll (citas / frases)
  *   data-count="22"        → número que cuenta hacia arriba
  *   data-parallax="0.15"   → la imagen se desplaza ligeramente al hacer scroll
+ *   data-areas-pin         → sección fija con tarjetas [data-area-card] que suben al hacer scroll (solo escritorio)
  *
  * Si el usuario tiene activado "reducir movimiento", no se anima nada.
  */
@@ -138,6 +139,48 @@ function parallax() {
   });
 }
 
+/** Áreas de práctica: el encabezado queda fijo y las tarjetas suben una tras otra con el scroll. */
+function pinnedAreas() {
+  const section = document.querySelector<HTMLElement>('[data-areas-pin]');
+  if (!section) return;
+  const cards = gsap.utils.toArray<HTMLElement>('[data-area-card]', section);
+  if (!cards.length) return;
+
+  const mm = gsap.matchMedia();
+
+  mm.add('(min-width: 1024px) and (min-height: 700px)', () => {
+    gsap.set(cards, { y: () => window.innerHeight * 0.8, opacity: 0 });
+    const tl = gsap.timeline({
+      defaults: { ease: 'none' },
+      scrollTrigger: {
+        trigger: section,
+        start: 'top top',
+        end: '+=140%',
+        pin: true,
+        scrub: 0.6,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+    cards.forEach((card, i) => {
+      tl.to(card, { y: 0, opacity: 1, duration: 1, ease: 'power2.out' }, i * 0.55);
+    });
+    tl.to({}, { duration: 0.5 }); // pausa final con las 4 tarjetas visibles
+  });
+
+  // Móvil / pantallas bajas: sin fijar, las tarjetas aparecen escalonadas
+  mm.add('(max-width: 1023px), (max-height: 699px)', () => {
+    gsap.from(cards, {
+      opacity: 0,
+      y: 28,
+      duration: 1,
+      ease: EASE,
+      stagger: 0.08,
+      scrollTrigger: { trigger: cards[0].parentElement, start: 'top 88%', once: true },
+    });
+  });
+}
+
 function heroIntro() {
   const items = gsap.utils.toArray<HTMLElement>('[data-hero-item]');
   if (!items.length) return;
@@ -147,6 +190,7 @@ function heroIntro() {
 function init() {
   if (reduceMotion) return;
   smoothScroll();
+  pinnedAreas();
   splitHeadlines();
   reveals();
   scrubWords();
