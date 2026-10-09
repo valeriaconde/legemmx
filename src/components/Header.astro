@@ -56,11 +56,10 @@ const isActive = (href: string) => href !== '/' && href !== '/en/' && current.st
                 </a>
                 <div class="mega invisible absolute top-full left-1/2 w-[min(880px,90vw)] -translate-x-1/2 translate-y-2 opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   <div class="grid grid-cols-4 gap-px overflow-hidden rounded-2xl border border-[#d9d3c6] bg-[#d9d3c6] text-ink shadow-[0_30px_80px_-30px_rgb(13_22_36/0.35)]">
-                    {practiceAreas.map((a, i) => (
+                    {practiceAreas.map((a) => (
                       <div class="bg-paper p-5">
                         <a href={areaPath(a.slug[lang], lang)} class="group/area block">
-                          <span class="mono text-muted">0{i + 1}</span>
-                          <span class="mt-2 block font-display text-2xl leading-tight group-hover/area:text-brand">
+                          <span class="block font-display text-2xl leading-tight group-hover/area:text-brand">
                             {a.name[lang]}
                           </span>
                         </a>
@@ -129,10 +128,9 @@ const isActive = (href: string) => href !== '/' && href !== '/en/' && current.st
       <nav aria-label="Móvil">
         <ul class="space-y-1">
           {
-            [{ href: path('home', lang), label: lang === 'es' ? 'Inicio' : 'Home' }, ...links].map((l, i) => (
+            [{ href: path('home', lang), label: lang === 'es' ? 'Inicio' : 'Home' }, ...links].map((l) => (
               <li class="mobile-item">
                 <a href={l.href} class="flex items-baseline gap-4 py-2 font-display text-[2.6rem] leading-none">
-                  <span class="mono text-paper/40">0{i}</span>
                   {l.label}
                 </a>
               </li>

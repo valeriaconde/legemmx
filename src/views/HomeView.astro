@@ -92,7 +92,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
   <section class="container-x pt-24 pb-10 md:pt-36 md:pb-16">
     <div class="grid gap-12 lg:grid-cols-12">
       <div class="lg:col-span-3">
-        <p class="eyebrow" data-reveal>01 — {t('home.intro.label')}</p>
+        <p class="eyebrow" data-reveal>{t('home.intro.label')}</p>
       </div>
       <div class="lg:col-span-9">
         <p class="display-md max-w-[22ch]" data-words>{t('home.intro.statement')}</p>
@@ -119,7 +119,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
     <div class="container-x">
       <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
         <div class="lg:col-span-8">
-          <p class="eyebrow !text-paper/60" data-reveal>02 — {t('home.areas.label')}</p>
+          <p class="eyebrow !text-paper/60" data-reveal>{t('home.areas.label')}</p>
           <h2 class="display-lg mt-6 max-w-[20ch]" data-split>{t('home.areas.title')}</h2>
         </div>
         <div class="lg:col-span-4 lg:text-right" data-reveal>
@@ -137,7 +137,6 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
               data-area-card
               class="group hairline relative flex flex-col gap-8 rounded-xl border bg-ink-2/60 p-6 transition-colors duration-500 hover:bg-brand-deep"
             >
-              <span class="mono text-paper/45">0{i + 1}</span>
               <div>
                 <h3 class="display-sm">{a.name[lang]}</h3>
                 <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-paper/60">{a.summary[lang]}</p>
@@ -154,7 +153,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
     <div class="grid gap-14 lg:grid-cols-12">
       <div class="lg:col-span-5">
         <div class="lg:sticky lg:top-32">
-          <p class="eyebrow" data-reveal>03 — {t('home.why.label')}</p>
+          <p class="eyebrow" data-reveal>{t('home.why.label')}</p>
           <h2 class="display-lg mt-6" data-split>{t('home.why.title')}</h2>
           <Media
             src="/images/distingue-premios.jpg"
@@ -185,7 +184,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
   <!-- ============ SECTORES ============ -->
   <section class="hairline border-y bg-paper-2 py-16 md:py-20">
     <div class="container-x grid gap-6 lg:grid-cols-12 lg:items-end">
-      <p class="eyebrow lg:col-span-3" data-reveal>04 — {t('home.industries.label')}</p>
+      <p class="eyebrow lg:col-span-3" data-reveal>{t('home.industries.label')}</p>
       <p class="display-sm max-w-3xl lg:col-span-9" data-reveal>{t('home.industries.title')}</p>
     </div>
     <div class="marquee mt-12" aria-hidden="true">
@@ -210,7 +209,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
     <div class="grid gap-10 overflow-hidden rounded-[28px] bg-paper-2 md:grid-cols-2">
       <div class="flex flex-col justify-between gap-10 p-8 md:p-14">
         <div>
-          <p class="eyebrow" data-reveal>05 — {t('home.team.label')}</p>
+          <p class="eyebrow" data-reveal>{t('home.team.label')}</p>
           <h2 class="display-md mt-6 max-w-[16ch]" data-split>{t('home.team.title')}</h2>
           <p class="mt-6 max-w-md text-muted" data-reveal>{t('home.team.body')}</p>
         </div>
@@ -243,7 +242,7 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
   <section class="container-x py-20 text-center md:py-32">
     <blockquote>
       <p class="display-lg mx-auto max-w-[24ch]" data-words lang="en">{quote}</p>
-      <footer class="mono mt-10 text-muted" data-reveal>— Aristotle</footer>
+      <footer class="mono mt-10 text-muted" data-reveal>Aristotle</footer>
     </blockquote>
   </section>
 
