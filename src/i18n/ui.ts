@@ -35,7 +35,6 @@ export const ui = {
     'footer.firm': 'Firma',
     'footer.areas': 'Áreas',
     'footer.contact': 'Contacto',
-    'footer.privacy': 'Aviso de privacidad',
     'footer.rights': 'Todos los derechos reservados.',
 
     'home.hero.eyebrow': 'Legem · Attorneys at Law',
@@ -77,13 +76,13 @@ export const ui = {
 
     'home.industries.label': 'Sectores',
     'home.industries.title':
-      'Asesoramos empresas en los sectores industrial, comercial y de servicios.',
-    'home.industries.list': 'Automotriz,Metalúrgica,Mecánica,Industrial,Comercial,Servicios',
+      'Asesoramos empresas en distintos sectores, entre los que destacan:',
+    'home.industries.list': 'Automotriz,Metalúrgica,Mecánica,Industrial,Comercial,Servicios,Salud,Construcción,Energía,Transporte,Petroquímica',
 
     'home.team.label': 'Nuestro equipo',
     'home.team.title': 'Lo más valioso de nuestra firma es nuestro equipo humano.',
     'home.team.body':
-      'Especialistas en litigio, derecho empresarial, cumplimiento normativo, propiedad intelectual y seguros.',
+      'Especialistas en litigio, derecho empresarial, cumplimiento normativo, propiedad intelectual y seguros, entre otros.',
     'home.team.count': 'Especialistas',
     'home.team.cta': 'Conoce al equipo',
 
@@ -93,8 +92,6 @@ export const ui = {
 
     'cta.label': 'Contacto',
     'cta.title': '¿Planea invertir u operar en México?',
-    'cta.body':
-      'Cuéntenos sobre su proyecto. Un abogado especialista le responderá a la brevedad, en español o inglés.',
     'cta.button': 'Hablemos',
 
     'about.label': 'Nosotros',
@@ -171,9 +168,6 @@ export const ui = {
     'contact.direct': 'Contacto directo',
     'contact.offices': 'Oficinas',
 
-    'privacy.label': 'Legal',
-    'privacy.title': 'Aviso de privacidad',
-
     '404.title': 'Página no encontrada',
     '404.body': 'La página que busca no existe o fue movida.',
     '404.cta': 'Ir al inicio',
@@ -208,7 +202,6 @@ export const ui = {
     'footer.firm': 'Firm',
     'footer.areas': 'Practice areas',
     'footer.contact': 'Contact',
-    'footer.privacy': 'Privacy notice',
     'footer.rights': 'All rights reserved.',
 
     'home.hero.eyebrow': 'Legem · Attorneys at Law',
@@ -248,13 +241,13 @@ export const ui = {
       'Timely attention and clear solutions focused on protecting your interests.',
 
     'home.industries.label': 'Industries',
-    'home.industries.title': 'We advise companies in the industrial, commercial and services sectors.',
-    'home.industries.list': 'Automotive,Metallurgic,Mechanic,Industrial,Commercial,Services',
+    'home.industries.title': 'We advise companies across a range of industries, including:',
+    'home.industries.list': 'Automotive,Metallurgic,Mechanic,Industrial,Commercial,Services,Healthcare,Construction,Energy,Transportation,Petrochemicals',
 
     'home.team.label': 'Our team',
     'home.team.title': 'The most valuable asset of our firm is our people.',
     'home.team.body':
-      'Specialists in litigation, business law, compliance, intellectual property and insurance.',
+      'Specialists in litigation, business law, compliance, intellectual property and insurance, among others.',
     'home.team.count': 'Specialists',
     'home.team.cta': 'Meet the team',
 
@@ -264,8 +257,6 @@ export const ui = {
 
     'cta.label': 'Contact',
     'cta.title': 'Planning to invest or operate in Mexico?',
-    'cta.body':
-      'Tell us about your project. A specialized attorney will get back to you shortly, in English or Spanish.',
     'cta.button': "Let's talk",
 
     'about.label': 'About us',
@@ -339,9 +330,6 @@ export const ui = {
     'contact.form.required': 'Required field',
     'contact.direct': 'Direct contact',
     'contact.offices': 'Offices',
-
-    'privacy.label': 'Legal',
-    'privacy.title': 'Privacy notice',
 
     '404.title': 'Page not found',
     '404.body': 'The page you are looking for doesn’t exist or has moved.',

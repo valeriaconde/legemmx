@@ -25,7 +25,10 @@ const why = [1, 2, 3, 4].map((n) => ({
   body: t(`home.why.${n}.body` as any),
 }));
 const industries = t('home.industries.list').split(',');
-const quote = '“We are what we repeatedly do. Excellence, then, is not an act, but a habit.”';
+const quote =
+  lang === 'es'
+    ? '“Somos lo que constantemente hacemos. La excelencia, entonces, no es un acto, sino un hábito.”'
+    : '“We are what we repeatedly do. Excellence, then, is not an act, but a habit.”';
 ---
 
 <Base lang={lang} altPath={path('home', altLang)} darkHero>
@@ -235,8 +238,8 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
   <!-- ============ CITA ============ -->
   <section class="container-x py-20 text-center md:py-32">
     <blockquote>
-      <p class="display-lg mx-auto max-w-[24ch]" data-words lang="en">{quote}</p>
-      <footer class="mono mt-10 text-muted" data-reveal>Aristotle</footer>
+      <p class="display-lg mx-auto max-w-[24ch]" data-words>{quote}</p>
+      <footer class="mono mt-10 text-muted" data-reveal>{lang === 'es' ? 'Aristóteles' : 'Aristotle'}</footer>
     </blockquote>
   </section>
 

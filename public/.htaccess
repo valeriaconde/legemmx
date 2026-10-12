@@ -29,8 +29,6 @@ ErrorDocument 404 /404.html
   RedirectMatch 301 ^/es/boletines/?$ /publicaciones/boletines/
   RedirectMatch 301 ^/es/articulos/?$ /publicaciones/articulos/
   RedirectMatch 301 ^/es/reconocimientos/?$ /publicaciones/reconocimientos/
-  RedirectMatch 301 ^/es/aviso-de-privacidad/?$ /aviso-de-privacidad/
-  RedirectMatch 301 ^/en/aviso-de-privacidad/?$ /en/privacy-notice/
   RedirectMatch 301 ^/(incorporacion-a-la-lista-de-actividades-esenciales-y-estrategia-de-reapertura-sars-cov2-covid-19|reforma-laboral-aumento-de-vacaciones|personas-morales-obligacion-de-identificacion-del-beneficiario-controlador|reforma-a-la-ley-federal-del-trabajo-teletrabajo|reformas-relativas-a-la-prohibicion-de-la-subcontratacion-en-mexico|actualizacion-propuesta-de-reforma-a-la-ley-federal-del-trabajo-sobre-subcontratacion|propuesta-de-reforma-a-la-ley-federal-del-trabajo-subcontratacion|reforma-a-la-ley-federal-del-trabajo-propuesta-sobre-subcontratacion|impactos-de-la-reforma-anti-corrupcion-en-las-empresas)/?$ /publicaciones/boletines/$1/
 
   # Inglés

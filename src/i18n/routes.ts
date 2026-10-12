@@ -14,7 +14,6 @@ export const routes = {
   areas: { es: '/areas/', en: '/en/practice-areas/' },
   publications: { es: '/publicaciones/', en: '/en/publications/' },
   contact: { es: '/contacto/', en: '/en/contact/' },
-  privacy: { es: '/aviso-de-privacidad/', en: '/en/privacy-notice/' },
 } as const;
 
 export type RouteKey = keyof typeof routes;
