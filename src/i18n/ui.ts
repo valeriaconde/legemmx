@@ -66,11 +66,11 @@ export const ui = {
     'home.why.label': 'Por qué Legem',
     'home.why.title': 'Lo que nos distingue',
     'home.why.1.title': 'Experiencia y dominio',
-    'home.why.1.body': 'Equipo de abogados con posgrado y años de práctica',
-    'home.why.2.title': 'Presencia en todo México',
-    'home.why.2.body': 'A través de oficinas regionales y firmas aliadas',
+    'home.why.1.body': 'Equipo de abogados con posgrado y años de práctica.',
+    'home.why.2.title': 'Presencia global',
+    'home.why.2.body': 'Cobertura nacional y alcance internacional con oficinas en México y una red de firmas aliadas en el extranjero.',
     'home.why.3.title': 'Prestigio y reconocimiento',
-    'home.why.3.body': 'Galardonados nacional e internacionalmente por entidades especializadas',
+    'home.why.3.body': 'Galardonados nacional e internacionalmente por entidades especializadas.',
     'home.why.4.title': 'Inmediatez y excelencia',
     'home.why.4.body':
       'La inmediatez y la excelencia en nuestros servicios nos distinguen. Un equipo bilingüe que responde a tiempo.',
@@ -83,7 +83,7 @@ export const ui = {
     'home.team.label': 'Nuestro equipo',
     'home.team.title': 'Lo más valioso de nuestra firma es nuestro equipo humano.',
     'home.team.body':
-      'Especialistas en litigio, derecho corporativo, cumplimiento normativo, propiedad intelectual y seguros.',
+      'Especialistas en litigio, derecho empresarial, cumplimiento normativo, propiedad intelectual y seguros.',
     'home.team.count': 'Especialistas',
     'home.team.cta': 'Conoce al equipo',
 
@@ -120,9 +120,6 @@ export const ui = {
     'team.lead':
       'Conoce a las personas que lideran nuestras áreas de práctica. Cada una cuenta con un equipo de abogados y especialistas que trabaja a su lado.',
     'team.note.title': 'Y un equipo completo detrás de cada área.',
-    'team.note.body':
-      'Esta página presenta únicamente a quienes dirigen cada área. Si quieres saber quién puede atender tu caso, escríbenos y te ponemos en contacto con la persona indicada.',
-    'team.note.cta': 'Contáctanos',
     'team.bio': 'Ver trayectoria',
     'team.close': 'Cerrar',
     'team.bio.experience': 'Experiencia profesional',
@@ -241,11 +238,11 @@ export const ui = {
     'home.why.label': 'Why Legem',
     'home.why.title': 'What sets us apart',
     'home.why.1.title': 'Expertise & proficiency',
-    'home.why.1.body': 'A team of attorneys with advanced degrees and extensive professional experience',
-    'home.why.2.title': 'Nationwide presence in Mexico',
-    'home.why.2.body': 'Through regional offices and strategic partner firms',
+    'home.why.1.body': 'A team of attorneys with advanced degrees and extensive professional experience.',
+    'home.why.2.title': 'Global presence',
+    'home.why.2.body': 'Nationwide coverage and international reach, with offices in Mexico and a network of partner firms abroad.',
     'home.why.3.title': 'Reputation and recognition',
-    'home.why.3.body': 'Recognized with national and international awards by specialized institutions',
+    'home.why.3.body': 'Recognized with national and international awards by specialized institutions.',
     'home.why.4.title': 'Immediacy and excellence',
     'home.why.4.body':
       'The immediacy and excellence of our services set us apart. A bilingual team that responds on time.',
@@ -257,7 +254,7 @@ export const ui = {
     'home.team.label': 'Our team',
     'home.team.title': 'The most valuable asset of our firm is our people.',
     'home.team.body':
-      'Specialists in litigation, corporate law, compliance, intellectual property and insurance.',
+      'Specialists in litigation, business law, compliance, intellectual property and insurance.',
     'home.team.count': 'Specialists',
     'home.team.cta': 'Meet the team',
 
@@ -293,9 +290,6 @@ export const ui = {
     'team.lead':
       'Meet the people who lead our practice areas. Each one works alongside a team of attorneys and specialists.',
     'team.note.title': 'And a full team behind every area.',
-    'team.note.body':
-      'This page presents only those who lead each area. If you would like to know who can handle your matter, write to us and we will connect you with the right person.',
-    'team.note.cta': 'Contact us',
     'team.bio': 'View background',
     'team.close': 'Close',
     'team.bio.experience': 'Professional experience',
