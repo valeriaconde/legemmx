@@ -1,1 +1,0 @@
-Coloca aquí el logotipo oficial (logo.svg). Ver src/components/Logo.astro

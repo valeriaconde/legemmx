@@ -1,34 +1,48 @@
 ---
 /**
- * Logotipo provisional (recreado a partir del logo actual).
- * TODO: reemplazar por el logotipo oficial en SVG cuando esté disponible:
- *   1. Guarda el archivo en /public/brand/logo.svg
- *   2. Sustituye el contenido de este componente por:
- *      <img src="/brand/logo.svg" alt="Legem Attorneys at Law" class="h-10 w-auto" />
+ * Logotipo oficial de Legem (fuente: fuentes/imagenes-originales/LEGEM.png, recortado en /public/brand/logo.png).
+ * Se pinta con dos máscaras para adaptarse al fondo:
+ *   - logo-mark-mask.png: el trazo azul → color de marca (más claro sobre fondos oscuros)
+ *   - logo-text-mask.png: "Legem / Attorneys at Law" → currentColor (negro o blanco según el header)
  */
 interface Props {
   class?: string;
-  compact?: boolean;
 }
-const { class: className = '', compact = false } = Astro.props;
+const { class: className = '' } = Astro.props;
 ---
 
-<span class:list={['inline-flex items-center gap-2.5 select-none', className]} aria-label="Legem Attorneys at Law">
-  <svg viewBox="0 0 40 48" class="h-9 w-auto shrink-0" aria-hidden="true">
-    <path
-      d="M12.5 2.5c-1.6 10.5-1.4 22.4 2.8 31.6 2.6 5.8-.8 11.6-7.3 11.1-5-.4-6.5-5.4-1.9-8.4 6.6-4.3 17.6-5.8 30.4-14.3"
-      fill="none"
-      stroke="var(--color-brand)"
-      stroke-width="3.4"
-      stroke-linecap="round"
-      stroke-linejoin="round"></path>
-  </svg>
-  <span class="flex flex-col leading-none">
-    <span class="font-display text-[1.7rem] tracking-[0.2em] leading-[0.9]">LEGEM</span>
-    {
-      !compact && (
-        <span class="mt-1 font-mono text-[0.58rem] tracking-[0.22em] uppercase opacity-70">Attorneys at Law</span>
-      )
-    }
-  </span>
+<span class:list={['logo relative inline-block h-12 select-none', className]} role="img" aria-label="Legem Attorneys at Law">
+  <span class="logo-layer logo-mark" aria-hidden="true"></span>
+  <span class="logo-layer logo-text" aria-hidden="true"></span>
 </span>
+
+<style>
+  .logo {
+    aspect-ratio: 1001 / 339;
+    --logo-mark: #003399;
+  }
+  :global(.on-dark) .logo,
+  :global(.site-header[data-dark='true']) .logo,
+  :global(.site-header[data-open='true']) .logo {
+    --logo-mark: #6f8ff0;
+  }
+  .logo-layer {
+    position: absolute;
+    inset: 0;
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    transition: background-color 0.4s var(--ease-out-expo);
+  }
+  .logo-mark {
+    background-color: var(--logo-mark);
+    mask-image: url('/brand/logo-mark-mask.png');
+    -webkit-mask-image: url('/brand/logo-mark-mask.png');
+  }
+  .logo-text {
+    background-color: currentColor;
+    mask-image: url('/brand/logo-text-mask.png');
+    -webkit-mask-image: url('/brand/logo-text-mask.png');
+  }
+</style>
