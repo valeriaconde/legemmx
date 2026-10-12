@@ -95,14 +95,14 @@ export const ui = {
     'cta.button': 'Hablemos',
 
     'about.label': 'Nosotros',
-    'about.title': 'Una firma legal al servicio del crecimiento de nuestros clientes.',
+    'about.title': 'Una firma de consultoría legal de negocios al servicio del crecimiento de nuestros clientes.',
     'about.lead':
-      'Asesoramos empresas en los sectores industrial, comercial y de servicios, entre los que destacan la industria automotriz y la industria metal-mecánica.',
+      'Con cobertura en los principales clústeres geográficos y sectoriales del país.',
     'about.practice.label': 'Práctica',
     'about.values.label': 'Nuestros principios',
     'about.values.1.title': 'La firma',
     'about.values.1.body':
-      'Profesionales especializados en distintas áreas del Derecho, brindando nuestros servicios en todo momento con los más altos estándares de ética profesional, calidad y excelencia.',
+      'Profesionales especializados en diversas disciplinas del Derecho, brindando nuestros servicios en todo momento con los más altos estándares de ética profesional, calidad y excelencia.',
     'about.values.2.title': 'Nuestro compromiso',
     'about.values.2.body':
       'Apoyar el crecimiento de nuestros clientes a través de la prestación oportuna de servicios legales.',
@@ -110,7 +110,7 @@ export const ui = {
     'about.values.3.body':
       'En toda clase de operaciones comerciales, con amplia experiencia en la realización de auditorías legales.',
     'about.offices.label': 'Presencia',
-    'about.offices.title': 'Oficinas en el norte, bajío, centro y sureste del país.',
+    'about.offices.title': 'Oficinas en regiones estratégicas de México',
 
     'team.label': 'Abogados',
     'team.title': 'Nuestros líderes',
@@ -260,9 +260,9 @@ export const ui = {
     'cta.button': "Let's talk",
 
     'about.label': 'About us',
-    'about.title': 'A law firm committed to the growth of our clients.',
+    'about.title': 'A business legal consulting firm committed to the growth of our clients.',
     'about.lead':
-      'We advise companies in the industrial, commercial and services sectors, most notably the automotive and metal-mechanic industries.',
+      'Covering strong geographic and sectoral clusters in the country.',
     'about.practice.label': 'Practice',
     'about.values.label': 'Our principles',
     'about.values.1.title': 'Our firm',
@@ -274,7 +274,7 @@ export const ui = {
     'about.values.3.body':
       'On all kinds of commercial transactions, with extensive experience in conducting legal audits.',
     'about.offices.label': 'Presence',
-    'about.offices.title': 'Offices in northern, Bajío, central and southeast Mexico.',
+    'about.offices.title': 'Offices in strategic regions of Mexico',
 
     'team.label': 'Attorneys',
     'team.title': 'Our Leadership',

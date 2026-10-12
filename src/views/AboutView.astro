@@ -16,23 +16,19 @@ const altLang: Lang = lang === 'es' ? 'en' : 'es';
 
 const body = {
   es: [
-    'Somos una firma legal integrada por profesionales especializados en distintas áreas del Derecho, con oficinas en el norte, bajío, centro y sureste del país, brindando nuestros servicios en todo momento con los más altos estándares de ética profesional, calidad y excelencia.',
-    'Nuestro compromiso es apoyar el crecimiento de nuestros clientes a través de la prestación oportuna de servicios legales orientados a la protección de sus intereses personales, económicos y comerciales.',
-    'Las áreas de práctica de la firma son la contenciosa en materia civil, mercantil, penal, familiar, administrativa, de amparo y fiscal; la consultiva, que incluye el derecho corporativo, bancario, ambiental, migratorio e inmobiliario; así como la de cumplimiento normativo, abarcando temas de prevención de lavado de dinero, protección de datos personales, anticorrupción, evaluación y gestión de programas de riesgos legales y normativos, entre otros.',
+    'Legem Attorneys at Law surge con el propósito de apoyar el crecimiento de la inversión extranjera directa y el emprendimiento en México. Integrada por profesionales especializados en diversas disciplinas del Derecho, con oficinas en el norte, bajío, centro y sureste del país, garantizando los más altos estándares éticos y profesionales en la prestación de sus servicios.',
+    'Desde nuestros inicios nos hemos enfocado en ofrecer consultoría legal de excelencia, razón por la cual firmas de consultoría internacional como Forvis Mazars, Plante & Moran, Grant Thornton, Moss Adams y Baker Tilly, entre otras, nos han seleccionado para apoyarlas conjuntamente en la estructuración de negocios en México y en la protección de sus intereses en el país. La inmediatez y la excelencia en nuestros servicios nos distinguen.',
+    'Pertenecemos a diversas alianzas internacionales de firmas de consultoría de negocios y somos miembro exclusivo en México para Inversión Extranjera Directa de IR Global, una alianza estratégica con sede en Londres que ofrece servicios legales, contables y financieros en 155 jurisdicciones alrededor del mundo. Desde 2019 hemos sido reconocidos por diversas organizaciones que nos posicionan como firma legal líder en Inversión Extranjera Directa en México.',
+    'Nuestro compromiso es ayudar al crecimiento de nuestros clientes mediante la prestación de servicios legales oportunos orientados a proteger sus intereses personales, económicos y comerciales.',
   ],
   en: [
-    'We are a law firm comprised of professionals who specialize in a variety of legal disciplines, with offices in northern, Bajío, central and southeast Mexico, providing our services at all times with the highest standards of professional ethics, quality and excellence.',
-    'Our commitment is to help our clients grow by providing timely legal services oriented towards protecting their personal, economic and commercial interests.',
-    'The firm’s practice areas include litigation in civil, commercial, criminal, family, administrative, amparo and tax matters; advisory, which includes corporate, banking, environmental, immigration and real estate law; and compliance, covering anti-money laundering, personal data protection, anti-corruption, and the evaluation and management of legal and regulatory risk programs, among others.',
+    'Legem Attorneys at Law was created to support the growth of foreign direct investment and entrepreneurship in Mexico. Made up of professionals who specialize in a range of legal disciplines, with offices in northern, Bajío, central and southeast Mexico, the firm guarantees the highest ethical and professional standards in the delivery of its services.',
+    'Since our beginnings we have focused on delivering excellent legal consulting, which is why international consulting firms such as Forvis Mazars, Plante & Moran, Grant Thornton, Moss Adams and Baker Tilly, among others, have selected us to work alongside them in structuring businesses in Mexico and protecting their interests in the country. Responsiveness and excellence in our services set us apart.',
+    'We belong to several international alliances of business consulting firms and are the exclusive Mexican member for Foreign Direct Investment of IR Global, a London-based strategic alliance offering legal, accounting and financial services across 155 jurisdictions worldwide. Since 2019 we have been recognized by various organizations that position us as a leading law firm in Foreign Direct Investment in Mexico.',
+    'Our commitment is to help our clients grow by providing timely legal services aimed at protecting their personal, economic and commercial interests.',
   ],
 }[lang];
 
-const pillars = [
-  { title: t('home.why.1.title'), body: t('home.why.1.body') },
-  { title: t('home.why.2.title'), body: t('home.why.2.body') },
-  { title: t('home.why.3.title'), body: t('home.why.3.body') },
-  { title: t('home.why.4.title'), body: t('home.why.4.body') },
-];
 const values = [1, 2, 3].map((n) => ({
   title: t(`about.values.${n}.title` as any),
   body: t(`about.values.${n}.body` as any),
@@ -40,7 +36,7 @@ const values = [1, 2, 3].map((n) => ({
 ---
 
 <Base lang={lang} title={t('about.label')} altPath={path('about', altLang)}>
-  <PageHero label={t('about.label')} title={t('about.title')} lead={t('about.lead')} />
+  <PageHero label={t('about.label')} title={t('about.title')} />
 
   <section class="container-x">
     <Media
@@ -80,33 +76,15 @@ const values = [1, 2, 3].map((n) => ({
         }
       </div>
       <blockquote class="mt-24 text-center">
-        <p class="display-md mx-auto max-w-[26ch]" data-words lang="en">
-          “We are what we repeatedly do. Excellence, then, is not an act, but a habit.”
+        <p class="display-md mx-auto max-w-[26ch]" data-words>
+          {
+            lang === 'es'
+              ? '“Somos lo que constantemente hacemos. La excelencia, entonces, no es un acto, sino un hábito.”'
+              : '“We are what we repeatedly do. Excellence, then, is not an act, but a habit.”'
+          }
         </p>
-        <footer class="mono mt-8 text-paper/50">— Aristotle</footer>
+        <footer class="mono mt-8 text-paper/50">— {lang === 'es' ? 'Aristóteles' : 'Aristotle'}</footer>
       </blockquote>
-    </div>
-  </section>
-
-  <section class="container-x py-24 md:py-32">
-    <div class="grid gap-14 lg:grid-cols-12">
-      <div class="lg:col-span-5">
-        <p class="eyebrow" data-reveal>{t('home.why.label')}</p>
-        <h2 class="display-lg mt-6" data-split>{t('home.why.title')}</h2>
-      </div>
-      <ol class="lg:col-span-7">
-        {
-          pillars.map((w, i) => (
-            <li class="hairline grid grid-cols-[3.5rem_1fr] gap-4 border-t py-8" data-reveal>
-              <span class="font-display text-3xl text-brand">{String(i + 1).padStart(2, '0')}</span>
-              <div>
-                <h3 class="display-sm">{w.title}</h3>
-                <p class="mt-3 text-muted">{w.body}</p>
-              </div>
-            </li>
-          ))
-        }
-      </ol>
     </div>
   </section>
 
