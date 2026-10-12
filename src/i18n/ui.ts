@@ -66,14 +66,14 @@ export const ui = {
     'home.why.label': 'Por qué Legem',
     'home.why.title': 'Lo que nos distingue',
     'home.why.1.title': 'Experiencia y dominio',
-    'home.why.1.body': 'Equipo de abogados con posgrado y años de práctica.',
+    'home.why.1.body': 'Equipo de abogados especializados en cada área del derecho empresarial.',
     'home.why.2.title': 'Presencia global',
     'home.why.2.body': 'Cobertura nacional y alcance internacional con oficinas en México y una red de firmas aliadas en el extranjero.',
     'home.why.3.title': 'Prestigio y reconocimiento',
     'home.why.3.body': 'Galardonados nacional e internacionalmente por entidades especializadas.',
     'home.why.4.title': 'Inmediatez y excelencia',
     'home.why.4.body':
-      'La inmediatez y la excelencia en nuestros servicios nos distinguen. Un equipo bilingüe que responde a tiempo.',
+      'Atención oportuna y soluciones claras orientadas a proteger sus intereses.',
 
     'home.industries.label': 'Sectores',
     'home.industries.title':
@@ -238,14 +238,14 @@ export const ui = {
     'home.why.label': 'Why Legem',
     'home.why.title': 'What sets us apart',
     'home.why.1.title': 'Expertise & proficiency',
-    'home.why.1.body': 'A team of attorneys with advanced degrees and extensive professional experience.',
+    'home.why.1.body': 'A team of attorneys specialized in every area of business law.',
     'home.why.2.title': 'Global presence',
     'home.why.2.body': 'Nationwide coverage and international reach, with offices in Mexico and a network of partner firms abroad.',
     'home.why.3.title': 'Reputation and recognition',
     'home.why.3.body': 'Recognized with national and international awards by specialized institutions.',
     'home.why.4.title': 'Immediacy and excellence',
     'home.why.4.body':
-      'The immediacy and excellence of our services set us apart. A bilingual team that responds on time.',
+      'Timely attention and clear solutions focused on protecting your interests.',
 
     'home.industries.label': 'Industries',
     'home.industries.title': 'We advise companies in the industrial, commercial and services sectors.',
