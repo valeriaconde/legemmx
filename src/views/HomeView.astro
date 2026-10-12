@@ -109,12 +109,10 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
   </section>
 
   <!-- ============ ÁREAS DE PRÁCTICA ============ -->
-  <!-- En escritorio la sección queda fija y las 4 tarjetas suben al hacer scroll (ver pinnedAreas en motion.ts) -->
   <section
     id="areas"
-    data-areas-pin
     data-header-dark
-    class="on-dark overflow-hidden bg-ink py-24 text-paper md:py-32 lg:flex lg:min-h-[100svh] lg:flex-col lg:justify-center lg:pt-36 lg:pb-16"
+    class="on-dark overflow-hidden bg-ink py-24 text-paper md:py-32"
   >
     <div class="container-x">
       <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
@@ -134,7 +132,6 @@ const quote = '“We are what we repeatedly do. Excellence, then, is not an act,
           practiceAreas.map((a, i) => (
             <a
               href={areaPath(a.slug[lang], lang)}
-              data-area-card
               class="group hairline relative flex flex-col gap-8 rounded-xl border bg-ink-2/60 p-6 transition-colors duration-500 hover:bg-brand-deep"
             >
               <div>
