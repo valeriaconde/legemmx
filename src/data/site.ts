@@ -23,8 +23,8 @@ export const site = {
       image: '/images/firma-monterrey.jpg',
     },
     { region: { es: 'Bajío', en: 'Bajío' }, city: 'León / Aguascalientes', address: '', image: '' },
-    { region: { es: 'Centro', en: 'Central Mexico' }, city: 'Ciudad de México', address: '', image: '' },
-    { region: { es: 'Sureste', en: 'Southeast Mexico' }, city: 'Mérida', address: '', image: '' },
+    { region: { es: 'Centro', en: 'Central Mexico' }, city: 'Ciudad de México', address: '', image: '/images/centro.jpg' },
+    { region: { es: 'Sureste', en: 'Southeast Mexico' }, city: 'Mérida', address: '', image: '/images/sureste.jpg' },
   ],
 
   // TODO: agregar perfiles si la firma los tiene (dejar vacío para ocultar).

@@ -90,7 +90,6 @@ export const ui = {
     'home.pubs.title': 'Boletines y análisis',
     'home.pubs.cta': 'Ver publicaciones',
 
-    'cta.label': 'Contacto',
     'cta.title': '¿Planea invertir u operar en México?',
     'cta.button': 'Hablemos',
 
@@ -130,7 +129,6 @@ export const ui = {
     'areas.title': 'Especialización en cada materia que su empresa necesita.',
     'areas.lead':
       'Cuatro áreas de práctica que trabajan de forma coordinada para ofrecer un servicio integral.',
-    'areas.specialties': 'Especialidades',
     'areas.contactTitle': '¿Necesita asesoría en esta materia?',
 
     'pubs.label': 'Publicaciones',
@@ -252,7 +250,6 @@ export const ui = {
     'home.pubs.title': 'Newsletters and insights',
     'home.pubs.cta': 'View publications',
 
-    'cta.label': 'Contact',
     'cta.title': 'Planning to invest or operate in Mexico?',
     'cta.button': "Let's talk",
 
@@ -291,7 +288,6 @@ export const ui = {
     'areas.title': 'Specialized counsel in every matter your company needs.',
     'areas.lead':
       'Four practice areas working together to provide an integral service.',
-    'areas.specialties': 'Specialties',
     'areas.contactTitle': 'Need advice on this matter?',
 
     'pubs.label': 'Publications',

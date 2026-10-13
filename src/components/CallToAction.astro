@@ -24,8 +24,7 @@ const t = useTranslations(lang);
     </div>
     <div class="relative grid gap-10 lg:grid-cols-12 lg:items-end">
       <div class="lg:col-span-8">
-        <p class="eyebrow !text-paper/60">{t('cta.label')}</p>
-        <h2 class="display-lg mt-6 max-w-[18ch]" data-split>{title ?? t('cta.title')}</h2>
+        <h2 class="display-lg max-w-[18ch]" data-split>{title ?? t('cta.title')}</h2>
       </div>
       <div class="flex flex-col items-start gap-4 lg:col-span-4 lg:items-end" data-reveal>
         <a href={path('contact', lang)} class="btn btn-light !px-7 !py-5 text-base">

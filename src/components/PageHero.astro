@@ -1,6 +1,6 @@
 ---
 interface Props {
-  label: string;
+  label?: string;
   title: string;
   lead?: string;
   index?: string;
@@ -9,11 +9,15 @@ const { label, title, lead, index } = Astro.props;
 ---
 
 <section class="container-x pt-36 pb-16 md:pt-44 md:pb-24">
-  <div class="flex items-center justify-between gap-6">
-    <p class="eyebrow" data-hero-item>{label}</p>
-    {index && <p class="mono text-muted" data-hero-item>{index}</p>}
-  </div>
-  <h1 class="display-lg mt-8 max-w-[16ch]" data-split="load">{title}</h1>
+  {
+    (label || index) && (
+      <div class="mb-8 flex items-center justify-between gap-6">
+        {label && <p class="eyebrow" data-hero-item>{label}</p>}
+        {index && <p class="mono text-muted" data-hero-item>{index}</p>}
+      </div>
+    )
+  }
+  <h1 class="display-lg max-w-[16ch]" data-split="load">{title}</h1>
   {
     lead && (
       <p class="lead mt-8 max-w-2xl" data-hero-item>
