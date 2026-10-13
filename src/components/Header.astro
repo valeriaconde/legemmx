@@ -1,8 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import { useTranslations } from '@/i18n/ui';
-import { path, areaPath, type Lang } from '@/i18n/routes';
-import { practiceAreas } from '@/data/practice-areas';
+import { path, type Lang } from '@/i18n/routes';
 
 interface Props {
   lang: Lang;
@@ -16,7 +15,7 @@ const current = Astro.url.pathname;
 
 const links = [
   { href: path('about', lang), label: t('nav.about') },
-  { href: path('areas', lang), label: t('nav.areas'), mega: true },
+  { href: path('areas', lang), label: t('nav.areas') },
   { href: path('team', lang), label: t('nav.team') },
   { href: path('publications', lang), label: t('nav.publications') },
   { href: path('contact', lang), label: t('nav.contact') },
@@ -34,64 +33,13 @@ const isActive = (href: string) => href !== '/' && href !== '/en/' && current.st
     <nav class="header-fg hidden lg:block" aria-label="Principal">
       <ul class="flex items-center gap-8 text-[0.95rem]">
         {
-          links.map((l) =>
-            l.mega ? (
-              <li class="group relative">
-                <a
-                  href={l.href}
-                  class="link-line inline-flex items-center gap-1.5 py-6"
-                  aria-current={isActive(l.href) ? 'page' : undefined}
-                  aria-haspopup="true"
-                >
-                  {l.label}
-                  <svg
-                    width="10"
-                    height="10"
-                    viewBox="0 0 10 10"
-                    class="transition-transform duration-300 group-hover:rotate-180"
-                    aria-hidden="true"
-                  >
-                    <path d="M1 3.5 5 7l4-3.5" fill="none" stroke="currentColor" stroke-width="1.2" />
-                  </svg>
-                </a>
-                <div class="mega invisible absolute top-full left-1/2 w-[min(880px,90vw)] -translate-x-1/2 translate-y-2 opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                  <div class="grid grid-cols-4 gap-px overflow-hidden rounded-2xl border border-[#d9d3c6] bg-[#d9d3c6] text-ink shadow-[0_30px_80px_-30px_rgb(13_22_36/0.35)]">
-                    {practiceAreas.map((a) => (
-                      <div class="bg-paper p-5">
-                        <a href={areaPath(a.slug[lang], lang)} class="group/area block">
-                          <span class="block font-display text-2xl leading-tight group-hover/area:text-brand">
-                            {a.name[lang]}
-                          </span>
-                        </a>
-                        <ul class="mt-4 space-y-1.5 text-[0.84rem] text-muted">
-                          {a.specialties.slice(0, 6).map((s) => (
-                            <li>
-                              <a href={areaPath(a.slug[lang], lang, s.id)} class="hover:text-ink">
-                                {s.name[lang]}
-                              </a>
-                            </li>
-                          ))}
-                          {a.specialties.length > 6 && (
-                            <li>
-                              <a href={areaPath(a.slug[lang], lang)} class="text-brand">
-                                +{a.specialties.length - 6}
-                              </a>
-                            </li>
-                          )}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </li>
-            ) : (
-              <li>
-                <a href={l.href} class="link-line py-6" aria-current={isActive(l.href) ? 'page' : undefined}>
-                  {l.label}
-                </a>
-              </li>
-            ),
-          )
+          links.map((l) => (
+            <li>
+              <a href={l.href} class="link-line py-6" aria-current={isActive(l.href) ? 'page' : undefined}>
+                {l.label}
+              </a>
+            </li>
+          ))
         }
       </ul>
     </nav>

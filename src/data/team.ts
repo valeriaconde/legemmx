@@ -32,7 +32,7 @@ export interface Person {
 const bilingual: L = { es: 'Español / Inglés', en: 'Spanish / English' };
 
 export const groupLabels: Record<TeamGroup, L> = {
-  consultiva: { es: 'Consultiva', en: 'Advisory' },
+  consultiva: { es: 'Consultiva', en: 'Counseling' },
   contenciosa: { es: 'Contenciosa', en: 'Litigation' },
   cumplimiento: { es: 'Cumplimiento Normativo', en: 'Compliance' },
   seguros: { es: 'Seguros', en: 'Insurance' },
@@ -73,7 +73,7 @@ He currently takes part regularly in advanced negotiation workshops at The Harva
   },
   {
     name: 'Fabiola Ordaz de la Rosa',
-    role: { es: 'Directora del Área Consultiva', en: 'Head of the Advisory Area' },
+    role: { es: 'Directora del Área Consultiva', en: 'Head of the Counseling Area' },
     groups: ['consultiva'],
     email: 'fordaz@legem.mx',
     languages: bilingual,
@@ -81,7 +81,7 @@ He currently takes part regularly in advanced negotiation workshops at The Harva
     bio: {
       experience: {
         es: `Más de 10 años de experiencia en consultoría legal. Colaboradora en Legem Attorneys at Law, S.C., desde 2017 y actualmente Directora del Área Consultiva.`,
-        en: `More than 10 years of experience in legal consulting. She has been with Legem Attorneys at Law, S.C. since 2017 and is currently Head of the Advisory Area.`,
+        en: `More than 10 years of experience in legal consulting. She has been with Legem Attorneys at Law, S.C. since 2017 and is currently Head of the Counseling Area.`,
       },
       background: {
         es: `Durante su formación académica, realizó estudios en la Universidad de Ciencias Políticas de Lille, en Francia, así como en la Universidad de São Paulo, en Brasil.

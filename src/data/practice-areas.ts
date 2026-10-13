@@ -8,7 +8,7 @@ type L = { es: string; en: string };
 export interface Specialty {
   id: string;
   name: L;
-  body: L;
+  body?: L;
 }
 
 export interface PracticeArea {
@@ -23,8 +23,8 @@ export interface PracticeArea {
 export const practiceAreas: PracticeArea[] = [
   {
     id: 'consultiva',
-    slug: { es: 'consultiva', en: 'advisory' },
-    name: { es: 'Consultiva', en: 'Advisory' },
+    slug: { es: 'consultiva', en: 'counseling' },
+    name: { es: 'Consultiva', en: 'Counseling' },
     summary: {
       es: 'La firma brinda asesoría a empresas nacionales y extranjeras en todos los aspectos corporativos que les atañen: legislación aplicable en materia de inversión extranjera, regulación migratoria, y derechos y obligaciones de los distintos órganos sociales y gobiernos corporativos.',
       en: 'The firm advises Mexican and foreign companies on every corporate matter that affects their business, especially legislation applicable to foreign investment, immigration regulation, and the rights and obligations of corporate bodies and corporate governance.',
@@ -111,6 +111,14 @@ export const practiceAreas: PracticeArea[] = [
           en: 'Advice to companies operating in Mexico so their operations preserve the ecological balance and protect the environment, and support with any requirement from Mexican environmental authorities.',
         },
       },
+      {
+        id: 'notarial',
+        name: { es: 'Derecho Notarial', en: 'Notarial Law' },
+      },
+      {
+        id: 'valuacion-activos',
+        name: { es: 'Valuación de Activos', en: 'Asset Valuation' },
+      },
     ],
   },
   {
@@ -170,6 +178,14 @@ export const practiceAreas: PracticeArea[] = [
           es: 'La práctica continua en este campo nos permite diseñar la defensa de nuestros clientes ante actos u omisiones de cualquier autoridad que afecte sus derechos fundamentales.',
           en: 'Our continuous practice in this field allows us to design our clients’ defense against acts or omissions of any authority that affect their constitutional rights.',
         },
+      },
+      {
+        id: 'laboral-contencioso',
+        name: { es: 'Laboral', en: 'Labor' },
+      },
+      {
+        id: 'fiscal',
+        name: { es: 'Fiscal', en: 'Tax' },
       },
     ],
   },

@@ -14,7 +14,6 @@ export const routes = {
   areas: { es: '/areas/', en: '/en/practice-areas/' },
   publications: { es: '/publicaciones/', en: '/en/publications/' },
   contact: { es: '/contacto/', en: '/en/contact/' },
-  privacy: { es: '/aviso-de-privacidad/', en: '/en/privacy-notice/' },
 } as const;
 
 export type RouteKey = keyof typeof routes;
@@ -36,8 +35,9 @@ export function publicationPath(cat: PublicationCategory, lang: Lang, slug?: str
   return slug ? `${base}${slug}/` : base;
 }
 
-export function areaPath(slug: string, lang: Lang, anchor?: string) {
-  return `${routes.areas[lang]}${slug}/${anchor ? `#${anchor}` : ''}`;
+/** Las áreas viven en una sola página; cada una es un ancla dentro de ella. */
+export function areaPath(slug: string, lang: Lang) {
+  return `${routes.areas[lang]}#${slug}`;
 }
 
 export function getLangFromUrl(url: URL): Lang {

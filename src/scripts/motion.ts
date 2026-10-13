@@ -4,7 +4,7 @@
  * Atributos disponibles en el HTML:
  *   data-reveal            → aparece al entrar en pantalla (sube y se desvanece)
  *   data-reveal="fade"     → solo se desvanece
- *   data-reveal-stagger    → sus hijos aparecen uno tras otro
+ *   data-reveal-stagger    → sus hijos aparecen uno tras otro (data-reveal-stagger="0.2" = segundos entre cada uno)
  *   data-split             → el titular aparece línea por línea
  *   data-words             → las palabras se iluminan al hacer scroll (citas / frases)
  *   data-count="22"        → número que cuenta hacia arriba
@@ -61,7 +61,7 @@ function reveals() {
       y: 0,
       duration: 1,
       ease: EASE,
-      stagger: 0.08,
+      stagger: Number(group.dataset.revealStagger || 0.08),
       scrollTrigger: { trigger: group, start: 'top 88%', once: true },
     });
   });

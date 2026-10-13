@@ -35,7 +35,6 @@ export const ui = {
     'footer.firm': 'Firma',
     'footer.areas': 'Áreas',
     'footer.contact': 'Contacto',
-    'footer.privacy': 'Aviso de privacidad',
     'footer.rights': 'Todos los derechos reservados.',
 
     'home.hero.eyebrow': 'Legem · Attorneys at Law',
@@ -66,24 +65,24 @@ export const ui = {
     'home.why.label': 'Por qué Legem',
     'home.why.title': 'Lo que nos distingue',
     'home.why.1.title': 'Experiencia y dominio',
-    'home.why.1.body': 'Equipo de abogados con posgrado y años de práctica',
-    'home.why.2.title': 'Presencia en todo México',
-    'home.why.2.body': 'A través de oficinas regionales y firmas aliadas',
+    'home.why.1.body': 'Equipo de abogados especializados en cada área del derecho empresarial.',
+    'home.why.2.title': 'Presencia global',
+    'home.why.2.body': 'Cobertura nacional y alcance internacional con oficinas en México y una red de firmas aliadas en el extranjero.',
     'home.why.3.title': 'Prestigio y reconocimiento',
-    'home.why.3.body': 'Galardonados nacional e internacionalmente por entidades especializadas',
+    'home.why.3.body': 'Galardonados nacional e internacionalmente por entidades especializadas.',
     'home.why.4.title': 'Inmediatez y excelencia',
     'home.why.4.body':
-      'La inmediatez y la excelencia en nuestros servicios nos distinguen. Un equipo bilingüe que responde a tiempo.',
+      'Atención oportuna y soluciones claras orientadas a proteger sus intereses.',
 
     'home.industries.label': 'Sectores',
     'home.industries.title':
-      'Asesoramos empresas en los sectores industrial, comercial y de servicios.',
-    'home.industries.list': 'Automotriz,Metalúrgica,Mecánica,Industrial,Comercial,Servicios',
+      'Asesoramos empresas en distintos sectores, entre los que destacan:',
+    'home.industries.list': 'Automotriz,Metalúrgica,Mecánica,Industrial,Comercial,Servicios,Salud,Construcción,Energía,Transporte,Petroquímica,Aeroespacial,Marítimo',
 
     'home.team.label': 'Nuestro equipo',
     'home.team.title': 'Lo más valioso de nuestra firma es nuestro equipo humano.',
     'home.team.body':
-      'Especialistas en litigio, derecho corporativo, cumplimiento normativo, propiedad intelectual y seguros.',
+      'Especialistas en litigio, derecho empresarial, cumplimiento normativo, propiedad intelectual y seguros, entre otros.',
     'home.team.count': 'Especialistas',
     'home.team.cta': 'Conoce al equipo',
 
@@ -91,21 +90,18 @@ export const ui = {
     'home.pubs.title': 'Boletines y análisis',
     'home.pubs.cta': 'Ver publicaciones',
 
-    'cta.label': 'Contacto',
     'cta.title': '¿Planea invertir u operar en México?',
-    'cta.body':
-      'Cuéntenos sobre su proyecto. Un abogado especialista le responderá a la brevedad, en español o inglés.',
     'cta.button': 'Hablemos',
 
     'about.label': 'Nosotros',
-    'about.title': 'Una firma legal al servicio del crecimiento de nuestros clientes.',
+    'about.title': 'Una firma de consultoría legal de negocios al servicio del crecimiento de nuestros clientes.',
     'about.lead':
-      'Asesoramos empresas en los sectores industrial, comercial y de servicios, entre los que destacan la industria automotriz y la industria metal-mecánica.',
+      'Con cobertura en los principales clústeres geográficos y sectoriales del país.',
     'about.practice.label': 'Práctica',
     'about.values.label': 'Nuestros principios',
     'about.values.1.title': 'La firma',
     'about.values.1.body':
-      'Profesionales especializados en distintas áreas del Derecho, brindando nuestros servicios en todo momento con los más altos estándares de ética profesional, calidad y excelencia.',
+      'Profesionales especializados en diversas disciplinas del Derecho, brindando nuestros servicios en todo momento con los más altos estándares de ética profesional, calidad y excelencia.',
     'about.values.2.title': 'Nuestro compromiso',
     'about.values.2.body':
       'Apoyar el crecimiento de nuestros clientes a través de la prestación oportuna de servicios legales.',
@@ -113,16 +109,13 @@ export const ui = {
     'about.values.3.body':
       'En toda clase de operaciones comerciales, con amplia experiencia en la realización de auditorías legales.',
     'about.offices.label': 'Presencia',
-    'about.offices.title': 'Oficinas en el norte, bajío, centro y sureste del país.',
+    'about.offices.title': 'Oficinas en regiones estratégicas de México',
 
     'team.label': 'Abogados',
     'team.title': 'Nuestros líderes',
     'team.lead':
       'Conoce a las personas que lideran nuestras áreas de práctica. Cada una cuenta con un equipo de abogados y especialistas que trabaja a su lado.',
     'team.note.title': 'Y un equipo completo detrás de cada área.',
-    'team.note.body':
-      'Esta página presenta únicamente a quienes dirigen cada área. Si quieres saber quién puede atender tu caso, escríbenos y te ponemos en contacto con la persona indicada.',
-    'team.note.cta': 'Contáctanos',
     'team.bio': 'Ver trayectoria',
     'team.close': 'Cerrar',
     'team.bio.experience': 'Experiencia profesional',
@@ -135,9 +128,7 @@ export const ui = {
     'areas.label': 'Áreas de práctica',
     'areas.title': 'Especialización en cada materia que su empresa necesita.',
     'areas.lead':
-      'Cuatro áreas de práctica que trabajan de forma coordinada para ofrecer un servicio integral a empresas nacionales y extranjeras.',
-    'areas.specialties': 'Especialidades',
-    'areas.other': 'Otras áreas de práctica',
+      'Cuatro áreas de práctica que trabajan de forma coordinada para ofrecer un servicio integral.',
     'areas.contactTitle': '¿Necesita asesoría en esta materia?',
 
     'pubs.label': 'Publicaciones',
@@ -154,8 +145,6 @@ export const ui = {
 
     'contact.label': 'Contacto',
     'contact.title': 'Hablemos de su proyecto.',
-    'contact.lead':
-      'Escríbanos y un abogado especialista le responderá a la brevedad. Atendemos en español e inglés.',
     'contact.form.name': 'Nombre completo',
     'contact.form.company': 'Empresa (opcional)',
     'contact.form.email': 'Correo electrónico',
@@ -173,9 +162,6 @@ export const ui = {
     'contact.form.required': 'Campo obligatorio',
     'contact.direct': 'Contacto directo',
     'contact.offices': 'Oficinas',
-
-    'privacy.label': 'Legal',
-    'privacy.title': 'Aviso de privacidad',
 
     '404.title': 'Página no encontrada',
     '404.body': 'La página que busca no existe o fue movida.',
@@ -211,7 +197,6 @@ export const ui = {
     'footer.firm': 'Firm',
     'footer.areas': 'Practice areas',
     'footer.contact': 'Contact',
-    'footer.privacy': 'Privacy notice',
     'footer.rights': 'All rights reserved.',
 
     'home.hero.eyebrow': 'Legem · Attorneys at Law',
@@ -241,23 +226,23 @@ export const ui = {
     'home.why.label': 'Why Legem',
     'home.why.title': 'What sets us apart',
     'home.why.1.title': 'Expertise & proficiency',
-    'home.why.1.body': 'A team of attorneys with advanced degrees and extensive professional experience',
-    'home.why.2.title': 'Nationwide presence in Mexico',
-    'home.why.2.body': 'Through regional offices and strategic partner firms',
+    'home.why.1.body': 'A team of attorneys specialized in every area of business law.',
+    'home.why.2.title': 'Global presence',
+    'home.why.2.body': 'Nationwide coverage and international reach, with offices in Mexico and a network of partner firms abroad.',
     'home.why.3.title': 'Reputation and recognition',
-    'home.why.3.body': 'Recognized with national and international awards by specialized institutions',
+    'home.why.3.body': 'Recognized with national and international awards by specialized institutions.',
     'home.why.4.title': 'Immediacy and excellence',
     'home.why.4.body':
-      'The immediacy and excellence of our services set us apart. A bilingual team that responds on time.',
+      'Timely attention and clear solutions focused on protecting your interests.',
 
     'home.industries.label': 'Industries',
-    'home.industries.title': 'We advise companies in the industrial, commercial and services sectors.',
-    'home.industries.list': 'Automotive,Metallurgic,Mechanic,Industrial,Commercial,Services',
+    'home.industries.title': 'We advise companies across a range of industries, including:',
+    'home.industries.list': 'Automotive,Metallurgic,Mechanic,Industrial,Commercial,Services,Healthcare,Construction,Energy,Transportation,Petrochemicals,Aerospace,Maritime',
 
     'home.team.label': 'Our team',
     'home.team.title': 'The most valuable asset of our firm is our people.',
     'home.team.body':
-      'Specialists in litigation, corporate law, compliance, intellectual property and insurance.',
+      'Specialists in litigation, business law, compliance, intellectual property and insurance, among others.',
     'home.team.count': 'Specialists',
     'home.team.cta': 'Meet the team',
 
@@ -265,16 +250,13 @@ export const ui = {
     'home.pubs.title': 'Newsletters and insights',
     'home.pubs.cta': 'View publications',
 
-    'cta.label': 'Contact',
     'cta.title': 'Planning to invest or operate in Mexico?',
-    'cta.body':
-      'Tell us about your project. A specialized attorney will get back to you shortly, in English or Spanish.',
     'cta.button': "Let's talk",
 
     'about.label': 'About us',
-    'about.title': 'A law firm committed to the growth of our clients.',
+    'about.title': 'A business legal consulting firm committed to the growth of our clients.',
     'about.lead':
-      'We advise companies in the industrial, commercial and services sectors, most notably the automotive and metal-mechanic industries.',
+      'Covering strong geographic and sectoral clusters in the country.',
     'about.practice.label': 'Practice',
     'about.values.label': 'Our principles',
     'about.values.1.title': 'Our firm',
@@ -286,16 +268,13 @@ export const ui = {
     'about.values.3.body':
       'On all kinds of commercial transactions, with extensive experience in conducting legal audits.',
     'about.offices.label': 'Presence',
-    'about.offices.title': 'Offices in northern, Bajío, central and southeast Mexico.',
+    'about.offices.title': 'Offices in strategic regions of Mexico',
 
     'team.label': 'Attorneys',
     'team.title': 'Our Leadership',
     'team.lead':
       'Meet the people who lead our practice areas. Each one works alongside a team of attorneys and specialists.',
     'team.note.title': 'And a full team behind every area.',
-    'team.note.body':
-      'This page presents only those who lead each area. If you would like to know who can handle your matter, write to us and we will connect you with the right person.',
-    'team.note.cta': 'Contact us',
     'team.bio': 'View background',
     'team.close': 'Close',
     'team.bio.experience': 'Professional experience',
@@ -308,9 +287,7 @@ export const ui = {
     'areas.label': 'Practice areas',
     'areas.title': 'Specialized counsel in every matter your company needs.',
     'areas.lead':
-      'Four practice areas working together to provide an integral service to Mexican and foreign companies.',
-    'areas.specialties': 'Specialties',
-    'areas.other': 'Other practice areas',
+      'Four practice areas working together to provide an integral service.',
     'areas.contactTitle': 'Need advice on this matter?',
 
     'pubs.label': 'Publications',
@@ -327,8 +304,6 @@ export const ui = {
 
     'contact.label': 'Contact',
     'contact.title': 'Let’s talk about your project.',
-    'contact.lead':
-      'Write to us and a specialized attorney will get back to you shortly. We work in English and Spanish.',
     'contact.form.name': 'Full name',
     'contact.form.company': 'Company (optional)',
     'contact.form.email': 'Email',
@@ -345,9 +320,6 @@ export const ui = {
     'contact.form.required': 'Required field',
     'contact.direct': 'Direct contact',
     'contact.offices': 'Offices',
-
-    'privacy.label': 'Legal',
-    'privacy.title': 'Privacy notice',
 
     '404.title': 'Page not found',
     '404.body': 'The page you are looking for doesn’t exist or has moved.',
