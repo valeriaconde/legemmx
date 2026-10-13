@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import Media from '@/components/Media.astro';
+import Logo from '@/components/Logo.astro';
 import CallToAction from '@/components/CallToAction.astro';
 import { useTranslations } from '@/i18n/ui';
 import { path, areaPath, type Lang } from '@/i18n/routes';
@@ -49,13 +50,18 @@ const quote =
     </div>
 
     <div class="container-x flex flex-1 flex-col justify-end pt-36 pb-10 md:pb-14">
-      <p class="eyebrow !text-paper/60" data-hero-item>{t('home.hero.eyebrow')}</p>
-      <h1 class="display-xl mt-6 max-w-[13ch]" data-split="load">{t('home.hero.title')}</h1>
+      <div class="mb-8 md:mb-10 lg:hidden" data-hero-item>
+        <Logo class="h-14! md:h-16!" />
+      </div>
+      <h1 class="display-xl max-w-[13ch]" data-split="load">{t('home.hero.title')}</h1>
 
-      <div class="mt-10 grid gap-10 md:mt-14 lg:grid-cols-12 lg:items-center">
+      <div class="mt-10 grid gap-10 md:mt-14 lg:grid-cols-12 lg:items-end">
         <p class="max-w-xl text-lg leading-relaxed text-paper/75 lg:col-span-6" data-hero-item>
           {t('home.hero.lead')}
         </p>
+        <div class="hidden lg:col-span-6 lg:flex lg:justify-end" data-hero-item>
+          <Logo class="h-16! xl:h-18!" />
+        </div>
       </div>
 
       <div
