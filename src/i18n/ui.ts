@@ -37,7 +37,6 @@ export const ui = {
     'footer.contact': 'Contacto',
     'footer.rights': 'Todos los derechos reservados.',
 
-    'home.hero.eyebrow': 'Legem · Attorneys at Law',
     'home.hero.title': 'Certeza legal para hacer negocios en México.',
     'home.hero.lead':
       'Brindamos servicios de consultoría legal de negocios a empresas nacionales y extranjeras, con énfasis en la apertura y expansión de operaciones en México, con los más altos estándares de ética profesional, calidad y excelencia.',
@@ -199,7 +198,6 @@ export const ui = {
     'footer.contact': 'Contact',
     'footer.rights': 'All rights reserved.',
 
-    'home.hero.eyebrow': 'Legem · Attorneys at Law',
     'home.hero.title': 'Legal certainty for doing business in Mexico.',
     'home.hero.lead':
       'We provide business legal consulting services to Mexican and foreign companies, with an emphasis on the opening and expansion of operations in Mexico, with the highest standards of professional ethics, quality and excellence.',
