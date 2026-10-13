@@ -8,7 +8,7 @@ export const site = {
   url: 'https://legem.mx',
 
   // TODO: confirmar el correo que recibe las consultas del formulario y del sitio.
-  contactEmail: 'oconde@legem.mx',
+  contactEmail: 'contacto@legem.mx',
 
   // TODO: agregar teléfono principal si se desea mostrar (formato +52 ...).
   phone: '',
@@ -18,11 +18,11 @@ export const site = {
   offices: [
     {
       region: { es: 'Norte', en: 'Northern Mexico' },
-      city: 'San Pedro Garza García',
+      city: 'Monterrey',
       address: '',
       image: '/images/firma-monterrey.jpg',
     },
-    { region: { es: 'Bajío', en: 'Bajío' }, city: 'Aguascalientes', address: '', image: '' },
+    { region: { es: 'Bajío', en: 'Bajío' }, city: 'León / Aguascalientes', address: '', image: '' },
     { region: { es: 'Centro', en: 'Central Mexico' }, city: 'Ciudad de México', address: '', image: '' },
     { region: { es: 'Sureste', en: 'Southeast Mexico' }, city: 'Mérida', address: '', image: '' },
   ],

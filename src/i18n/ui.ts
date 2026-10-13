@@ -77,7 +77,7 @@ export const ui = {
     'home.industries.label': 'Sectores',
     'home.industries.title':
       'Asesoramos empresas en distintos sectores, entre los que destacan:',
-    'home.industries.list': 'Automotriz,Metalúrgica,Mecánica,Industrial,Comercial,Servicios,Salud,Construcción,Energía,Transporte,Petroquímica',
+    'home.industries.list': 'Automotriz,Metalúrgica,Mecánica,Industrial,Comercial,Servicios,Salud,Construcción,Energía,Transporte,Petroquímica,Aeroespacial,Marítimo',
 
     'home.team.label': 'Nuestro equipo',
     'home.team.title': 'Lo más valioso de nuestra firma es nuestro equipo humano.',
@@ -129,9 +129,8 @@ export const ui = {
     'areas.label': 'Áreas de práctica',
     'areas.title': 'Especialización en cada materia que su empresa necesita.',
     'areas.lead':
-      'Cuatro áreas de práctica que trabajan de forma coordinada para ofrecer un servicio integral a empresas nacionales y extranjeras.',
+      'Cuatro áreas de práctica que trabajan de forma coordinada para ofrecer un servicio integral.',
     'areas.specialties': 'Especialidades',
-    'areas.other': 'Otras áreas de práctica',
     'areas.contactTitle': '¿Necesita asesoría en esta materia?',
 
     'pubs.label': 'Publicaciones',
@@ -148,8 +147,6 @@ export const ui = {
 
     'contact.label': 'Contacto',
     'contact.title': 'Hablemos de su proyecto.',
-    'contact.lead':
-      'Escríbanos y un abogado especialista le responderá a la brevedad. Atendemos en español e inglés.',
     'contact.form.name': 'Nombre completo',
     'contact.form.company': 'Empresa (opcional)',
     'contact.form.email': 'Correo electrónico',
@@ -242,7 +239,7 @@ export const ui = {
 
     'home.industries.label': 'Industries',
     'home.industries.title': 'We advise companies across a range of industries, including:',
-    'home.industries.list': 'Automotive,Metallurgic,Mechanic,Industrial,Commercial,Services,Healthcare,Construction,Energy,Transportation,Petrochemicals',
+    'home.industries.list': 'Automotive,Metallurgic,Mechanic,Industrial,Commercial,Services,Healthcare,Construction,Energy,Transportation,Petrochemicals,Aerospace,Maritime',
 
     'home.team.label': 'Our team',
     'home.team.title': 'The most valuable asset of our firm is our people.',
@@ -293,9 +290,8 @@ export const ui = {
     'areas.label': 'Practice areas',
     'areas.title': 'Specialized counsel in every matter your company needs.',
     'areas.lead':
-      'Four practice areas working together to provide an integral service to Mexican and foreign companies.',
+      'Four practice areas working together to provide an integral service.',
     'areas.specialties': 'Specialties',
-    'areas.other': 'Other practice areas',
     'areas.contactTitle': 'Need advice on this matter?',
 
     'pubs.label': 'Publications',
@@ -312,8 +308,6 @@ export const ui = {
 
     'contact.label': 'Contact',
     'contact.title': 'Let’s talk about your project.',
-    'contact.lead':
-      'Write to us and a specialized attorney will get back to you shortly. We work in English and Spanish.',
     'contact.form.name': 'Full name',
     'contact.form.company': 'Company (optional)',
     'contact.form.email': 'Email',

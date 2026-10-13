@@ -35,8 +35,9 @@ export function publicationPath(cat: PublicationCategory, lang: Lang, slug?: str
   return slug ? `${base}${slug}/` : base;
 }
 
-export function areaPath(slug: string, lang: Lang, anchor?: string) {
-  return `${routes.areas[lang]}${slug}/${anchor ? `#${anchor}` : ''}`;
+/** Las áreas viven en una sola página; cada una es un ancla dentro de ella. */
+export function areaPath(slug: string, lang: Lang) {
+  return `${routes.areas[lang]}#${slug}`;
 }
 
 export function getLangFromUrl(url: URL): Lang {

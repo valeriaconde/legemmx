@@ -22,10 +22,10 @@ ErrorDocument 404 /404.html
   # Español
   RedirectMatch 301 ^/inicio/?$ /
   RedirectMatch 301 ^/es/?$ /
-  RedirectMatch 301 ^/contenciosa/?$ /areas/contenciosa/
-  RedirectMatch 301 ^/consultiva/?$ /areas/consultiva/
-  RedirectMatch 301 ^/es/consultiva/?$ /areas/consultiva/
-  RedirectMatch 301 ^/cumplimiento-normativo/?$ /areas/cumplimiento-normativo/
+  RedirectMatch 301 ^/contenciosa/?$ /areas/
+  RedirectMatch 301 ^/consultiva/?$ /areas/
+  RedirectMatch 301 ^/es/consultiva/?$ /areas/
+  RedirectMatch 301 ^/cumplimiento-normativo/?$ /areas/
   RedirectMatch 301 ^/es/boletines/?$ /publicaciones/boletines/
   RedirectMatch 301 ^/es/articulos/?$ /publicaciones/articulos/
   RedirectMatch 301 ^/es/reconocimientos/?$ /publicaciones/reconocimientos/
@@ -35,9 +35,9 @@ ErrorDocument 404 /404.html
   RedirectMatch 301 ^/home/?$ /en/
   RedirectMatch 301 ^/about-us/?$ /en/about/
   RedirectMatch 301 ^/attorneys/?$ /en/attorneys/
-  RedirectMatch 301 ^/(en/)?litigation/?$ /en/practice-areas/litigation/
-  RedirectMatch 301 ^/(en/)?counseling/?$ /en/practice-areas/advisory/
-  RedirectMatch 301 ^/compliance/?$ /en/practice-areas/compliance/
+  RedirectMatch 301 ^/(en/)?litigation/?$ /en/practice-areas/
+  RedirectMatch 301 ^/(en/)?counseling/?$ /en/practice-areas/
+  RedirectMatch 301 ^/compliance/?$ /en/practice-areas/
   RedirectMatch 301 ^/newsletters/?$ /en/publications/newsletters/
   RedirectMatch 301 ^/papers/?$ /en/publications/articles/
   RedirectMatch 301 ^/awards/?$ /en/publications/awards/
@@ -47,6 +47,10 @@ ErrorDocument 404 /404.html
   RedirectMatch 301 ^/legitimation-of-collective-bargaining-agreements-2/?$ /en/publications/newsletters/legitimation-of-collective-bargaining-agreements/
   RedirectMatch 301 ^/legitimation-of-collective-bargaining-agreements/?$ /en/publications/newsletters/federal-labor-law-reform-telework/
   RedirectMatch 301 ^/(legal-entities-obligation-to-identify-the-controlling-beneficiary|reforms-regarding-the-subcontracting-prohibition-in-mexico|update-federal-labor-law-reform-bill-regarding-subcontracting|federal-labor-law-reform-bill-subcontracting|amendment-to-the-federal-labor-law-subcontracting-reform-bill|impacts-to-companies-due-to-anticorruption-law)/?$ /en/publications/newsletters/$1/
+
+  # Las áreas ya no tienen subpáginas: todo va a la página de áreas
+  RedirectMatch 301 ^/areas/[^/]+/?$ /areas/
+  RedirectMatch 301 ^/en/practice-areas/[^/]+/?$ /en/practice-areas/
 
   # PDFs antiguos → nueva carpeta
   RedirectMatch 301 ^/wp-content/uploads/\d{4}/\d{2}/(.+\.pdf)$ /docs/boletines/$1
