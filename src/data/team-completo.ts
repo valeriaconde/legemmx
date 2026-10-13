@@ -38,7 +38,7 @@ export const groupLabels: Record<TeamGroup, L> = {
 
 export const team: Person[] = [
   { name: 'Oscar Conde Medina', area: { es: 'Consultiva', en: 'Counseling' }, groups: ['consultiva'], email: 'oconde@legem.mx', languages: bilingual, photo: '/images/equipo/oscarconde.webp' },
-  { name: 'Fabiola Ordaz de la Rosa', area: { es: 'Consultiva', en: 'Counseling' }, groups: ['consultiva'], email: 'fordaz@legem.mx', languages: bilingual, photo: '/images/equipo/fabiolaordaz.webp' },
+  { name: 'Fabiola Ordaz de la Rosa', area: { es: 'Consultiva', en: 'Counseling' }, groups: ['consultiva'], email: 'fordaz@legem.mx', languages: bilingual, photo: '/images/equipo/fordaz.jpeg' },
   { name: 'Rubén Gabriel C. Alvarez Alanis', area: { es: 'Consultiva', en: 'Counseling' }, groups: ['consultiva'], email: 'ralvarez@legem.mx', languages: bilingual, photo: '' },
   { name: 'José Rolando Navarro Cruz', area: { es: 'Contenciosa / Penal', en: 'Litigation / Criminal' }, groups: ['contenciosa'], email: 'rnavarro@legem.mx', languages: bilingual, photo: '/images/equipo/rolandonavarro.webp' },
   { name: 'Luis Carlos Maldonado Lazos', area: { es: 'Contenciosa', en: 'Litigation' }, groups: ['contenciosa'], email: 'lmaldonado@legem.mx', languages: bilingual, photo: '' },

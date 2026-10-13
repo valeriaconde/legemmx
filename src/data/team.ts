@@ -77,27 +77,43 @@ He currently takes part regularly in advanced negotiation workshops at The Harva
     groups: ['consultiva'],
     email: 'fordaz@legem.mx',
     languages: bilingual,
-    photo: '/images/equipo/fabiolaordaz.webp',
+    photo: '/images/equipo/fordaz.jpeg',
     bio: {
       experience: {
-        es: `Más de 10 años de experiencia en consultoría legal. Colaboradora en Legem Attorneys at Law, S.C., desde 2017 y actualmente Directora del Área Consultiva.`,
-        en: `More than 10 years of experience in legal consulting. She has been with Legem Attorneys at Law, S.C. since 2017 and is currently Head of the Counseling Area.`,
+        es: `Abogada especializada en derecho empresarial, con más de 10 años de experiencia en el diseño e implementación de soluciones jurídicas integrales.
+
+Ha liderado proyectos de litigio estratégico mediante la integración de distintas disciplinas jurídicas, particularmente en materia de derecho societario, representación legal e interpretación y traducción jurídica.`,
+        en: `Attorney specializing in business law, with more than 10 years of experience designing and implementing comprehensive legal solutions.
+
+She has led strategic litigation projects by integrating different legal disciplines, particularly in corporate law, legal representation, and legal interpreting and translation.`,
       },
       background: {
-        es: `Durante su formación académica, realizó estudios en la Universidad de Ciencias Políticas de Lille, en Francia, así como en la Universidad de São Paulo, en Brasil.
+        es: `Realizó estudios en la Universidad de Ciencias Políticas de Lille, Francia, así como en la Universidad de São Paulo, Brasil.
 
-Ha trabajado en el área de consultoría y desarrollo de proyectos dentro de la empresa BRASPA, Ltda., en São Paulo, Brasil y, del 2017 a la fecha, se dedica al desarrollo de proyectos en México en materia de derecho empresarial, incluyendo expansión de negocios, inversión extranjera y derecho corporativo, entre otras.
+En São Paulo colaboró en el área de consultoría y desarrollo de proyectos, participando en iniciativas para empresas internacionales, así como para organizaciones no gubernamentales.
 
-Fabiola realiza regularmente proyectos como Perita Traductora Español<>Inglés para diversas empresas y organizaciones.`,
-        en: `During her academic training she studied at the Lille University of Political Science in France and at the University of São Paulo in Brazil.
+Ha participado como ponente en foros nacionales e internacionales sobre derecho empresarial, sociedades mercantiles, inversión extranjera, expansión de negocios y traducción jurídica, organizados por el Tecnológico de Monterrey, la Barra Mexicana, Colegio de Abogados y diversas organizaciones internacionales.
 
-She worked in consulting and project development at BRASPA, Ltda., in São Paulo, Brazil, and since 2017 has developed projects in Mexico in business law, including business expansion, foreign investment and corporate law, among others.
+Asimismo, ha colaborado en publicaciones para revistas como IR Global Guide y Ecos Diplomáticos.`,
+        en: `She studied at the Lille University of Political Science in France and at the University of São Paulo in Brazil.
 
-Fabiola regularly works as a Spanish<>English Certified Translator for a variety of companies and organizations.`,
+In São Paulo she worked in consulting and project development, taking part in initiatives for international companies as well as non-governmental organizations.
+
+She has spoken at national and international forums on business law, commercial companies, foreign investment, business expansion and legal translation, organized by Tecnológico de Monterrey, the Mexican Bar Association (Barra Mexicana, Colegio de Abogados) and various international organizations.
+
+She has also contributed to publications such as IR Global Guide and Ecos Diplomáticos.`,
       },
       education: {
-        es: ['Licenciatura en Derecho', 'Maestría en Derecho de los Negocios', 'Perita Traductora Certificada Español<>Inglés – Poder Judicial del Estado de Nuevo León'],
-        en: ['Law degree', 'Master’s in Business Law', 'Certified Spanish<>English Translator – Judiciary of the State of Nuevo León'],
+        es: [
+          'Licenciatura en Derecho por el Tecnológico de Monterrey, Campus Monterrey (International Undergraduate Honors Program)',
+          'Maestría en Derecho de los Negocios por la Facultad Libre de Derecho de Monterrey, con el reconocimiento al mejor promedio académico de su generación',
+          'Perita Traductora Certificada español <> inglés por el Poder Judicial del Estado de Nuevo León',
+        ],
+        en: [
+          'Law degree from Tecnológico de Monterrey, Monterrey Campus (International Undergraduate Honors Program)',
+          'Master’s in Business Law from Facultad Libre de Derecho de Monterrey, with recognition for the highest grade point average of her class',
+          'Certified Spanish <> English Court Translator, Judiciary of the State of Nuevo León',
+        ],
       },
     },
   },
