@@ -40,7 +40,7 @@ const values = [1, 2, 3].map((n) => ({
 
   <section class="container-x">
     <Media
-      src="/images/firmafinal.jpeg"
+      src="/images/firma-banner.webp"
       alt={lang === 'es' ? 'Equipo caminando en un edificio de oficinas' : 'Team walking through an office building'}
       hint={lang === 'es' ? 'Foto panorámica · oficinas / equipo' : 'Wide photo · offices / team'}
       ratio="21/9"
@@ -89,6 +89,7 @@ const values = [1, 2, 3].map((n) => ({
       <div class="lg:col-span-5">
         <h2 class="display-md max-w-[16ch]" data-split>{t('about.offices.title')}</h2>
         <p class="mt-6 max-w-md text-muted" data-reveal>{t('about.lead')}</p>
+        <p class="mt-4 max-w-md text-muted" data-reveal>{t('about.offices.body')}</p>
       </div>
       <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-7" data-reveal-stagger>
         {

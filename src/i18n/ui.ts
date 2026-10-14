@@ -109,6 +109,7 @@ export const ui = {
       'En toda clase de operaciones comerciales, con amplia experiencia en la realización de auditorías legales.',
     'about.offices.label': 'Presencia',
     'about.offices.title': 'Oficinas en regiones estratégicas de México',
+    'about.offices.body': 'Nuestras oficinas en Monterrey, Ciudad de México, León, Aguascalientes y Mérida están ubicadas en los principales polos de inversión y crecimiento industrial del país. Esta presencia nos permite acompañar a nuestros clientes donde se concentran el nearshoring, la manufactura avanzada, la industria automotriz, la logística y las nuevas oportunidades del sureste mexicano, con conocimiento directo de cada región.',
 
     'team.label': 'Abogados',
     'team.title': 'Nuestros líderes',
@@ -267,6 +268,7 @@ export const ui = {
       'On all kinds of commercial transactions, with extensive experience in conducting legal audits.',
     'about.offices.label': 'Presence',
     'about.offices.title': 'Offices in strategic regions of Mexico',
+    'about.offices.body': 'Our offices in Monterrey, Mexico City, León, Aguascalientes and Mérida are located in Mexico’s leading investment and industrial growth hubs. This presence allows us to support our clients where nearshoring, advanced manufacturing, the automotive industry, logistics and the emerging opportunities of southeastern Mexico are concentrated, with first-hand knowledge of each region.',
 
     'team.label': 'Attorneys',
     'team.title': 'Our Leadership',

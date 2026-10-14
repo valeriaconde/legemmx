@@ -77,7 +77,7 @@ He currently takes part regularly in advanced negotiation workshops at The Harva
     groups: ['consultiva'],
     email: 'fordaz@legem.mx',
     languages: bilingual,
-    photo: '/images/equipo/fordaz.jpeg',
+    photo: '/images/equipo/fabiolaordaz.webp',
     bio: {
       experience: {
         es: `Abogada especializada en derecho empresarial, con más de 10 años de experiencia en el diseño e implementación de soluciones jurídicas integrales.

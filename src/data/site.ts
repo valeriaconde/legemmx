@@ -14,19 +14,19 @@ export const site = {
   phone: '',
 
   // TODO: agregar ciudad y dirección de cada oficina.
-  // `image`: ruta de la foto de la oficina (ej. '/images/oficina-norte.jpg'); vacío = espacio reservado.
+  // `image`: ruta de la foto de la oficina (ej. '/images/oficina-norte.webp'); vacío = espacio reservado.
   // `position` (opcional): encuadre de la foto, p. ej. 'top' para mostrar la parte de arriba.
   offices: [
     {
       region: { es: 'Norte', en: 'Northern Mexico' },
       city: 'Monterrey',
       address: '',
-      image: '/images/mty.jpeg',
+      image: '/images/oficina-norte.webp',
       position: 'top',
     },
-    { region: { es: 'Bajío', en: 'Bajío' }, city: 'León / Aguascalientes', address: '', image: '' },
-    { region: { es: 'Centro', en: 'Central Mexico' }, city: 'Ciudad de México', address: '', image: '/images/centro.jpg' },
-    { region: { es: 'Sureste', en: 'Southeast Mexico' }, city: 'Mérida', address: '', image: '/images/sureste.jpg' },
+    { region: { es: 'Bajío', en: 'Bajío' }, city: 'León / Aguascalientes', address: '', image: '/images/oficina-bajio.webp' },
+    { region: { es: 'Centro', en: 'Central Mexico' }, city: 'Ciudad de México', address: '', image: '/images/oficina-centro.webp' },
+    { region: { es: 'Sureste', en: 'Southeast Mexico' }, city: 'Mérida', address: '', image: '/images/oficina-sureste.webp' },
   ],
 
   // TODO: agregar perfiles si la firma los tiene (dejar vacío para ocultar).

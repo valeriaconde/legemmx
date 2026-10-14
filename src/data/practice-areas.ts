@@ -26,8 +26,8 @@ export const practiceAreas: PracticeArea[] = [
     slug: { es: 'consultiva', en: 'counseling' },
     name: { es: 'Consultiva', en: 'Counseling' },
     summary: {
-      es: 'Asesoría a empresas nacionales y extranjeras en inversión, migración y gobierno corporativo.',
-      en: 'Corporate advice for Mexican and foreign companies on investment, immigration and corporate governance.',
+      es: 'Acompañamos a su empresa en cada aspecto corporativo: desde el cumplimiento de la legislación en materia de inversión extranjera y migratoria, hasta el adecuado funcionamiento de sus órganos sociales y su gobierno corporativo, entre otros.',
+      en: 'We support your company in every corporate matter, from compliance with foreign investment and immigration laws to the proper functioning of its corporate bodies and governance.',
     },
     image: '',
     specialties: [
@@ -126,8 +126,8 @@ export const practiceAreas: PracticeArea[] = [
     slug: { es: 'contenciosa', en: 'litigation' },
     name: { es: 'Contenciosa', en: 'Litigation' },
     summary: {
-      es: 'Litigio civil, mercantil, penal, familiar, administrativo y de amparo, en el ámbito local y federal.',
-      en: 'Civil, commercial, criminal, family, administrative and amparo litigation, in local and federal courts.',
+      es: 'Nuestro equipo de litigio representa a nuestros clientes en materia civil, mercantil, penal, familiar, administrativa y de amparo, ante tribunales y autoridades del fuero local y federal.',
+      en: 'Our litigation team represents clients in civil, commercial, criminal, family, administrative and amparo (constitutional) proceedings before state and federal courts and authorities.',
     },
     image: '',
     specialties: [
@@ -194,8 +194,8 @@ export const practiceAreas: PracticeArea[] = [
     slug: { es: 'cumplimiento-normativo', en: 'compliance' },
     name: { es: 'Cumplimiento Normativo', en: 'Compliance' },
     summary: {
-      es: 'Cumplimiento regulatorio y evaluación de riesgos legales, de terceros y reputacionales.',
-      en: 'Regulatory compliance and assessment of legal, third-party and reputational risks.',
+      es: 'Asesoramos a las empresas en el cumplimiento de regulaciones especializadas y de su normativa interna, así como en la evaluación de riesgos legales, de terceros (proveedores y clientes) y reputacionales.',
+      en: 'We advise companies on compliance with specialized regulations and internal policies, as well as on the assessment of legal, third-party (suppliers and customers) and reputational risks.',
     },
     image: '',
     specialties: [
@@ -230,8 +230,8 @@ export const practiceAreas: PracticeArea[] = [
     slug: { es: 'seguros-y-riesgos', en: 'insurance-and-risk' },
     name: { es: 'Seguros y Riesgos', en: 'Insurance & Risk' },
     summary: {
-      es: 'Evaluación y gestión de riesgos para proteger los activos más valiosos de su empresa.',
-      en: 'Risk assessment and management to protect your company’s most valuable assets.',
+      es: 'Protegemos los activos de su empresa mediante soluciones integrales de evaluación y gestión de riesgos, diseñadas a la medida de sus necesidades.',
+      en: 'We safeguard your company’s assets through comprehensive risk assessment and management solutions tailored to your specific needs.',
     },
     image: '',
     // TODO: el sitio actual no detalla especialidades para esta área. Agregar cuando se tengan.
