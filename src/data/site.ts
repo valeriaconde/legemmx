@@ -15,12 +15,14 @@ export const site = {
 
   // TODO: agregar ciudad y dirección de cada oficina.
   // `image`: ruta de la foto de la oficina (ej. '/images/oficina-norte.jpg'); vacío = espacio reservado.
+  // `position` (opcional): encuadre de la foto, p. ej. 'top' para mostrar la parte de arriba.
   offices: [
     {
       region: { es: 'Norte', en: 'Northern Mexico' },
       city: 'Monterrey',
       address: '',
-      image: '/images/firma-monterrey.jpg',
+      image: '/images/mty.jpeg',
+      position: 'top',
     },
     { region: { es: 'Bajío', en: 'Bajío' }, city: 'León / Aguascalientes', address: '', image: '' },
     { region: { es: 'Centro', en: 'Central Mexico' }, city: 'Ciudad de México', address: '', image: '/images/centro.jpg' },

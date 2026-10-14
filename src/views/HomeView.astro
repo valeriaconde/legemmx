@@ -59,7 +59,7 @@ const quote =
         <p class="max-w-xl text-lg leading-relaxed text-paper/75 lg:col-span-6" data-hero-item>
           {t('home.hero.lead')}
         </p>
-        <div class="hidden lg:col-span-6 lg:flex lg:justify-end" data-hero-item>
+        <div class="hidden lg:col-span-6 lg:flex lg:justify-end lg:pr-10 xl:pr-16" data-hero-item>
           <Logo class="h-16! xl:h-18!" />
         </div>
       </div>
@@ -145,7 +145,7 @@ const quote =
             >
               <div>
                 <h3 class="display-sm">{a.name[lang]}</h3>
-                <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-paper/60">{a.summary[lang]}</p>
+                <p class="mt-3 line-clamp-3 text-sm group-hover:line-clamp-none group-focus-visible:line-clamp-none leading-relaxed text-paper/60">{a.summary[lang]}</p>
               </div>
             </a>
           ))

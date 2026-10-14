@@ -26,8 +26,8 @@ export const practiceAreas: PracticeArea[] = [
     slug: { es: 'consultiva', en: 'counseling' },
     name: { es: 'Consultiva', en: 'Counseling' },
     summary: {
-      es: 'La firma brinda asesoría a empresas nacionales y extranjeras en todos los aspectos corporativos que les atañen: legislación aplicable en materia de inversión extranjera, regulación migratoria, y derechos y obligaciones de los distintos órganos sociales y gobiernos corporativos.',
-      en: 'The firm advises Mexican and foreign companies on every corporate matter that affects their business, especially legislation applicable to foreign investment, immigration regulation, and the rights and obligations of corporate bodies and corporate governance.',
+      es: 'Asesoría a empresas nacionales y extranjeras en inversión, migración y gobierno corporativo.',
+      en: 'Corporate advice for Mexican and foreign companies on investment, immigration and corporate governance.',
     },
     image: '',
     specialties: [
@@ -126,8 +126,8 @@ export const practiceAreas: PracticeArea[] = [
     slug: { es: 'contenciosa', en: 'litigation' },
     name: { es: 'Contenciosa', en: 'Litigation' },
     summary: {
-      es: 'Nuestros abogados cuentan con experiencia en litigio civil, mercantil, penal, familiar, administrativo y de amparo, ejerciendo en la competencia local o federal, ante tribunales judiciales, administrativos y autoridades gubernamentales.',
-      en: 'Our lawyers have extensive experience in civil, commercial, criminal, family, administrative and amparo litigation, practicing in local and federal jurisdictions before judicial and administrative courts and government authorities.',
+      es: 'Litigio civil, mercantil, penal, familiar, administrativo y de amparo, en el ámbito local y federal.',
+      en: 'Civil, commercial, criminal, family, administrative and amparo litigation, in local and federal courts.',
     },
     image: '',
     specialties: [
@@ -194,8 +194,8 @@ export const practiceAreas: PracticeArea[] = [
     slug: { es: 'cumplimiento-normativo', en: 'compliance' },
     name: { es: 'Cumplimiento Normativo', en: 'Compliance' },
     summary: {
-      es: 'Consultoría y consejo legal para el cumplimiento de regulaciones especializadas y las relacionadas con el régimen interior de las empresas; evaluación de riesgos legales, riesgos de terceras partes (proveedores y clientes) y riesgos reputacionales.',
-      en: 'Consulting and legal advice on specialized regulations and internal corporate rules; assessment of legal risks, third-party risks (suppliers and clients) and reputational risks.',
+      es: 'Cumplimiento regulatorio y evaluación de riesgos legales, de terceros y reputacionales.',
+      en: 'Regulatory compliance and assessment of legal, third-party and reputational risks.',
     },
     image: '',
     specialties: [
@@ -230,8 +230,8 @@ export const practiceAreas: PracticeArea[] = [
     slug: { es: 'seguros-y-riesgos', en: 'insurance-and-risk' },
     name: { es: 'Seguros y Riesgos', en: 'Insurance & Risk' },
     summary: {
-      es: 'El departamento de Seguros y Riesgos se especializa en salvaguardar los activos de su empresa y proporcionar soluciones integrales de evaluación y gestión de riesgos adaptadas a sus necesidades específicas. Confíe en nosotros para proteger los activos más valiosos de su empresa.',
-      en: 'Our Insurance & Risk department specializes in safeguarding your company’s assets and providing comprehensive risk assessment and management solutions tailored to your specific needs. Trust us to protect your company’s most valuable assets.',
+      es: 'Evaluación y gestión de riesgos para proteger los activos más valiosos de su empresa.',
+      en: 'Risk assessment and management to protect your company’s most valuable assets.',
     },
     image: '',
     // TODO: el sitio actual no detalla especialidades para esta área. Agregar cuando se tengan.
