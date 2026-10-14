@@ -1,0 +1,64 @@
+---
+import Base from '@/layouts/Base.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import { useTranslations } from '@/i18n/ui';
+import { path, personPath, type Lang } from '@/i18n/routes';
+import { initials, personSlug, type Person } from '@/data/team';
+
+interface Props {
+  person: Person;
+  lang: Lang;
+}
+const { person: p, lang } = Astro.props;
+const t = useTranslations(lang);
+const altLang: Lang = lang === 'es' ? 'en' : 'es';
+const bio = p.bio!;
+---
+
+<Base lang={lang} title={p.name} description={`${p.name} · ${p.role[lang]}`} altPath={personPath(personSlug(p), altLang)}>
+  <article class="container-x pt-36 pb-24 md:pt-44">
+    <nav class="mono text-muted" aria-label="Breadcrumb" data-hero-item>
+      <a href={path('team', lang)} class="link-line">← {t('team.back')}</a>
+    </nav>
+
+    <div class="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5">
+        <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-paper-2 lg:sticky lg:top-28" data-hero-item>
+          {
+            p.photo ? (
+              <img src={p.photo} alt={p.name} class="h-full w-full object-cover object-top grayscale" />
+            ) : (
+              <div class="flex h-full w-full items-center justify-center" aria-hidden="true">
+                <span class="font-display text-8xl text-ink/15">{initials(p.name)}</span>
+              </div>
+            )
+          }
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <h1 class="display-lg max-w-[14ch]" data-split="load">{p.name}</h1>
+        <p class="lead mt-6" data-hero-item>{p.role[lang]}</p>
+        <a href={`mailto:${p.email}`} class="link-line mt-4 inline-block text-brand" data-hero-item>{p.email}</a>
+
+        <section class="hairline mt-14 border-t pt-8" data-reveal>
+          <h2 class="eyebrow">{t('team.bio.experience')}</h2>
+          <p class="mt-4 max-w-2xl leading-relaxed whitespace-pre-line">{bio.experience[lang]}</p>
+        </section>
+        <section class="hairline mt-12 border-t pt-8" data-reveal>
+          <h2 class="eyebrow">{t('team.bio.background')}</h2>
+          <p class="mt-4 max-w-2xl leading-relaxed whitespace-pre-line">{bio.background[lang]}</p>
+        </section>
+        <section class="hairline mt-12 border-t pt-8" data-reveal>
+          <h2 class="eyebrow">{t('team.bio.education')}</h2>
+          <ul class="mt-4 max-w-2xl list-disc space-y-1.5 pl-5 leading-relaxed">
+            {bio.education[lang].map((e) => <li>{e}</li>)}
+          </ul>
+        </section>
+      </div>
+    </div>
+  </article>
+
+  <CallToAction lang={lang} />
+  <div class="h-10 md:h-16"></div>
+</Base>

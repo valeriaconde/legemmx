@@ -35,6 +35,11 @@ export function publicationPath(cat: PublicationCategory, lang: Lang, slug?: str
   return slug ? `${base}${slug}/` : base;
 }
 
+/** Perfil de cada abogado: /abogados/<slug>/ y /en/attorneys/<slug>/ */
+export function personPath(slug: string, lang: Lang) {
+  return `${routes.team[lang]}${slug}/`;
+}
+
 /** Las áreas viven en una sola página; cada una es un ancla dentro de ella. */
 export function areaPath(slug: string, lang: Lang) {
   return `${routes.areas[lang]}#${slug}`;
