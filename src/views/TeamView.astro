@@ -17,7 +17,7 @@ const altLang: Lang = lang === 'es' ? 'en' : 'es';
 ---
 
 <Base lang={lang} title={t('team.label')} altPath={path('team', altLang)}>
-  <PageHero label={t('team.label')} title={t('team.title')} lead={t('team.lead')} />
+  <PageHero title={t('team.title')} lead={t('team.lead')} />
 
   <section class="container-x pb-24">
     <ul id="team-grid" class="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3" data-reveal-stagger>

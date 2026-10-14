@@ -18,8 +18,7 @@ const label = 'mono text-muted';
   <section class="container-x pt-36 pb-24 md:pt-44 md:pb-32">
     <div class="grid gap-16 lg:grid-cols-12">
       <div class="lg:col-span-5">
-        <p class="eyebrow" data-hero-item>{t('contact.label')}</p>
-        <h1 class="display-lg mt-8 text-[clamp(2.8rem,6.2vw,5.75rem)]" data-split="load">{t('contact.title')}</h1>
+        <h1 class="display-lg text-[clamp(2.8rem,6.2vw,5.75rem)]" data-split="load">{t('contact.title')}</h1>
       </div>
 
       <div class="lg:col-span-6 lg:col-start-7 lg:pt-4">
@@ -43,12 +42,6 @@ const label = 'mono text-muted';
                   </div>
                 ))
               }
-            </dd>
-          </div>
-          <div class="hairline border-t pt-6">
-            <dt class={label}>{t('nav.team')}</dt>
-            <dd class="mt-3">
-              <a href={path('team', lang)} class="link-line">{t('home.team.cta')} →</a>
             </dd>
           </div>
         </dl>

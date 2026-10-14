@@ -133,7 +133,7 @@ export const ui = {
     'pubs.label': 'Publicaciones',
     'pubs.title': 'Análisis legal para decisiones de negocio.',
     'pubs.lead':
-      'Boletines, artículos y reconocimientos de la firma sobre los cambios legales que impactan a las empresas en México.',
+      'Boletines y artículos de la firma sobre los cambios legales que impactan a las empresas en México.',
     'pubs.boletines': 'Boletines',
     'pubs.articulos': 'Artículos',
     'pubs.reconocimientos': 'Reconocimientos',
@@ -291,7 +291,7 @@ export const ui = {
     'pubs.label': 'Publications',
     'pubs.title': 'Legal insight for business decisions.',
     'pubs.lead':
-      'Newsletters, articles and recognitions on the legal changes that affect companies doing business in Mexico.',
+      'Newsletters and articles on the legal changes that affect companies doing business in Mexico.',
     'pubs.boletines': 'Newsletters',
     'pubs.articulos': 'Articles',
     'pubs.reconocimientos': 'Awards',
