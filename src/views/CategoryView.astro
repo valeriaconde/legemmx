@@ -14,13 +14,6 @@ const { lang, category } = Astro.props;
 const t = useTranslations(lang);
 const altLang: Lang = lang === 'es' ? 'en' : 'es';
 const items = await getPublications(category, lang);
-// En las pestañas solo se muestran las categorías que ya tienen publicaciones.
-const visibleCategories = (
-  await Promise.all(
-    publicationCategoryList.map(async (c) => ((await getPublications(c, lang)).length > 0 || c === category ? c : null)),
-  )
-).filter((c): c is PublicationCategory => c !== null);
-
 // Agrupar por año
 const byYear = new Map<number, typeof items>();
 for (const p of items) {
@@ -39,7 +32,7 @@ const title = t(`pubs.${category}` as const);
         >← {t('pubs.label')}</a
       >
       {
-        visibleCategories.map((c) => (
+        publicationCategoryList.map((c) => (
           <a
             href={publicationPath(c, lang)}
             aria-current={c === category ? 'page' : undefined}

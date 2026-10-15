@@ -30,6 +30,9 @@ export const ui = {
     'common.openPdf': 'Abrir PDF',
     'common.empty': 'Aún no hay publicaciones en esta sección.',
     'common.imagePending': 'Imagen pendiente',
+    'pub.pending': 'El contenido completo estará disponible muy pronto.',
+    'pub.pending.pdf': 'Mientras tanto, puede consultar el documento completo en PDF.',
+    'pub.pending.contact': 'Si necesita más información sobre este tema, con gusto le atendemos.',
 
     'footer.tagline': 'Certeza legal para hacer negocios en México.',
     'footer.firm': 'Firma',
@@ -136,10 +139,8 @@ export const ui = {
       'Boletines y artículos de la firma sobre los cambios legales que impactan a las empresas en México.',
     'pubs.boletines': 'Boletines',
     'pubs.articulos': 'Artículos',
-    'pubs.reconocimientos': 'Reconocimientos',
     'pubs.boletines.lead': 'Actualizaciones sobre reformas y cambios regulatorios en México.',
     'pubs.articulos.lead': 'Artículos de análisis escritos por los abogados de la firma.',
-    'pubs.reconocimientos.lead': 'Reconocimientos recibidos por la firma y sus abogados.',
     'pubs.pdfFallback': 'Su navegador no puede mostrar el PDF aquí.',
 
     'contact.label': 'Contacto',
@@ -191,6 +192,9 @@ export const ui = {
     'common.openPdf': 'Open PDF',
     'common.empty': 'There are no publications in this section yet.',
     'common.imagePending': 'Image pending',
+    'pub.pending': 'The full content will be available very soon.',
+    'pub.pending.pdf': 'In the meantime, you can read the complete document in PDF.',
+    'pub.pending.contact': 'If you need more information on this topic, we will be glad to help.',
 
     'footer.tagline': 'Legal certainty for doing business in Mexico.',
     'footer.firm': 'Firm',
@@ -294,10 +298,8 @@ export const ui = {
       'Newsletters and articles on the legal changes that affect companies doing business in Mexico.',
     'pubs.boletines': 'Newsletters',
     'pubs.articulos': 'Articles',
-    'pubs.reconocimientos': 'Awards',
     'pubs.boletines.lead': 'Updates on legal reforms and regulatory changes in Mexico.',
     'pubs.articulos.lead': 'Analysis written by the firm’s attorneys.',
-    'pubs.reconocimientos.lead': 'Recognitions received by the firm and its attorneys.',
     'pubs.pdfFallback': 'Your browser can’t display the PDF here.',
 
     'contact.label': 'Contact',

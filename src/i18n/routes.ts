@@ -26,7 +26,6 @@ export function path(key: RouteKey, lang: Lang): string {
 export const publicationCategories = {
   boletines: { es: 'boletines', en: 'newsletters' },
   articulos: { es: 'articulos', en: 'articles' },
-  reconocimientos: { es: 'reconocimientos', en: 'awards' },
 } as const;
 export type PublicationCategory = keyof typeof publicationCategories;
 
