@@ -48,9 +48,11 @@ ErrorDocument 404 /404.html
   RedirectMatch 301 ^/legitimation-of-collective-bargaining-agreements/?$ /en/publications/newsletters/federal-labor-law-reform-telework/
   RedirectMatch 301 ^/(legal-entities-obligation-to-identify-the-controlling-beneficiary|reforms-regarding-the-subcontracting-prohibition-in-mexico|update-federal-labor-law-reform-bill-regarding-subcontracting|federal-labor-law-reform-bill-subcontracting|amendment-to-the-federal-labor-law-subcontracting-reform-bill|impacts-to-companies-due-to-anticorruption-law)/?$ /en/publications/newsletters/$1/
 
-  # Las áreas ya no tienen subpáginas: todo va a la página de áreas
-  RedirectMatch 301 ^/areas/[^/]+/?$ /areas/
-  RedirectMatch 301 ^/en/practice-areas/[^/]+/?$ /en/practice-areas/
+  # Las áreas ya no tienen subpáginas: todo va a la página de áreas.
+  # [^/.] excluye nombres con punto: Apache sirve /areas/ como /areas/index.html,
+  # y si la regla también atrapara ese archivo, redirigiría a sí misma en bucle.
+  RedirectMatch 301 ^/areas/[^/.]+/?$ /areas/
+  RedirectMatch 301 ^/en/practice-areas/[^/.]+/?$ /en/practice-areas/
 
   # PDFs antiguos → nueva carpeta
   RedirectMatch 301 ^/wp-content/uploads/\d{4}/\d{2}/(.+\.pdf)$ /docs/boletines/$1
