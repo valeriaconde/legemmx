@@ -7,6 +7,7 @@
  * - `photo`: ruta a una foto en /public/images/equipo/ (vacío = se muestran las iniciales).
  * - `role`: cargo que se muestra en la tarjeta.
  * - `bio`: información del brochure 2026 (se muestra en la página de perfil de cada abogado).
+ *   Para poner un enlace en el texto: [texto](https://...)
  *   Las traducciones al inglés son de Claude: conviene revisarlas.
  */
 export type L = { es: string; en: string };
@@ -52,12 +53,12 @@ export const team: Person[] = [
       background: {
         es: `Abogado especialista en Inversión Extranjera y expansión de negocios que ha participado en diversos procesos de fusiones y adquisiciones de empresas extranjeras y bancos en México (Banorte), así como de emisiones públicas en el mercado de valores (Grupo ARCA).
 
-Reconocido en varias ocasiones por diversas organizaciones especializadas en América y Europa como “Foreign Direct Investment Lawyer of the Year / Mexico”, en 2021 fue incluido en la lista de los 10 líderes más influyentes en servicios legales por Tycoon Success, y ese mismo año recibió el galardón “Forjadores de México”. En 2022 fue admitido como miembro activo de la Legión de Honor Nacional de México.
+Reconocido en varias ocasiones por diversas organizaciones especializadas en América y Europa como “Foreign Direct Investment Lawyer of the Year / Mexico”, en 2021 fue incluido en la lista de los 10 líderes más influyentes en servicios legales por [Tycoon Success](https://issuu.com/tycoonsuccess/docs/final_file_the_10_most_influential_leaders_in_lega), y ese mismo año recibió el galardón “Forjadores de México”. En 2022 fue admitido como miembro activo de la Legión de Honor Nacional de México.
 
 Actualmente participa regularmente en talleres de negociación avanzada en The Harvard Faculty Club, como miembro activo de la ANADE, y es orador frecuente en foros internacionales sobre inversión extranjera y desarrollo empresarial.`,
         en: `Attorney specialized in Foreign Investment and business expansion who has taken part in numerous mergers and acquisitions of foreign companies and banks in Mexico (Banorte), as well as public offerings on the stock market (Grupo ARCA).
 
-Recognized on several occasions by specialized organizations in the Americas and Europe as “Foreign Direct Investment Lawyer of the Year / Mexico”, he was named one of the 10 most influential leaders in legal services by Tycoon Success in 2021, and that same year received the “Forjadores de México” award. In 2022 he was admitted as an active member of the Legión de Honor Nacional de México.
+Recognized on several occasions by specialized organizations in the Americas and Europe as “Foreign Direct Investment Lawyer of the Year / Mexico”, he was named one of the 10 most influential leaders in legal services by [Tycoon Success](https://issuu.com/tycoonsuccess/docs/final_file_the_10_most_influential_leaders_in_lega) in 2021, and that same year received the “Forjadores de México” award. In 2022 he was admitted as an active member of the Legión de Honor Nacional de México.
 
 He currently takes part regularly in advanced negotiation workshops at The Harvard Faculty Club, is an active member of ANADE, and is a frequent speaker at international forums on foreign investment and business development.`,
       },

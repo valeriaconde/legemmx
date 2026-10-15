@@ -13,6 +13,14 @@ const { person: p, lang } = Astro.props;
 const t = useTranslations(lang);
 const altLang: Lang = lang === 'es' ? 'en' : 'es';
 const bio = p.bio!;
+
+// Texto de la biografía con enlaces escritos como [texto](https://...)
+const escape = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const withLinks = (s: string) =>
+  escape(s).replace(
+    /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener" class="link-line text-brand">$1</a>',
+  );
 ---
 
 <Base lang={lang} title={p.name} description={`${p.name} · ${p.role[lang]}`} altPath={personPath(personSlug(p), altLang)}>
@@ -43,11 +51,11 @@ const bio = p.bio!;
 
         <section class="hairline mt-14 border-t pt-8" data-reveal>
           <h2 class="eyebrow">{t('team.bio.experience')}</h2>
-          <p class="mt-4 max-w-2xl leading-relaxed whitespace-pre-line">{bio.experience[lang]}</p>
+          <p class="mt-4 max-w-2xl leading-relaxed whitespace-pre-line" set:html={withLinks(bio.experience[lang])} />
         </section>
         <section class="hairline mt-12 border-t pt-8" data-reveal>
           <h2 class="eyebrow">{t('team.bio.background')}</h2>
-          <p class="mt-4 max-w-2xl leading-relaxed whitespace-pre-line">{bio.background[lang]}</p>
+          <p class="mt-4 max-w-2xl leading-relaxed whitespace-pre-line" set:html={withLinks(bio.background[lang])} />
         </section>
         <section class="hairline mt-12 border-t pt-8" data-reveal>
           <h2 class="eyebrow">{t('team.bio.education')}</h2>
