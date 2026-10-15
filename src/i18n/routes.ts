@@ -26,13 +26,17 @@ export function path(key: RouteKey, lang: Lang): string {
 export const publicationCategories = {
   boletines: { es: 'boletines', en: 'newsletters' },
   articulos: { es: 'articulos', en: 'articles' },
-  reconocimientos: { es: 'reconocimientos', en: 'awards' },
 } as const;
 export type PublicationCategory = keyof typeof publicationCategories;
 
 export function publicationPath(cat: PublicationCategory, lang: Lang, slug?: string) {
   const base = `${routes.publications[lang]}${publicationCategories[cat][lang]}/`;
   return slug ? `${base}${slug}/` : base;
+}
+
+/** Perfil de cada abogado: /abogados/<slug>/ y /en/attorneys/<slug>/ */
+export function personPath(slug: string, lang: Lang) {
+  return `${routes.team[lang]}${slug}/`;
 }
 
 /** Las áreas viven en una sola página; cada una es un ancla dentro de ella. */

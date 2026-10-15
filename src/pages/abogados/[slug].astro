@@ -1,0 +1,11 @@
+---
+import PersonView from '@/views/PersonView.astro';
+import { attorneys, personSlug, type Person } from '@/data/team';
+
+export function getStaticPaths() {
+  return attorneys.filter((p) => p.bio).map((person) => ({ params: { slug: personSlug(person) }, props: { person } }));
+}
+const { person } = Astro.props as { person: Person };
+---
+
+<PersonView person={person} lang="es" />

@@ -1,7 +1,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { publicationPath, type Lang, type PublicationCategory } from '@/i18n/routes';
 
-export type PublicationEntry = CollectionEntry<'boletines' | 'articulos' | 'reconocimientos'>;
+export type PublicationEntry = CollectionEntry<'boletines' | 'articulos'>;
 
 export interface Publication {
   entry: PublicationEntry;
@@ -11,7 +11,7 @@ export interface Publication {
   url: string;
 }
 
-const categories: PublicationCategory[] = ['boletines', 'articulos', 'reconocimientos'];
+const categories: PublicationCategory[] = ['boletines', 'articulos'];
 
 /** Publicaciones de una categoría e idioma, de la más reciente a la más antigua */
 export async function getPublications(category: PublicationCategory, lang: Lang): Promise<Publication[]> {

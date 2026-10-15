@@ -30,6 +30,9 @@ export const ui = {
     'common.openPdf': 'Abrir PDF',
     'common.empty': 'Aún no hay publicaciones en esta sección.',
     'common.imagePending': 'Imagen pendiente',
+    'pub.pending': 'El contenido completo estará disponible muy pronto.',
+    'pub.pending.pdf': 'Mientras tanto, puede consultar el documento completo en PDF.',
+    'pub.pending.contact': 'Si necesita más información sobre este tema, con gusto le atendemos.',
 
     'footer.tagline': 'Certeza legal para hacer negocios en México.',
     'footer.firm': 'Firma',
@@ -109,6 +112,7 @@ export const ui = {
       'En toda clase de operaciones comerciales, con amplia experiencia en la realización de auditorías legales.',
     'about.offices.label': 'Presencia',
     'about.offices.title': 'Oficinas en regiones estratégicas de México',
+    'about.offices.body': 'Nuestras oficinas en Monterrey, Ciudad de México, León, Aguascalientes y Mérida están ubicadas en los principales polos de inversión y crecimiento industrial del país. Esta presencia nos permite acompañar a nuestros clientes donde se concentran el nearshoring, la manufactura avanzada, la industria automotriz, la logística y las nuevas oportunidades del sureste mexicano, con conocimiento directo de cada región.',
 
     'team.label': 'Abogados',
     'team.title': 'Nuestros líderes',
@@ -116,11 +120,10 @@ export const ui = {
       'Conoce a las personas que lideran nuestras áreas de práctica. Cada una cuenta con un equipo de abogados y especialistas que trabaja a su lado.',
     'team.note.title': 'Y un equipo completo detrás de cada área.',
     'team.bio': 'Ver trayectoria',
-    'team.close': 'Cerrar',
+    'team.back': 'Abogados',
     'team.bio.experience': 'Experiencia profesional',
     'team.bio.background': 'Trayectoria',
     'team.bio.education': 'Formación',
-    'team.languages': 'Idiomas',
     'team.area': 'Área',
     'team.email': 'Correo',
 
@@ -136,10 +139,8 @@ export const ui = {
       'Boletines y artículos de la firma sobre los cambios legales que impactan a las empresas en México.',
     'pubs.boletines': 'Boletines',
     'pubs.articulos': 'Artículos',
-    'pubs.reconocimientos': 'Reconocimientos',
     'pubs.boletines.lead': 'Actualizaciones sobre reformas y cambios regulatorios en México.',
     'pubs.articulos.lead': 'Artículos de análisis escritos por los abogados de la firma.',
-    'pubs.reconocimientos.lead': 'Reconocimientos recibidos por la firma y sus abogados.',
     'pubs.pdfFallback': 'Su navegador no puede mostrar el PDF aquí.',
 
     'contact.label': 'Contacto',
@@ -191,6 +192,9 @@ export const ui = {
     'common.openPdf': 'Open PDF',
     'common.empty': 'There are no publications in this section yet.',
     'common.imagePending': 'Image pending',
+    'pub.pending': 'The full content will be available very soon.',
+    'pub.pending.pdf': 'In the meantime, you can read the complete document in PDF.',
+    'pub.pending.contact': 'If you need more information on this topic, we will be glad to help.',
 
     'footer.tagline': 'Legal certainty for doing business in Mexico.',
     'footer.firm': 'Firm',
@@ -267,6 +271,7 @@ export const ui = {
       'On all kinds of commercial transactions, with extensive experience in conducting legal audits.',
     'about.offices.label': 'Presence',
     'about.offices.title': 'Offices in strategic regions of Mexico',
+    'about.offices.body': 'Our offices in Monterrey, Mexico City, León, Aguascalientes and Mérida are located in Mexico’s leading investment and industrial growth hubs. This presence allows us to support our clients where nearshoring, advanced manufacturing, the automotive industry, logistics and the emerging opportunities of southeastern Mexico are concentrated, with first-hand knowledge of each region.',
 
     'team.label': 'Attorneys',
     'team.title': 'Our Leadership',
@@ -274,11 +279,10 @@ export const ui = {
       'Meet the people who lead our practice areas. Each one works alongside a team of attorneys and specialists.',
     'team.note.title': 'And a full team behind every area.',
     'team.bio': 'View background',
-    'team.close': 'Close',
+    'team.back': 'Attorneys',
     'team.bio.experience': 'Professional experience',
     'team.bio.background': 'Background',
     'team.bio.education': 'Education',
-    'team.languages': 'Languages',
     'team.area': 'Area',
     'team.email': 'Email',
 
@@ -294,10 +298,8 @@ export const ui = {
       'Newsletters and articles on the legal changes that affect companies doing business in Mexico.',
     'pubs.boletines': 'Newsletters',
     'pubs.articulos': 'Articles',
-    'pubs.reconocimientos': 'Awards',
     'pubs.boletines.lead': 'Updates on legal reforms and regulatory changes in Mexico.',
     'pubs.articulos.lead': 'Analysis written by the firm’s attorneys.',
-    'pubs.reconocimientos.lead': 'Recognitions received by the firm and its attorneys.',
     'pubs.pdfFallback': 'Your browser can’t display the PDF here.',
 
     'contact.label': 'Contact',

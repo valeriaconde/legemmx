@@ -33,5 +33,4 @@ const make = (folder: string) =>
 export const collections = {
   boletines: make('boletines'),
   articulos: make('articulos'),
-  reconocimientos: make('reconocimientos'),
 };

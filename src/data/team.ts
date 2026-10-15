@@ -6,7 +6,7 @@
  * - `groups`: se usan para el filtro de la página.
  * - `photo`: ruta a una foto en /public/images/equipo/ (vacío = se muestran las iniciales).
  * - `role`: cargo que se muestra en la tarjeta.
- * - `bio`: información del brochure 2026 (se abre en una ventana desde "Ver trayectoria").
+ * - `bio`: información del brochure 2026 (se muestra en la página de perfil de cada abogado).
  *   Las traducciones al inglés son de Claude: conviene revisarlas.
  */
 export type L = { es: string; en: string };
@@ -24,12 +24,9 @@ export interface Person {
   role: L;
   groups: TeamGroup[];
   email: string;
-  languages: L;
   photo: string;
   bio?: Bio;
 }
-
-const bilingual: L = { es: 'Español / Inglés', en: 'Spanish / English' };
 
 export const groupLabels: Record<TeamGroup, L> = {
   consultiva: { es: 'Consultiva', en: 'Counseling' },
@@ -46,7 +43,6 @@ export const team: Person[] = [
     role: { es: 'Director Corporativo', en: 'Corporate Director' },
     groups: ['consultiva'],
     email: 'oconde@legem.mx',
-    languages: bilingual,
     photo: '/images/equipo/oscarconde.webp',
     bio: {
       experience: {
@@ -76,8 +72,7 @@ He currently takes part regularly in advanced negotiation workshops at The Harva
     role: { es: 'Directora del Área Consultiva', en: 'Head of the Counseling Area' },
     groups: ['consultiva'],
     email: 'fordaz@legem.mx',
-    languages: bilingual,
-    photo: '/images/equipo/fordaz.jpeg',
+    photo: '/images/equipo/fabiolaordaz.webp',
     bio: {
       experience: {
         es: `Abogada especializada en derecho empresarial, con más de 10 años de experiencia en el diseño e implementación de soluciones jurídicas integrales.
@@ -122,7 +117,6 @@ She has also contributed to publications such as IR Global Guide and Ecos Diplom
     role: { es: 'Director del Área Compliance e IP', en: 'Head of Compliance & IP' },
     groups: ['cumplimiento'],
     email: 'jjrico@legem.mx',
-    languages: bilingual,
     photo: '/images/equipo/juanjoserico.webp',
     bio: {
       experience: {
@@ -148,7 +142,6 @@ Recognized as one of Mexico’s disruptive lawyers, with solid academic training
     role: { es: 'Director del Área de Derecho Corporativo y Bancario', en: 'Head of Corporate & Banking Law' },
     groups: ['consultiva'],
     email: 'cgarcia@legem.mx',
-    languages: bilingual,
     photo: '/images/equipo/carlosgarcia.webp',
     bio: {
       experience: {
@@ -178,7 +171,6 @@ A specialist in financial law (financing transactions, guarantees, trusts, proje
     role: { es: 'Directora del Área de Litigio Familiar, Civil, Mercantil y Administrativo', en: 'Head of Family, Civil, Commercial & Administrative Litigation' },
     groups: ['contenciosa'],
     email: 'knovoa@legem.mx',
-    languages: bilingual,
     photo: '/images/equipo/katherina.webp',
     bio: {
       experience: {
@@ -208,7 +200,6 @@ She advised on the creation of the internal administrative procedure manuals of 
     role: { es: 'Director del Área Contenciosa y Litigio Oral Penal', en: 'Head of Litigation & Oral Criminal Trials' },
     groups: ['contenciosa'],
     email: 'rnavarro@legem.mx',
-    languages: bilingual,
     photo: '/images/equipo/rolandonavarro.webp',
     bio: {
       experience: {
@@ -230,7 +221,6 @@ She advised on the creation of the internal administrative procedure manuals of 
     role: { es: 'Director del Área de Litigio Laboral', en: 'Head of Labor Litigation' },
     groups: ['contenciosa'],
     email: 'vsanchez@legem.mx',
-    languages: bilingual,
     photo: '/images/equipo/victorsanchez.webp',
     bio: {
       experience: {
@@ -256,7 +246,6 @@ Legal representative of various domestic and international companies, focused on
     role: { es: 'Director de Derecho Ambiental', en: 'Head of Environmental Law' },
     groups: ['consultiva'],
     email: 'lpontones@legem.mx',
-    languages: bilingual,
     photo: '/images/equipo/luigipontones.webp',
     bio: {
       experience: {
@@ -282,7 +271,6 @@ He regularly assists clients in mergers and acquisitions, real estate developmen
     role: { es: 'Directora del Área de Seguros y Administración de Riesgos', en: 'Head of Insurance & Risk Management' },
     groups: ['seguros'],
     email: 'mconde@legem.mx',
-    languages: bilingual,
     photo: '/images/equipo/marisolconde.webp',
     bio: {
       experience: {
@@ -311,4 +299,14 @@ export const attorneys = team;
 export function initials(name: string) {
   const parts = name.replace(/[^\p{L}\s]/gu, '').split(/\s+/).filter(Boolean);
   return ((parts[0]?.[0] ?? '') + (parts[1]?.[0] ?? '')).toUpperCase();
+}
+
+/** Parte de la URL del perfil: "Oscar Conde Medina" → "oscar-conde-medina" */
+export function personSlug(p: Person) {
+  return p.name
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
 }
