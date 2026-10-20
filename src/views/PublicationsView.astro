@@ -4,8 +4,8 @@ import PageHero from '@/components/PageHero.astro';
 import PublicationRow from '@/components/PublicationRow.astro';
 import CallToAction from '@/components/CallToAction.astro';
 import { useTranslations } from '@/i18n/ui';
-import { path, publicationPath, type Lang, type PublicationCategory } from '@/i18n/routes';
-import { getPublications, publicationCategoryList } from '@/lib/publications';
+import { path, publicationCategories, type Lang, type PublicationCategory } from '@/i18n/routes';
+import { getPublications, publicationCategoryList, type Publication } from '@/lib/publications';
 
 interface Props {
   lang: Lang;
@@ -14,40 +14,88 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const altLang: Lang = lang === 'es' ? 'en' : 'es';
 
+// Todas las categorías en una sola página; el filtro de arriba muestra una a la vez.
+// Boletines es la vista por defecto; las demás se abren con #<categoría> (ej. /publicaciones/#articulos).
 const sections = await Promise.all(
-  publicationCategoryList.map(async (cat: PublicationCategory) => ({
-    cat,
-    items: await getPublications(cat, lang),
-  })),
+  publicationCategoryList.map(async (cat: PublicationCategory) => {
+    const items = await getPublications(cat, lang);
+    // Agrupar por año
+    const byYear = new Map<number, Publication[]>();
+    for (const p of items) {
+      const y = p.entry.data.date.getUTCFullYear();
+      byYear.set(y, [...(byYear.get(y) ?? []), p]);
+    }
+    return { cat, hash: publicationCategories[cat][lang], items, byYear };
+  }),
 );
 ---
 
 <Base lang={lang} title={t('pubs.label')} altPath={path('publications', altLang)}>
-  <PageHero title={t('pubs.title')} lead={t('pubs.lead')} />
+  <PageHero title={t('pubs.title')} lead={t('pubs.lead')}>
+    <div class="mt-12 flex flex-wrap gap-2" role="group" aria-label={t('pubs.label')} data-hero-item>
+      {
+        sections.map(({ cat, hash, items }, i) => (
+          <button
+            type="button"
+            data-pub-filter={hash}
+            aria-controls={`pubs-${hash}`}
+            aria-pressed={i === 0 ? 'true' : 'false'}
+            class="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm hover:border-ink aria-pressed:border-ink aria-pressed:bg-ink aria-pressed:text-paper"
+          >
+            {t(`pubs.${cat}` as const)}
+            <span class="mono text-xs opacity-60">{items.length}</span>
+          </button>
+        ))
+      }
+    </div>
+  </PageHero>
 
   {
-    sections
-      .filter((s) => s.items.length > 0)
-      .map(({ cat, items }) => (
-        <section class="container-x pb-20 md:pb-28">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 class="display-md">{t(`pubs.${cat}` as const)}</h2>
-              <p class="mt-2 text-muted">{t(`pubs.${cat}.lead` as const)}</p>
+    sections.map(({ cat, hash, items, byYear }, i) => (
+      <section id={`pubs-${hash}`} data-pub-panel={hash} hidden={i !== 0} class="container-x pb-28 md:pb-36">
+        <h2 class="sr-only">{t(`pubs.${cat}` as const)}</h2>
+        <p class="mb-4 text-muted">{t(`pubs.${cat}.lead` as const)}</p>
+        {items.length === 0 ? (
+          <div class="hairline rounded-2xl border border-dashed p-12 text-center text-muted">{t('common.empty')}</div>
+        ) : (
+          [...byYear.entries()].map(([year, list]) => (
+            <div class="grid gap-4 lg:grid-cols-12">
+              <p class="font-display pt-8 text-4xl text-brand lg:col-span-2 lg:pt-10">{year}</p>
+              <div class="lg:col-span-10" data-reveal-stagger>
+                {list.map((p) => (
+                  <PublicationRow pub={p} />
+                ))}
+              </div>
             </div>
-            <a href={publicationPath(cat, lang)} class="link-line mono">
-              {t('common.viewAll')} ({items.length}) →
-            </a>
-          </div>
-          <div class="mt-8 border-b border-line" data-reveal-stagger>
-            {items.slice(0, 3).map((p) => (
-              <PublicationRow pub={p} />
-            ))}
-          </div>
-        </section>
-      ))
+          ))
+        )}
+      </section>
+    ))
   }
 
   <CallToAction lang={lang} />
   <div class="h-10 md:h-16"></div>
 </Base>
+
+<script is:inline>
+  // Filtro Boletines / Artículos. Va en línea para aplicar #categoría antes de pintar la página.
+  (() => {
+    const buttons = [...document.querySelectorAll('[data-pub-filter]')];
+    const panels = [...document.querySelectorAll('[data-pub-panel]')];
+    const show = (key) => {
+      if (!panels.some((p) => p.dataset.pubPanel === key)) key = buttons[0].dataset.pubFilter;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pubFilter === key)));
+      panels.forEach((p) => (p.hidden = p.dataset.pubPanel !== key));
+      // Las animaciones de aparición calculan posiciones al cargar; recalcular al cambiar de vista.
+      window.dispatchEvent(new Event('resize'));
+    };
+    buttons.forEach((b) =>
+      b.addEventListener('click', () => {
+        const key = b.dataset.pubFilter;
+        show(key);
+        history.replaceState(null, '', key === buttons[0].dataset.pubFilter ? location.pathname : `#${key}`);
+      }),
+    );
+    if (location.hash) show(decodeURIComponent(location.hash.slice(1)));
+  })();
+</script>

@@ -5,7 +5,7 @@ import { render } from 'astro:content';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { useTranslations } from '@/i18n/ui';
-import { path, publicationPath, type Lang } from '@/i18n/routes';
+import { path, publicationListPath, type Lang } from '@/i18n/routes';
 import { formatDate, getTranslationUrl, type Publication } from '@/lib/publications';
 
 interface Props {
@@ -15,7 +15,7 @@ const { pub } = Astro.props;
 const { lang, category } = pub;
 const t = useTranslations(lang);
 const altLang: Lang = lang === 'es' ? 'en' : 'es';
-const altPath = (await getTranslationUrl(pub, altLang)) ?? publicationPath(category, altLang);
+const altPath = (await getTranslationUrl(pub, altLang)) ?? publicationListPath(category, altLang);
 const { title, summary, date, pdf: pdfPath, author } = pub.entry.data;
 // Solo se muestra el PDF si el archivo realmente existe en /public (evita enlaces rotos).
 const pdf = pdfPath && existsSync(join(process.cwd(), 'public', pdfPath)) ? pdfPath : '';
@@ -27,7 +27,7 @@ const hasBody = Boolean(pub.entry.body?.trim());
   <article>
     <header class="container-x pt-36 pb-12 md:pt-44 md:pb-16">
       <nav class="mono flex flex-wrap items-center gap-2 text-muted" aria-label="Breadcrumb" data-hero-item>
-        <a href={publicationPath(category, lang)} class="link-line">← {t(`pubs.${category}` as const)}</a>
+        <a href={publicationListPath(category, lang)} class="link-line">← {t(`pubs.${category}` as const)}</a>
         <span aria-hidden="true">·</span>
         <time datetime={date.toISOString()}>{formatDate(date, lang)}</time>
         {author && <span>· {author}</span>}
