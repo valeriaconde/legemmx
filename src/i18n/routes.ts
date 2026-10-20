@@ -29,9 +29,18 @@ export const publicationCategories = {
 } as const;
 export type PublicationCategory = keyof typeof publicationCategories;
 
-export function publicationPath(cat: PublicationCategory, lang: Lang, slug?: string) {
-  const base = `${routes.publications[lang]}${publicationCategories[cat][lang]}/`;
-  return slug ? `${base}${slug}/` : base;
+/** Página de cada publicación: /publicaciones/<categoría>/<slug>/ */
+export function publicationPath(cat: PublicationCategory, lang: Lang, slug: string) {
+  return `${routes.publications[lang]}${publicationCategories[cat][lang]}/${slug}/`;
+}
+
+/**
+ * Listado de una categoría: todas viven en /publicaciones/ con un filtro.
+ * Boletines es la vista por defecto; las demás se abren con #<categoría>.
+ */
+export function publicationListPath(cat: PublicationCategory, lang: Lang) {
+  const base = routes.publications[lang];
+  return cat === 'boletines' ? base : `${base}#${publicationCategories[cat][lang]}`;
 }
 
 /** Perfil de cada abogado: /abogados/<slug>/ y /en/attorneys/<slug>/ */
